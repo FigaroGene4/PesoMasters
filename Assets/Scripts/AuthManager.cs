@@ -112,11 +112,16 @@ public class AuthManager : MonoBehaviour
             //Now get the result
             SceneManager.LoadScene(sceneToLoad);
             User = LoginTask.Result.User;
+
+            PlayerPrefs.SetString("userEmail", _email);
+
             Debug.LogFormat("User signed in successfully: {0} ({1})", User.DisplayName, User.Email);
            //SceneManager.LoadScene(sceneToLoad);
             warningLoginText.text = "";
             confirmLoginText.text = "Logged Ins";
-            
+
+           
+
 
         }
     }
