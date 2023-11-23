@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MapLevel3SceneManager : MonoBehaviour
+public class Level5StageSceneManager : MonoBehaviour
 {
-    public string GameMapLevel2;
-    public string GameMapLevel4;
-    public string Level3StagesMap;
+    public string Homepage;
+    public string GameMapLevel5;
+    //  public string Gamescene;
 
     void OnMouseDown()
     {
@@ -20,17 +20,17 @@ public class MapLevel3SceneManager : MonoBehaviour
         string Buttons = gameObject.name;
         switch (Buttons)
         {
-            case "MapPrevBtn":
+            case "backbtn":
                 // Code for handling click on the first collider (load previous scene)
                 LoadPreviousScene();
                 break;
 
-            case "MapNextBtn":
-                // Code for handling click on the second collider (load next scene)
-                LoadNextScene();
-                break;
+            /// case "SandCastleToolsLocked":
+            // Code for handling click on the second collider (load next scene)
+            ///  LoadNextScene();
+            ///break;
 
-            case "MapBeach":
+            case "homebtn":
                 // Code for handling click on the third collider (go to another scene)
                 GoToAnotherScene();
                 break;
@@ -39,16 +39,16 @@ public class MapLevel3SceneManager : MonoBehaviour
 
     void LoadPreviousScene()
     {
-        SceneManager.LoadScene(GameMapLevel2);
+        SceneManager.LoadScene(GameMapLevel5);
     }
 
-    void LoadNextScene()
-    {
-        SceneManager.LoadScene(GameMapLevel4);
-    }
+    ///  void LoadNextScene()
+    ///{
+    ///  SceneManager.LoadScene(Gamescene);
+    ///}
 
     void GoToAnotherScene()
     {
-        SceneManager.LoadScene(Level3StagesMap);
+        SceneManager.LoadScene(Homepage);
     }
 }

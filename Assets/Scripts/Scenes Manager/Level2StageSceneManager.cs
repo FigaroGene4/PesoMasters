@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MapLevel3SceneManager : MonoBehaviour
+public class Level2StageSceneManager : MonoBehaviour
 {
+    public string Homepage;
     public string GameMapLevel2;
-    public string GameMapLevel4;
-    public string Level3StagesMap;
+    public string Gamescene;
 
     void OnMouseDown()
     {
@@ -20,17 +20,17 @@ public class MapLevel3SceneManager : MonoBehaviour
         string Buttons = gameObject.name;
         switch (Buttons)
         {
-            case "MapPrevBtn":
+            case "backbtn":
                 // Code for handling click on the first collider (load previous scene)
                 LoadPreviousScene();
                 break;
 
-            case "MapNextBtn":
+            case "Lvl2SchoolbusLocked":
                 // Code for handling click on the second collider (load next scene)
                 LoadNextScene();
                 break;
 
-            case "MapBeach":
+            case "homebtn":
                 // Code for handling click on the third collider (go to another scene)
                 GoToAnotherScene();
                 break;
@@ -44,11 +44,11 @@ public class MapLevel3SceneManager : MonoBehaviour
 
     void LoadNextScene()
     {
-        SceneManager.LoadScene(GameMapLevel4);
+        SceneManager.LoadScene(Gamescene);
     }
 
     void GoToAnotherScene()
     {
-        SceneManager.LoadScene(Level3StagesMap);
+        SceneManager.LoadScene(Homepage);
     }
 }

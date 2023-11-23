@@ -30,7 +30,7 @@ public class MapLevel5SceneManager : MonoBehaviour
                 LoadNextScene();
                 break;
 
-            case "MapSchool":
+            case "MapCarnival":
                 // Code for handling click on the third collider (go to another scene)
                 GoToAnotherScene();
                 break;
