@@ -19,6 +19,8 @@ public class NameSceneManager : MonoBehaviour
         else
         {
             Debug.LogError("Button component not found on the GameObject.");
+            button.onClick.AddListener(LoadNextScene);
+
         }
     }
 

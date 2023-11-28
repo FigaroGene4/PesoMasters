@@ -2,9 +2,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class countCards : MonoBehaviour
+
 {
+    public Button yesButton;
     public Text CardsLeft; // Reference to your UI Text element
-    private int clickCount = 30; // Start with 40 clicks test
+    private int clickCount = 38; // Start with 40 clicks test
 
     private void Start()
     {
@@ -16,7 +18,7 @@ public class countCards : MonoBehaviour
 
    
 
-    private void OnMouseDown()
+    public  void OnMouseDown()
     {
       
             clickCount = Mathf.Max(0, clickCount - 1);
@@ -28,6 +30,8 @@ public class countCards : MonoBehaviour
         {
             // Display "Game Over" message in the Unity debug log
             Debug.Log("Game Over");
+            yesButton.interactable = false;
+
         }
     }
     
