@@ -7,7 +7,8 @@ public class Cards : ScriptableObject
 {
     public string nameOfCard;
     public int energy;
-    public int gold; 
+    public int gold;
+    public int star;
 }
 
 public class CardHolder : MonoBehaviour
