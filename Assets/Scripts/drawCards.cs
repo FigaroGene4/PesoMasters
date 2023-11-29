@@ -180,6 +180,8 @@ public class DrawCards : MonoBehaviour
         }
     }
 
+    //FISCHER-YATES
+
     public void ShuffleVariables()
     {
         int n = shuffledCards.Length;
@@ -194,6 +196,24 @@ public class DrawCards : MonoBehaviour
         currentIndex = 0;
         sortingOrder = 0;
     }
+
+    //LCM-SHUFFLE
+    /* public void ShuffleVariables()
+     {
+         int n = shuffledCards.Length;
+         int lcmCycles = 3; // Adjust this value based on your needs
+
+         for (int i = 0; i < n; i++)
+         {
+             int newIndex = (i * lcmCycles) % n;
+             GameObject temp = shuffledCards[i];
+             shuffledCards[i] = shuffledCards[newIndex];
+             shuffledCards[newIndex] = temp;
+         }
+
+         currentIndex = 0;
+         sortingOrder = 0;
+     }*/
 
     public void OnMouseDown()
     {
