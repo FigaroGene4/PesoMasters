@@ -28,4 +28,8 @@ public class NameSceneManager : MonoBehaviour
     {
         SceneManager.LoadScene(CharacterPage);
     }
+    public void PreviousScene()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
 }

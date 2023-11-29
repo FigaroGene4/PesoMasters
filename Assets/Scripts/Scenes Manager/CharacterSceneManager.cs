@@ -6,11 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class CharacterSceneManager : MonoBehaviour
 {
-    public string Homepage;
-
-    void OnMouseDown()
+    public void NextScene()
     {
         ///SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        SceneManager.LoadScene(Homepage);
+        SceneManager.LoadScene("Homepage");
+    }
+    public void PreviousScene()
+    {
+        ///SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("EnterName");
     }
 }
