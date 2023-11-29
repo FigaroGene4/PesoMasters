@@ -7,7 +7,6 @@ public class Level1StageSceneManager : MonoBehaviour
 {
     public string Homepage;
     public string GameMapLevel1;
-    public string Gamescene;
     public string GamesceneLvl1;
 
     void OnMouseDown()
@@ -45,7 +44,7 @@ public class Level1StageSceneManager : MonoBehaviour
 
     void LoadNextScene()
     {
-        SceneManager.LoadScene("GamesceneLvl1");
+        SceneManager.LoadScene(GamesceneLvl1);
     }
 
     void GoToAnotherScene()
