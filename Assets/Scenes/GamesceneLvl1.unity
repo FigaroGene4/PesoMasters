@@ -263,7 +263,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.5
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -1017,7 +1017,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.5
+  m_FillAmount: 0.4
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -1152,6 +1152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee19d6d52a46a4e4e8109ecf5f55cbcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yesButton: {fileID: 984081054}
   CardsLeft: {fileID: 1436494468}
 --- !u!1 &792963466
 GameObject:
@@ -1394,9 +1395,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 500679029}
-        m_TargetAssemblyTypeName: ButtonClickHandler, Assembly-CSharp
-        m_MethodName: counter
+      - m_Target: {fileID: 2113612741}
+        m_TargetAssemblyTypeName: CoinsBar, Assembly-CSharp
+        m_MethodName: getGold
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1405,7 +1406,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
       - m_Target: {fileID: 1884553817}
         m_TargetAssemblyTypeName: EnergyBar, Assembly-CSharp
         m_MethodName: getEnergy
@@ -1417,9 +1418,9 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 776742333}
-        m_TargetAssemblyTypeName: DrawCards, Assembly-CSharp
+        m_CallState: 1
+      - m_Target: {fileID: 776742337}
+        m_TargetAssemblyTypeName: countCards, Assembly-CSharp
         m_MethodName: OnMouseDown
         m_Mode: 1
         m_Arguments:
@@ -1429,9 +1430,9 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 776742337}
-        m_TargetAssemblyTypeName: countCards, Assembly-CSharp
+        m_CallState: 1
+      - m_Target: {fileID: 776742333}
+        m_TargetAssemblyTypeName: DrawCards, Assembly-CSharp
         m_MethodName: OnMouseDown
         m_Mode: 1
         m_Arguments:
@@ -1454,6 +1455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee19d6d52a46a4e4e8109ecf5f55cbcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yesButton: {fileID: 984081054}
   CardsLeft: {fileID: 1436494468}
 --- !u!1 &1425101517
 GameObject:
@@ -1732,7 +1734,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0.06
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -2032,7 +2034,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0.3915094, b: 0.3915094, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 0
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2041,7 +2043,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0
+  m_FillAmount: 0.4
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -2067,47 +2069,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drawCards: {fileID: 776742333}
-  maximum: 100
-  current: 0
+  maximum: 50
+  current: 20
   mask: {fileID: 1884553815}
   CardExp1: {fileID: 11400000, guid: d1f165c2aadafd748bb79c79cd7acd73, type: 2}
   CardExp2: {fileID: 11400000, guid: ff7877e90f320804887dd3b669178c80, type: 2}
-  CardExp3: {fileID: 11400000, guid: d1f165c2aadafd748bb79c79cd7acd73, type: 2}
-  CardExp4: {fileID: 11400000, guid: ff7877e90f320804887dd3b669178c80, type: 2}
-  CardExp5: {fileID: 11400000, guid: d1f165c2aadafd748bb79c79cd7acd73, type: 2}
-  CardExp6: {fileID: 11400000, guid: ff7877e90f320804887dd3b669178c80, type: 2}
-  CardExp7: {fileID: 11400000, guid: d1f165c2aadafd748bb79c79cd7acd73, type: 2}
-  CardExp8: {fileID: 11400000, guid: ff7877e90f320804887dd3b669178c80, type: 2}
-  CardExp9: {fileID: 11400000, guid: d1f165c2aadafd748bb79c79cd7acd73, type: 2}
-  CardExp10: {fileID: 11400000, guid: ff7877e90f320804887dd3b669178c80, type: 2}
-  CardInc1: {fileID: 11400000, guid: ff7877e90f320804887dd3b669178c80, type: 2}
-  CardInc2: {fileID: 11400000, guid: d1f165c2aadafd748bb79c79cd7acd73, type: 2}
-  CardInc3: {fileID: 11400000, guid: ff7877e90f320804887dd3b669178c80, type: 2}
-  CardInc4: {fileID: 11400000, guid: d1f165c2aadafd748bb79c79cd7acd73, type: 2}
-  CardInc5: {fileID: 11400000, guid: ff7877e90f320804887dd3b669178c80, type: 2}
-  CardInc6: {fileID: 11400000, guid: ff7877e90f320804887dd3b669178c80, type: 2}
-  CardInc7: {fileID: 11400000, guid: ff7877e90f320804887dd3b669178c80, type: 2}
-  CardInc8: {fileID: 11400000, guid: d1f165c2aadafd748bb79c79cd7acd73, type: 2}
-  CardInc9: {fileID: 11400000, guid: ff7877e90f320804887dd3b669178c80, type: 2}
-  CardInc10: {fileID: 11400000, guid: ff7877e90f320804887dd3b669178c80, type: 2}
-  CardBonus1: {fileID: 11400000, guid: d1f165c2aadafd748bb79c79cd7acd73, type: 2}
-  CardBonus2: {fileID: 11400000, guid: d1f165c2aadafd748bb79c79cd7acd73, type: 2}
-  CardBonus3: {fileID: 11400000, guid: d1f165c2aadafd748bb79c79cd7acd73, type: 2}
-  CardBonus4: {fileID: 11400000, guid: ff7877e90f320804887dd3b669178c80, type: 2}
-  CardBonus5: {fileID: 11400000, guid: ff7877e90f320804887dd3b669178c80, type: 2}
-  CardBonus6: {fileID: 11400000, guid: d1f165c2aadafd748bb79c79cd7acd73, type: 2}
-  CardBonus7: {fileID: 11400000, guid: d1f165c2aadafd748bb79c79cd7acd73, type: 2}
-  CardBonus8: {fileID: 11400000, guid: d1f165c2aadafd748bb79c79cd7acd73, type: 2}
-  CardBonus9: {fileID: 11400000, guid: d1f165c2aadafd748bb79c79cd7acd73, type: 2}
-  CardBonus10: {fileID: 11400000, guid: ff7877e90f320804887dd3b669178c80, type: 2}
-  CardChallenge1: {fileID: 11400000, guid: d1f165c2aadafd748bb79c79cd7acd73, type: 2}
-  CardChallenge2: {fileID: 11400000, guid: ff7877e90f320804887dd3b669178c80, type: 2}
-  CardChallenge3: {fileID: 11400000, guid: ff7877e90f320804887dd3b669178c80, type: 2}
-  CardChallenge4: {fileID: 11400000, guid: d1f165c2aadafd748bb79c79cd7acd73, type: 2}
-  CardChallenge5: {fileID: 11400000, guid: d1f165c2aadafd748bb79c79cd7acd73, type: 2}
-  CardChallenge6: {fileID: 11400000, guid: ff7877e90f320804887dd3b669178c80, type: 2}
-  CardChallenge7: {fileID: 11400000, guid: d1f165c2aadafd748bb79c79cd7acd73, type: 2}
-  CardChallenge8: {fileID: 11400000, guid: d1f165c2aadafd748bb79c79cd7acd73, type: 2}
+  CardExp3: {fileID: 11400000, guid: c0366017614f0c84b88975a366c2cd9a, type: 2}
+  CardExp4: {fileID: 11400000, guid: c90f5086a04812240b3e157199803a02, type: 2}
+  CardExp5: {fileID: 11400000, guid: c88fbdc8c7469334394e773b17174cc8, type: 2}
+  CardExp6: {fileID: 11400000, guid: 00e60a01d472bc84eab8bdd5112029c4, type: 2}
+  CardExp7: {fileID: 11400000, guid: c0367687e6e7c444eae85c014f62d111, type: 2}
+  CardExp8: {fileID: 11400000, guid: 43eef963fb89ba2458f90dcc27b2848c, type: 2}
+  CardExp9: {fileID: 11400000, guid: cd11e7735edf86c458b76dfc7c23f5e3, type: 2}
+  CardExp10: {fileID: 11400000, guid: 09cf6a58a7f8b99428fd7c0fcfebf0ef, type: 2}
+  CardInc1: {fileID: 11400000, guid: fc8fb083329a0744c8d8ad6135bdd7d2, type: 2}
+  CardInc2: {fileID: 11400000, guid: 185671902bddfcc4db6e05ea43092342, type: 2}
+  CardInc3: {fileID: 11400000, guid: a46e05b639a6df94a9a78070210d1071, type: 2}
+  CardInc4: {fileID: 11400000, guid: c25806e232ad4aa468e367e1d1708fcf, type: 2}
+  CardInc5: {fileID: 0}
+  CardInc6: {fileID: 0}
+  CardInc7: {fileID: 0}
+  CardInc8: {fileID: 0}
+  CardInc9: {fileID: 0}
+  CardInc10: {fileID: 0}
+  CardBonus1: {fileID: 0}
+  CardBonus2: {fileID: 0}
+  CardBonus3: {fileID: 0}
+  CardBonus4: {fileID: 0}
+  CardBonus5: {fileID: 0}
+  CardBonus6: {fileID: 0}
+  CardBonus7: {fileID: 0}
+  CardBonus8: {fileID: 0}
+  CardBonus9: {fileID: 0}
+  CardBonus10: {fileID: 0}
+  CardChallenge1: {fileID: 0}
+  CardChallenge2: {fileID: 0}
+  CardChallenge3: {fileID: 0}
+  CardChallenge4: {fileID: 0}
+  CardChallenge5: {fileID: 0}
+  CardChallenge6: {fileID: 0}
+  CardChallenge7: {fileID: 0}
+  CardChallenge8: {fileID: 0}
 --- !u!114 &1884553818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2459,9 +2461,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 079ceead7314ceb45ab70cb5054ebea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maximum: 100
-  current: 50
-  mask: {fileID: 770556044}
+  drawCards: {fileID: 776742333}
+  maximum: 50
+  current: 20
+  mask: {fileID: 2113612742}
+  CardExp1: {fileID: 11400000, guid: d1f165c2aadafd748bb79c79cd7acd73, type: 2}
+  CardExp2: {fileID: 11400000, guid: ff7877e90f320804887dd3b669178c80, type: 2}
+  CardExp3: {fileID: 11400000, guid: c0366017614f0c84b88975a366c2cd9a, type: 2}
+  CardExp4: {fileID: 11400000, guid: c90f5086a04812240b3e157199803a02, type: 2}
+  CardExp5: {fileID: 11400000, guid: c88fbdc8c7469334394e773b17174cc8, type: 2}
+  CardExp6: {fileID: 11400000, guid: 00e60a01d472bc84eab8bdd5112029c4, type: 2}
+  CardExp7: {fileID: 11400000, guid: c0367687e6e7c444eae85c014f62d111, type: 2}
+  CardExp8: {fileID: 11400000, guid: 43eef963fb89ba2458f90dcc27b2848c, type: 2}
+  CardExp9: {fileID: 11400000, guid: cd11e7735edf86c458b76dfc7c23f5e3, type: 2}
+  CardExp10: {fileID: 11400000, guid: 09cf6a58a7f8b99428fd7c0fcfebf0ef, type: 2}
+  CardInc1: {fileID: 11400000, guid: fc8fb083329a0744c8d8ad6135bdd7d2, type: 2}
+  CardInc2: {fileID: 11400000, guid: 185671902bddfcc4db6e05ea43092342, type: 2}
+  CardInc3: {fileID: 11400000, guid: a46e05b639a6df94a9a78070210d1071, type: 2}
+  CardInc4: {fileID: 11400000, guid: c25806e232ad4aa468e367e1d1708fcf, type: 2}
+  CardInc5: {fileID: 0}
+  CardInc6: {fileID: 0}
+  CardInc7: {fileID: 0}
+  CardInc8: {fileID: 0}
+  CardInc9: {fileID: 0}
+  CardInc10: {fileID: 0}
+  CardBonus1: {fileID: 0}
+  CardBonus2: {fileID: 0}
+  CardBonus3: {fileID: 0}
+  CardBonus4: {fileID: 0}
+  CardBonus5: {fileID: 0}
+  CardBonus6: {fileID: 0}
+  CardBonus7: {fileID: 0}
+  CardBonus8: {fileID: 0}
+  CardBonus9: {fileID: 0}
+  CardBonus10: {fileID: 0}
+  CardChallenge1: {fileID: 0}
+  CardChallenge2: {fileID: 0}
+  CardChallenge3: {fileID: 0}
+  CardChallenge4: {fileID: 0}
+  CardChallenge5: {fileID: 0}
+  CardChallenge6: {fileID: 0}
+  CardChallenge7: {fileID: 0}
+  CardChallenge8: {fileID: 0}
 --- !u!114 &2113612742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2487,7 +2528,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0.4
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
