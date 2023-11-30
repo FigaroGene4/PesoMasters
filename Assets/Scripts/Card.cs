@@ -11,9 +11,9 @@ public class Cards : ScriptableObject
     public int star;
 }
 
-public class CardHolder : MonoBehaviour
+/*public class CardHolder : MonoBehaviour
 {
     public Cards Income1, Income2, Income3, Income4;
-}
+}*/
 
 

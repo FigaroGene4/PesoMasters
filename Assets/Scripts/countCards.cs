@@ -13,7 +13,7 @@ public class countCards : MonoBehaviour
     {
         // Initialize the text to display the initial value (40)
 
-        UpdateText();
+        //UpdateText();
         if (clickCount != 0)
         {
             
@@ -22,6 +22,8 @@ public class countCards : MonoBehaviour
 
         if (clickCount < 38)
         {
+            UpdateText();
+
             yesButton.gameObject.SetActive(true);
             noButton.gameObject.SetActive(true);
         }
@@ -63,6 +65,7 @@ public class countCards : MonoBehaviour
     {
         // Update the UI Text component with the current value of clickCount
         CardsLeft.text = clickCount.ToString();
+        Debug.Log("Click" + clickCount);
     }
 
 

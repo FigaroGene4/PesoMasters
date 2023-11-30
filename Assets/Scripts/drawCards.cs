@@ -22,7 +22,7 @@ public class DrawCards : MonoBehaviour
     void Start()
     {
        
-
+        
         currentIndex = 0;
         // Initialize the shuffled cards array and shuffle it initially
         shuffledCards = new GameObject[] { 

@@ -16,6 +16,7 @@ public class CoinsBar : MonoBehaviour
             CardChallenge1, CardChallenge2, CardChallenge3, CardChallenge4, CardChallenge5, CardChallenge6, CardChallenge7, CardChallenge8;
     //public Cards Income1, Income2, Income3, Income4;
     public Dictionary<string, Cards> cardDictionary; // Add this dictionary to store Cards instances by name
+    private int maxGold;
 
     // Start is called before the first frame update
     void Start()
@@ -87,7 +88,7 @@ public class CoinsBar : MonoBehaviour
 
         if (cardDictionary.TryGetValue(nameOfCard, out Cards card))
         {
-            if (card != null && card.gold != null)
+            if (card != null)
             {
                 current += card.gold;
                 Debug.Log("Gold:" + card.gold);
@@ -112,4 +113,67 @@ public class CoinsBar : MonoBehaviour
         }
     }
 
+
+    /*public void getGold()
+    {
+        string nameOfDrawnCard = drawCards.currCardName;
+
+        // Create a list to store the available cards
+        List<Cards> availableCards = new List<Cards>(cardDictionary.Values);
+
+        // Filter cards based on the drawn card's name
+        List<Cards> matchingCards = availableCards.FindAll(card => card.name == nameOfDrawnCard);
+
+        // Sort the matching cards by gold value in descending order
+        matchingCards.Sort((card1, card2) => card2.gold.CompareTo(card1.gold));
+
+        // Iterate through the sorted matching cards and greedily select the ones with the highest gold
+        foreach (Cards card in matchingCards)
+        {
+            if (card != null)
+            {
+                current += card.gold;
+                Debug.Log("Selected Card: " + card.name + ", Gold: " + card.gold);
+
+                // You may want to add additional logic here based on your requirements
+
+                break; // Stop the loop after selecting the first matching card
+            }
+        }
+
+        Debug.Log("Total Gold: " + current);
+    }
+    public List<Cards> getMaxGold(Dictionary<string, Cards> cardDictionary)
+    {
+        // Get all cards from the dictionary
+        List<Cards> allCards = new List<Cards>(cardDictionary.Values);
+
+        // Sort the cards in descending order based on the gold property
+        allCards.Sort((card1, card2) => card2.gold.CompareTo(card1.gold));
+
+        List<Cards> selectedCards = new List<Cards>();
+        int currentGold = 0;
+
+        // Select cards
+        foreach (Cards card in allCards)
+        {
+            if (currentGold + card.gold <= maxGold)
+            {
+                selectedCards.Add(card);
+                currentGold += card.gold;
+            }
+        }
+
+        return selectedCards;
+    }
+
+    public void displayBestCards(Dictionary<string, Cards> cardDictionary)
+    {
+        List<Cards> bestCards = getMaxGold(cardDictionary);
+
+        foreach (Cards card in bestCards)
+        {
+            Debug.Log("Card Name: " + card.name + ", Gold: " + card.gold);
+        }
+    }*/
 }
