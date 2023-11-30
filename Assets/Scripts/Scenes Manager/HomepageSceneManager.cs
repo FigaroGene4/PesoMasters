@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class HomepageSceneManager : MonoBehaviour
 {
-    public string GameMapLevel1;
-    void OnMouseDown()
+    public void NextScene()
     {
-        SceneManager.LoadScene(GameMapLevel1);
+        SceneManager.LoadScene("GameMapLevel1");
     }
 }

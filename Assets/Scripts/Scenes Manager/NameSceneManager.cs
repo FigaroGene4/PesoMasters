@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class NameSceneManager : MonoBehaviour
 {
-    public string CharacterPage;
 
     void Start()
     {
@@ -26,6 +25,10 @@ public class NameSceneManager : MonoBehaviour
 
     public void LoadNextScene()
     {
-        SceneManager.LoadScene(CharacterPage);
+        SceneManager.LoadScene("AgeInput");
+    }
+    public void PreviousScene()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 }
