@@ -7,7 +7,7 @@ public class MapLevel1SceneManager : MonoBehaviour
 {
     public string GameMapLevel2;
     public string Level1StagesMap;
-    public string Homepage;
+    public string MainMenu;
 
     void OnMouseDown()
     {
@@ -39,7 +39,7 @@ public class MapLevel1SceneManager : MonoBehaviour
 
     void LoadPreviousScene()
     {
-        SceneManager.LoadScene(Homepage);
+        SceneManager.LoadScene(MainMenu);
     }
 
     void LoadNextScene()
