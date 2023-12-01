@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Level4StageSceneManager : MonoBehaviour
 {
-    public string Homepage;
+    public string MainMenu;
     public string GameMapLevel4;
-  //  public string Gamescene;
+  //  public string GamesceneLvl4;
 
     void OnMouseDown()
     {
@@ -44,11 +44,11 @@ public class Level4StageSceneManager : MonoBehaviour
 
   ///  void LoadNextScene()
     ///{
-      ///  SceneManager.LoadScene(Gamescene);
+      ///  SceneManager.LoadScene(GamesceneLvl4);
     ///}
 
     void GoToAnotherScene()
     {
-        SceneManager.LoadScene(Homepage);
+        SceneManager.LoadScene(MainMenu);
     }
 }

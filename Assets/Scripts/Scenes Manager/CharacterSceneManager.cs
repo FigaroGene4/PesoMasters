@@ -8,12 +8,10 @@ public class CharacterSceneManager : MonoBehaviour
 {
     public void NextScene()
     {
-        ///SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        SceneManager.LoadScene("Homepage");
+        SceneManager.LoadScene("MainMenu");
     }
     public void PreviousScene()
     {
-        ///SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         SceneManager.LoadScene("EnterName");
     }
 }

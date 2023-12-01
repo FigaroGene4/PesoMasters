@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Level1StageSceneManager : MonoBehaviour
 {
-    public string Homepage;
+    public string MainMenu;
     public string GameMapLevel1;
     public string GamesceneLvl1;
 
@@ -49,6 +49,6 @@ public class Level1StageSceneManager : MonoBehaviour
 
     void GoToAnotherScene()
     {
-        SceneManager.LoadScene(Homepage);
+        SceneManager.LoadScene(MainMenu);
     }
 }

@@ -6,9 +6,9 @@ using UnityEngine.UIElements;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] GameObject PausePanel;
-    //public GameObject PausePanelTest;
-
+    [SerializeField] 
+    GameObject PausePanel;
+  
     void Start()
     {
         //if (PausePanel != null)
@@ -63,15 +63,15 @@ public class PauseMenu : MonoBehaviour
             Debug.LogError("Invalid scene name for Level1StagesMap");
         }
     }
-    public void Home()
+    public void MainMenu()
     {
-        if (!string.IsNullOrEmpty("Homepage"))
+        if (!string.IsNullOrEmpty("MainMenu"))
         {
-            SceneManager.LoadScene("Homepage");
+            SceneManager.LoadScene("MainMenu");
         }
         else
         {
-            Debug.LogError("Invalid scene name for Homepage");
+            Debug.LogError("Invalid scene name for MainMenu");
         }
     }
 
