@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 public class NameSceneManager : MonoBehaviour
 {
 
-    void Start()
+
+    //Cinomment ko to kasi di nag pproceed sa next scene. Okay na cia
+    /*void Start()
     {
         // Attach the LoadNextScene method to the button's onClick event
         Button button = GetComponent<Button>();
@@ -17,11 +19,11 @@ public class NameSceneManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Button component not found on the GameObject.");
+           // Debug.LogError("Button component not found on the GameObject.");
             button.onClick.AddListener(LoadNextScene);
 
         }
-    }
+    }*/
 
     public void LoadNextScene()
     {
