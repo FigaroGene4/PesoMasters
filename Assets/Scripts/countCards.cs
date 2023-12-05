@@ -8,6 +8,7 @@ public class countCards : MonoBehaviour
     public Text CardsLeft; // Reference to your UI Text element
     private int clickCount = 38; // Start with 40 clicks test
     int clickCountz = 38;
+    public CoinsBar coinbar;
 
     private void Start()
     {
@@ -45,6 +46,7 @@ public class countCards : MonoBehaviour
         {
             // Display "Game Over" message in the Unity debug log
             Debug.Log("Game Over");
+            coinbar.GetMax();
             yesButton.interactable = false;
             noButton.interactable = false;
             

@@ -9,6 +9,7 @@ public class Cards : ScriptableObject
     public int energy;
     public int gold;
     public int star;
+    public int weight = 1;
 }
 
 /*public class CardHolder : MonoBehaviour

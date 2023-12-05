@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -111,6 +112,68 @@ public class CoinsBar : MonoBehaviour
         {
             Debug.Log("drawCards or drawCards.currentCard is null");
         }
+    }
+
+    
+    public (int, int) KnapSack(int W, Dictionary<string, Cards> items)
+    {
+        int n = items.Count;
+        
+        var K = new (int, int)[n + 1, W + 1];
+
+        var itemList = items.Values.ToList();
+
+        for (int i = 0; i <= n; i++)
+        {
+            for (int w = 0; w <= W; w++)
+            {
+                if (i == 0 || w == 0)
+                {
+                    K[i, w] = (0, 0);
+                }
+                else if (itemList[i - 1].weight <= w)
+                {
+                    var prev_val = K[i - 1, w - itemList[i - 1].weight];
+                    var new_val = (itemList[i - 1].gold + prev_val.Item1, itemList[i - 1].energy + prev_val.Item2);
+                    K[i, w] = Max(new_val, K[i - 1, w]);
+                }
+                else
+                {
+                    K[i, w] = K[i - 1, w];
+                }
+            }
+        }
+
+        var result = K[n, W];
+        Debug.Log("Max gold: " + result.Item1 + ", Max energy: " + result.Item2);  // Add this line to log the max value
+
+        return result;
+    }
+
+    private (int, int) Max((int, int) a, (int, int) b)
+    {
+        if (a.Item1 > b.Item1)
+        {
+            return a;
+        }
+        else if (a.Item1 < b.Item1)
+        {
+            return b;
+        }
+        else
+        {
+            return a.Item2 > b.Item2 ? a : b;
+        }
+    }
+
+
+    public void GetMax()
+    {
+        int W = 38;  // Set the maximum weight
+        var result = KnapSack(W, cardDictionary);  // Call the KnapSack method
+
+        // Now result contains the maximum gold and energy
+        Debug.Log("Max gold: " + result.Item1 + ", Max energy: " + result.Item2);
     }
 
 
