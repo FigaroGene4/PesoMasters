@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 163940960}
   - component: {fileID: 163940959}
-  - component: {fileID: 163940961}
   m_Layer: 0
   m_Name: yes-btn
   m_TagString: Untagged
@@ -208,41 +207,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &163940961
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 163940958}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 2.14, y: 0.89}
-  m_Direction: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,7 +393,6 @@ GameObject:
   m_Component:
   - component: {fileID: 531724308}
   - component: {fileID: 531724307}
-  - component: {fileID: 531724309}
   m_Layer: 0
   m_Name: no-btn
   m_TagString: Untagged
@@ -504,41 +467,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &531724309
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 531724306}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 2.14, y: 0.89}
-  m_Direction: 1
 --- !u!1 &570792915
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,8 +501,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 448, y: 28}
-  m_SizeDelta: {x: 324.95, y: 78.91}
+  m_AnchoredPosition: {x: 705, y: 31}
+  m_SizeDelta: {x: 320.66, y: 73.15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &570792917
 MonoBehaviour:
@@ -1046,48 +974,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5989732176619852562, guid: 873cb929c465562469ed02c351ca20ac, type: 3}
   m_PrefabInstance: {fileID: 1819539849}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &776742333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 776742332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2565350da9154ba4bb741939558b67e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CardExp1: {fileID: 4633774332949425482, guid: 4938f99f0d9e74440bae8d066e22c64c, type: 3}
-  CardExp2: {fileID: 5881719777417259893, guid: 51fb5f095db0c8e45b5000b199f6d6d9, type: 3}
-  CardExp3: {fileID: 1436039910490445137, guid: 1270c9d230792eb4a8a5ad89631ac59a, type: 3}
-  CardExp4: {fileID: 1335717739928148943, guid: c64259efaef771241949d8800ce34886, type: 3}
-  CardExp5: {fileID: 4374637604511551865, guid: a901d7e32d713be47b1466ab827d5bcb, type: 3}
-  CardExp6: {fileID: 8696056118524741264, guid: 458a043c44a8ec045a3e028d623f8e47, type: 3}
-  CardExp7: {fileID: 1371172641171183972, guid: d702200818cf71349b39b794c323dfa2, type: 3}
-  CardExp8: {fileID: 7242039317861055870, guid: 155a3ee9b8c51f645aed30d838553f03, type: 3}
-  CardExp9: {fileID: 1883575967096924178, guid: 8bf2ef1a52ab37b4b9507a55fa739577, type: 3}
-  cardExp10: {fileID: 4201457610845748321, guid: 265ffd4f028e20b4e8997d70c5eac667, type: 3}
-  CardInc1: {fileID: 1835044154751373068, guid: 8e8a4fe6aacb29740b08a1e5c7be5965, type: 3}
-  CardInc2: {fileID: 1382872062201936257, guid: fb7fc83c1926aea4ca28fda45a575e32, type: 3}
-  CardInc3: {fileID: 993824304203862032, guid: 6c4d59e35bec9514dbd9105f346536d4, type: 3}
-  CardInc4: {fileID: 1792514709285925359, guid: 927e278475fa52f42897bc63c065cc2e, type: 3}
-  CardInc5: {fileID: 6365227110502741769, guid: f8dc901a65f82ae4f961491c46b07699, type: 3}
-  CardInc6: {fileID: 3963900610338945892, guid: a95edb08fda619045978e5ff02c59911, type: 3}
-  CardInc7: {fileID: 918106977486878126, guid: 7d4046965bb5de4478150a6982903f74, type: 3}
-  CardInc8: {fileID: 2594090808445266174, guid: bb8f670fcc47c4243a63e6ec6cffdff7, type: 3}
-  CardInc9: {fileID: 2619818107025449809, guid: 04dc8e0e47b31e441bdfd3429d92d51d, type: 3}
-  CardInc10: {fileID: 7429120614606431223, guid: 1d9b94bf08df4c54a9c0946efd2cb756, type: 3}
-  CardBonus1: {fileID: 5037121581349059083, guid: 63633216fadc23a4889ecee27088fdd4, type: 3}
-  CardBonus2: {fileID: 3144852533661653580, guid: 7ce0818e74653cf4aab08b1fda5e1af7, type: 3}
-  CardBonus3: {fileID: 6327796941729688248, guid: b32614a9f8871d84db66a837072c39bd, type: 3}
-  CardBonus4: {fileID: 3991878256427547886, guid: a7d3dabc837c1a744b8cdb0df3dbf720, type: 3}
-  CardBonus5: {fileID: 5448486058924124574, guid: 12df403697628da4fbbc3041eaff8870, type: 3}
-  CardBonus6: {fileID: 5000902645007251735, guid: 8ebbf64b7787f97498a20e402b9d7c25, type: 3}
-  CardBonus7: {fileID: 4939318810291712543, guid: 525c3a0e98f1874439dd8281b6dd55fe, type: 3}
-  CardBonus8: {fileID: 6053039019781111252, guid: 9721aafa442145f4a8f254bbfe48794b, type: 3}
-  CardBonus9: {fileID: 6688480685444261364, guid: 52f7dea9285b0b243a5c05f74bb7df27, type: 3}
-  CardBonus10: {fileID: 2316516311652639988, guid: a54a43e633b8c6241b8fb38d6605e37d, type: 3}
 --- !u!70 &776742334
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1135,7 +1021,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee19d6d52a46a4e4e8109ecf5f55cbcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yesButton: {fileID: 0}
+  noButton: {fileID: 0}
   CardsLeft: {fileID: 1436494468}
+  coinbar: {fileID: 0}
+--- !u!114 &776742341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776742332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2565350da9154ba4bb741939558b67e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyBar: {fileID: 0}
+  CardExp1: {fileID: 4633774332949425482, guid: b3c487579a27a76438b5cd9a1b8b6e14, type: 3}
+  CardExp2: {fileID: 4633774332949425482, guid: cd8797dd9c7db4948b826d28bba27bb9, type: 3}
+  CardExp3: {fileID: 4633774332949425482, guid: 81d6a44eceebc5f47afcfb964f086387, type: 3}
+  CardExp4: {fileID: 4633774332949425482, guid: 5a447978d6663a04db360a556026c0c8, type: 3}
+  CardExp5: {fileID: 4633774332949425482, guid: c5d4a6763c127674bb6031d3e1392c87, type: 3}
+  CardExp6: {fileID: 4633774332949425482, guid: 88de4a1bce456984f97cb66c58617f5c, type: 3}
+  CardExp7: {fileID: 4633774332949425482, guid: 59f44cee10fe7514791bb69f4078d5b5, type: 3}
+  CardExp8: {fileID: 4633774332949425482, guid: 78b26fb44d192654e85bf801b82d2eae, type: 3}
+  CardExp9: {fileID: 4633774332949425482, guid: 5879ee5e58dd65c4ba9b015043913a39, type: 3}
+  CardExp10: {fileID: 4633774332949425482, guid: cad99f4dc8399a64194947f697ed3fee, type: 3}
+  CardInc1: {fileID: 4633774332949425482, guid: bc25fd91d55e3ea4aae577c5208d9650, type: 3}
+  CardInc2: {fileID: 4633774332949425482, guid: 6885f498d3ae6c64382b8f1c15257692, type: 3}
+  CardInc3: {fileID: 4633774332949425482, guid: afae4f97e96b75442996dc02d9785830, type: 3}
+  CardInc4: {fileID: 4633774332949425482, guid: 87c7cc9b5a606b541b25a9f8f08e57ac, type: 3}
+  CardInc5: {fileID: 4633774332949425482, guid: 0083bdbefd3aaef4b881f104e1c6e6b5, type: 3}
+  CardInc6: {fileID: 4633774332949425482, guid: 82ce11567cbea124da17a8920d1c293b, type: 3}
+  CardInc7: {fileID: 4633774332949425482, guid: dee025e59bbb77148b753eceab9e5312, type: 3}
+  CardInc8: {fileID: 4633774332949425482, guid: 5ff730c4daba9064286979caffd76393, type: 3}
+  CardInc9: {fileID: 4633774332949425482, guid: fd66b2b82a66ae9469d4b38cd944f163, type: 3}
+  CardInc10: {fileID: 4633774332949425482, guid: a9a292419b5793442bbf1eba1c56f668, type: 3}
+  CardBonus1: {fileID: 4633774332949425482, guid: 8541f8dc34a470743991251e2e936bd8, type: 3}
+  CardBonus2: {fileID: 4633774332949425482, guid: c29827ba136b9ce47b8198dc521a59c4, type: 3}
+  CardBonus3: {fileID: 4633774332949425482, guid: cb8fb17ac5fa3c245928aab7435ebefa, type: 3}
+  CardBonus4: {fileID: 3991878256427547886, guid: a7d3dabc837c1a744b8cdb0df3dbf720, type: 3}
+  CardBonus5: {fileID: 4633774332949425482, guid: c70b9747f6976d64aa1186a47eaf0660, type: 3}
+  CardBonus6: {fileID: 4633774332949425482, guid: 84dd1f537043f384d8564c78635a5d21, type: 3}
+  CardBonus7: {fileID: 4633774332949425482, guid: 3a9b29a38bce9bc46bea23ad7f9e62e9, type: 3}
+  CardBonus8: {fileID: 4633774332949425482, guid: c87b6fc3b5356a74daf4896de4e7a8bd, type: 3}
+  CardBonus9: {fileID: 4633774332949425482, guid: d6878fd105616c648ada2a911cf06ec9, type: 3}
+  CardBonus10: {fileID: 4633774332949425482, guid: 146e351fe74cfc04facfe57c6bac4acc, type: 3}
+  CardChallenge1: {fileID: 4633774332949425482, guid: e87a762cfb387124980d75f7d85220b3, type: 3}
+  CardChallenge2: {fileID: 4633774332949425482, guid: 4fdfe0bec60274640901bc062681e60e, type: 3}
+  CardChallenge3: {fileID: 4633774332949425482, guid: c5d1956d6b7b17844a4ae08b3a5ad75d, type: 3}
+  CardChallenge4: {fileID: 4633774332949425482, guid: 95d62d8b663bd5749a9fa2390ff9ff2c, type: 3}
+  CardChallenge5: {fileID: 4633774332949425482, guid: 2d0aeae9e5a589240a1eb0aa390794da, type: 3}
+  CardChallenge6: {fileID: 4633774332949425482, guid: c4d55885b9674d44b8242e4fcf9e318d, type: 3}
+  CardChallenge7: {fileID: 4633774332949425482, guid: 25c80189f25e7644f9dba3da1ef2f95a, type: 3}
+  CardChallenge8: {fileID: 4633774332949425482, guid: b97fc7a229983ec42941f6bff870e897, type: 3}
+  shuffledCards: []
+  currentCard: {fileID: 0}
+  currCardName: 
+  currentIndex: 0
+  cardOffset: 0.1
+  sortingOrder: 0
 --- !u!1 &792963466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,7 +1092,6 @@ GameObject:
   m_Component:
   - component: {fileID: 792963468}
   - component: {fileID: 792963467}
-  - component: {fileID: 792963469}
   m_Layer: 0
   m_Name: Pause Button
   m_TagString: Untagged
@@ -1221,41 +1166,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &792963469
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 792963466}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.49
 --- !u!1 &907365434
 GameObject:
   m_ObjectHideFlags: 0
@@ -1397,7 +1307,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -338831271
   m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e2e125d3b254e8d4cad92f64fc8c37fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1565,7 +1475,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -338831271
   m_SortingLayer: 2
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: fd9e479f288227c40961976370f3e3ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1794,9 +1704,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 654.41, y: 31.16}
-  m_SizeDelta: {x: 111.23, y: 72.59}
-  m_Pivot: {x: 0.39502335, y: 0.5}
+  m_AnchoredPosition: {x: 928.06006, y: 33.93}
+  m_SizeDelta: {x: 109.76, y: 67.29}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1436494468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2003,10 +1913,10 @@ PrefabInstance:
       addedObject: {fileID: 776742334}
     - targetCorrespondingSourceObject: {fileID: 5989732176619852562, guid: 873cb929c465562469ed02c351ca20ac, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 776742333}
+      addedObject: {fileID: 776742337}
     - targetCorrespondingSourceObject: {fileID: 5989732176619852562, guid: 873cb929c465562469ed02c351ca20ac, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 776742337}
+      addedObject: {fileID: 776742341}
   m_SourcePrefab: {fileID: 100100000, guid: 873cb929c465562469ed02c351ca20ac, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
