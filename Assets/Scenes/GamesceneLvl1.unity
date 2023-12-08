@@ -255,82 +255,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 16263115}
   m_CullTransparentMesh: 1
---- !u!1 &148563702
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 148563703}
-  - component: {fileID: 148563706}
-  - component: {fileID: 148563705}
-  m_Layer: 5
-  m_Name: EnergyProgressBars1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &148563703
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 148563702}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0002, y: 1.0002, z: 1.0002}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1358319187}
-  m_Father: {fileID: 676117250}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -230.81, y: 96.631}
-  m_SizeDelta: {x: 273.99, y: 18.88}
-  m_Pivot: {x: 0.49999988, y: 0.40631494}
---- !u!114 &148563705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 148563702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e33ecb19f61bf29418228ddef967f01b, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &148563706
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 148563702}
-  m_CullTransparentMesh: 1
 --- !u!224 &158898789 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7634405639809093442, guid: 89ac1b988ddaa5245a930a63def16a5c, type: 3}
@@ -346,8 +270,8 @@ GameObject:
   m_Component:
   - component: {fileID: 428631414}
   - component: {fileID: 428631417}
-  - component: {fileID: 428631415}
   - component: {fileID: 428631416}
+  - component: {fileID: 428631415}
   m_Layer: 5
   m_Name: SavingsPgFill1
   m_TagString: Untagged
@@ -386,6 +310,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 079ceead7314ceb45ab70cb5054ebea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goldText: {fileID: 657073384}
+  yourScore: {fileID: 1245210864}
+  maxScore: {fileID: 1286118098}
   drawCards: {fileID: 776742333}
   countCards: {fileID: 776742337}
   maximum: 50
@@ -1184,7 +1111,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 148563703}
   - {fileID: 570792916}
   - {fileID: 1436494465}
   - {fileID: 1501223972}
@@ -1540,7 +1466,7 @@ MonoBehaviour:
   yesButton: {fileID: 984081054}
   noButton: {fileID: 1671759877}
   CardsLeft: {fileID: 1436494468}
-  coinbar: {fileID: 2113612745}
+  coinbar: {fileID: 428631415}
 --- !u!1 &885933948
 GameObject:
   m_ObjectHideFlags: 0
@@ -1737,8 +1663,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: test, Assembly-CSharp
+      - m_Target: {fileID: 428631415}
+        m_TargetAssemblyTypeName: CoinsBar, Assembly-CSharp
         m_MethodName: getGold
         m_Mode: 1
         m_Arguments:
@@ -1748,10 +1674,10 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1884553817}
-        m_TargetAssemblyTypeName: EnergyBar, Assembly-CSharp
-        m_MethodName: getEnergy
+        m_CallState: 1
+      - m_Target: {fileID: 428631415}
+        m_TargetAssemblyTypeName: CoinsBar, Assembly-CSharp
+        m_MethodName: GetCurrentFill
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1760,7 +1686,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
       - m_Target: {fileID: 1575833193}
         m_TargetAssemblyTypeName: StarBar, Assembly-CSharp
         m_MethodName: getStar
@@ -1773,9 +1699,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2113612745}
-        m_TargetAssemblyTypeName: CoinsBar, Assembly-CSharp
-        m_MethodName: getGold
+      - m_Target: {fileID: 1884553817}
+        m_TargetAssemblyTypeName: EnergyBar, Assembly-CSharp
+        m_MethodName: getEnergy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1825,7 +1751,7 @@ MonoBehaviour:
   yesButton: {fileID: 984081054}
   noButton: {fileID: 1671759877}
   CardsLeft: {fileID: 1436494468}
-  coinbar: {fileID: 2113612745}
+  coinbar: {fileID: 0}
 --- !u!1 &1130638362
 GameObject:
   m_ObjectHideFlags: 0
@@ -2306,96 +2232,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1286118096}
-  m_CullTransparentMesh: 1
---- !u!1 &1358319186
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1358319187}
-  - component: {fileID: 1358319190}
-  - component: {fileID: 1358319188}
-  - component: {fileID: 1358319189}
-  m_Layer: 5
-  m_Name: EnergyPgMask1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1358319187
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1358319186}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2113612740}
-  m_Father: {fileID: 148563703}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 8.319977, y: 0.000044822693}
-  m_SizeDelta: {x: 16.640015, y: 0.000005722046}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1358319188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1358319186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e33ecb19f61bf29418228ddef967f01b, type: 3}
-  m_Type: 3
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 0
-  m_FillAmount: 0
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!114 &1358319189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1358319186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 0
---- !u!222 &1358319190
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1358319186}
   m_CullTransparentMesh: 1
 --- !u!1 &1414095115
 GameObject:
@@ -3284,7 +3120,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2113612745}
+      - m_Target: {fileID: 428631415}
         m_TargetAssemblyTypeName: CoinsBar, Assembly-CSharp
         m_MethodName: OnButtonClick
         m_Mode: 1
@@ -3332,11 +3168,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 079ceead7314ceb45ab70cb5054ebea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goldText: {fileID: 0}
+  yourScore: {fileID: 0}
+  maxScore: {fileID: 0}
   drawCards: {fileID: 776742333}
   countCards: {fileID: 0}
   maximum: 50
   current: 0
-  mask: {fileID: 2113612742}
+  mask: {fileID: 0}
   CardExp1: {fileID: 11400000, guid: d1f165c2aadafd748bb79c79cd7acd73, type: 2}
   CardExp2: {fileID: 11400000, guid: ff7877e90f320804887dd3b669178c80, type: 2}
   CardExp3: {fileID: 11400000, guid: c0366017614f0c84b88975a366c2cd9a, type: 2}
@@ -4115,7 +3954,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -233.76, y: 191.5}
+  m_AnchoredPosition: {x: -232.26, y: 190.1}
   m_SizeDelta: {x: 271.08, y: 18.88}
   m_Pivot: {x: 0.49999988, y: 0.40631494}
 --- !u!114 &2078654391
@@ -4386,137 +4225,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PausePanel: {fileID: 2106290027}
---- !u!1 &2113612739
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2113612740}
-  - component: {fileID: 2113612743}
-  - component: {fileID: 2113612742}
-  - component: {fileID: 2113612745}
-  m_Layer: 5
-  m_Name: SavingsPgFill1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2113612740
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2113612739}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.97980404, y: 0.9998, z: 0.9998}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1358319187}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -150.6, y: -9.44}
-  m_SizeDelta: {x: 287.96, y: 20.94}
-  m_Pivot: {x: 0, y: 0}
---- !u!114 &2113612742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2113612739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.9795261, g: 1, b: 0.8632076, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 329ae83d5209bc846b85720905e84bbd, type: 3}
-  m_Type: 3
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 0
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &2113612743
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2113612739}
-  m_CullTransparentMesh: 1
---- !u!114 &2113612745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2113612739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 079ceead7314ceb45ab70cb5054ebea7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drawCards: {fileID: 776742333}
-  countCards: {fileID: 776742337}
-  maximum: 50
-  current: 0
-  mask: {fileID: 1358319188}
-  CardExp1: {fileID: 11400000, guid: d1f165c2aadafd748bb79c79cd7acd73, type: 2}
-  CardExp2: {fileID: 11400000, guid: ff7877e90f320804887dd3b669178c80, type: 2}
-  CardExp3: {fileID: 11400000, guid: c0366017614f0c84b88975a366c2cd9a, type: 2}
-  CardExp4: {fileID: 11400000, guid: c90f5086a04812240b3e157199803a02, type: 2}
-  CardExp5: {fileID: 11400000, guid: c88fbdc8c7469334394e773b17174cc8, type: 2}
-  CardExp6: {fileID: 11400000, guid: 00e60a01d472bc84eab8bdd5112029c4, type: 2}
-  CardExp7: {fileID: 11400000, guid: c0367687e6e7c444eae85c014f62d111, type: 2}
-  CardExp8: {fileID: 11400000, guid: 43eef963fb89ba2458f90dcc27b2848c, type: 2}
-  CardExp9: {fileID: 11400000, guid: cd11e7735edf86c458b76dfc7c23f5e3, type: 2}
-  CardExp10: {fileID: 11400000, guid: 09cf6a58a7f8b99428fd7c0fcfebf0ef, type: 2}
-  CardInc1: {fileID: 11400000, guid: fc8fb083329a0744c8d8ad6135bdd7d2, type: 2}
-  CardInc2: {fileID: 11400000, guid: 185671902bddfcc4db6e05ea43092342, type: 2}
-  CardInc3: {fileID: 11400000, guid: a46e05b639a6df94a9a78070210d1071, type: 2}
-  CardInc4: {fileID: 11400000, guid: c25806e232ad4aa468e367e1d1708fcf, type: 2}
-  CardInc5: {fileID: 11400000, guid: c31c7d6d134317449ba04f4e41c71de2, type: 2}
-  CardInc6: {fileID: 11400000, guid: 66acf973b40972842b12bbe458103733, type: 2}
-  CardInc7: {fileID: 11400000, guid: 75d7aed8c9dcedf4ca2ff562840a01d0, type: 2}
-  CardInc8: {fileID: 11400000, guid: 5e7851f71ef15a34d801632f0a7c61e1, type: 2}
-  CardInc9: {fileID: 11400000, guid: 08f231254689e7a42bf22051eee09e22, type: 2}
-  CardInc10: {fileID: 11400000, guid: 960a6501445c0f146b27af650be0a1a0, type: 2}
-  CardBonus1: {fileID: 11400000, guid: 0a728041bb879034a8d3fd3e24f10b7a, type: 2}
-  CardBonus2: {fileID: 11400000, guid: 3b445a9dfc305b64194ecd50bc188899, type: 2}
-  CardBonus3: {fileID: 11400000, guid: 0a6eb46fbaffede4fbf90cd241f5d638, type: 2}
-  CardBonus4: {fileID: 11400000, guid: eec4750a1809ab9429e12ce890742165, type: 2}
-  CardBonus5: {fileID: 11400000, guid: 8754ba2b8ba762b469ff3a9f24678500, type: 2}
-  CardBonus6: {fileID: 11400000, guid: 02c19068ab59f2741a25b05ecee49ec9, type: 2}
-  CardBonus7: {fileID: 11400000, guid: daec34ba8a4831e4c90191339ea156ba, type: 2}
-  CardBonus8: {fileID: 11400000, guid: 7f945a482587a4d489b2514c8e52ffdd, type: 2}
-  CardBonus9: {fileID: 11400000, guid: f58d9cb19f3b3c84182d0f0d9359e2c1, type: 2}
-  CardBonus10: {fileID: 11400000, guid: b3dc49c1e1ab16848bfb5293bb3812bf, type: 2}
-  CardChallenge1: {fileID: 11400000, guid: f4d8768346a81c241882766885cb7d8f, type: 2}
-  CardChallenge2: {fileID: 11400000, guid: f4d8768346a81c241882766885cb7d8f, type: 2}
-  CardChallenge3: {fileID: 11400000, guid: f4d8768346a81c241882766885cb7d8f, type: 2}
-  CardChallenge4: {fileID: 11400000, guid: f4d8768346a81c241882766885cb7d8f, type: 2}
-  CardChallenge5: {fileID: 11400000, guid: f4d8768346a81c241882766885cb7d8f, type: 2}
-  CardChallenge6: {fileID: 11400000, guid: f4d8768346a81c241882766885cb7d8f, type: 2}
-  CardChallenge7: {fileID: 11400000, guid: f4d8768346a81c241882766885cb7d8f, type: 2}
-  CardChallenge8: {fileID: 11400000, guid: f4d8768346a81c241882766885cb7d8f, type: 2}
 --- !u!1001 &8796720557215188370
 PrefabInstance:
   m_ObjectHideFlags: 0
