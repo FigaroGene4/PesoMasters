@@ -14,7 +14,7 @@ public class countCards : MonoBehaviour
     private void Start()
     {
         // Initialize the text to display the initial value (40)
-
+        
         //UpdateText();
         if (clickCount != 0)
         {
@@ -32,8 +32,6 @@ public class countCards : MonoBehaviour
     }
 
     
-   
-
     public  void OnMouseDown()
     {
         
@@ -53,11 +51,11 @@ public class countCards : MonoBehaviour
             coinbar.GetMax();
             yesButton.interactable = false;
             noButton.interactable = false;
-            GameOverPanel.SetActive(true);
-
+            GameOverPanel.SetActive(true);            
+            SoundManager.Instance.musicSource.Stop();
+            SoundManager.Instance.PlaySFX("Win");
         }
-
-        
+                
         else
         {
 

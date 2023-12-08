@@ -29,6 +29,9 @@ public class LoadingScreen : MonoBehaviour
         // Ensure that the loading fill is fully visible before transitioning to the next scene
         LoadingBarFill.fillAmount = 1.0f;
 
+        // Play the "Loading" sound effect
+        SoundManager.Instance.PlaySFX("Loading");
+
         // Wait for a short delay to let the loading fill be visible to the user
         yield return new WaitForSeconds(0.5f);
 
