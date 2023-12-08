@@ -32,7 +32,7 @@ public class DataManager : MonoBehaviour
             cardValues.energyChange = energyChange;
             cardValues.goldChange = goldChange;
             cardValuesDictionary.Add(cardType, cardValues);
-            Debug.Log("Added values for card: " + cardType.name);
+            Debug.Log(" TEST TEST Added  values for card: " + cardType.name);
         }
         else
         {

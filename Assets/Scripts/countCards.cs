@@ -4,10 +4,11 @@ using UnityEngine.UI;
 public class countCards : MonoBehaviour
 
 {
+    public GameObject GameOverPanel;
     public Button yesButton, noButton;
     public Text CardsLeft; // Reference to your UI Text element
-    private int clickCount = 38; // Start with 40 clicks test
-    int clickCountz = 38;
+    private int clickCount = 20; // Start with 40 clicks test
+    int clickCountz = 20;
     public CoinsBar coinbar;
 
     private void Start()
@@ -21,7 +22,7 @@ public class countCards : MonoBehaviour
 
         }
 
-        if (clickCount < 38)
+        if (clickCount < 20)
         {
             UpdateText();
 
@@ -30,10 +31,12 @@ public class countCards : MonoBehaviour
         }
     }
 
+    
    
 
     public  void OnMouseDown()
     {
+        
         clickCount = Mathf.Max(0, clickCount - 1);
 
         clickCountz--;
@@ -46,10 +49,12 @@ public class countCards : MonoBehaviour
         {
             // Display "Game Over" message in the Unity debug log
             Debug.Log("Game Over");
+
             coinbar.GetMax();
             yesButton.interactable = false;
             noButton.interactable = false;
-            
+            GameOverPanel.SetActive(true);
+
         }
 
         

@@ -6,9 +6,10 @@ using UnityEngine.UI;
 [ExecuteInEditMode()]
 public class EnergyBar : MonoBehaviour
 {
+    public Text energyText;
     public DrawCards drawCards;
     public int maximum;
-    public int current;
+    private int current;
     public Image mask;
     public Cards CardExp1, CardExp2, CardExp3, CardExp4, CardExp5, CardExp6, CardExp7, CardExp8, CardExp9, CardExp10,
             CardInc1, CardInc2, CardInc3, CardInc4, CardInc5, CardInc6, CardInc7, CardInc8, CardInc9, CardInc10,
@@ -23,6 +24,7 @@ public class EnergyBar : MonoBehaviour
         InitializeCards();
     }
 
+   
     void InitializeCards()
     {
         // Initialize the dictionary with your Cards instances
@@ -73,6 +75,8 @@ public class EnergyBar : MonoBehaviour
     void Update()
     {
         GetCurrentFill();
+        UpdateEnergyText();
+
     }
 
     void GetCurrentFill()
@@ -87,7 +91,7 @@ public class EnergyBar : MonoBehaviour
 
         if (cardDictionary.TryGetValue(nameOfCard, out Cards card))
         {
-            if (card != null && card.energy != null)
+            if (card != null)
             {
                 current += card.energy;
                 Debug.Log("Energy:" + card.energy);
@@ -110,6 +114,14 @@ public class EnergyBar : MonoBehaviour
         {
             Debug.Log("drawCards or drawCards.currentCard is null");
         }
+        
+    }
+
+    public void UpdateEnergyText()
+    {
+        // Update the UI Text component with the current value of clickCount
+        energyText.text = current.ToString();
+
     }
 
 }

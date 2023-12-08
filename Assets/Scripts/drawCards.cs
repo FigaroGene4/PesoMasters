@@ -6,6 +6,7 @@ public class DrawCards : MonoBehaviour
 {
     
     public EnergyBar energyBar;
+    //public CoinsBar coinsBar;
     public GameObject CardExp1, CardExp2, CardExp3, CardExp4, CardExp5, CardExp6, CardExp7, CardExp8, CardExp9, CardExp10;
     public GameObject CardInc1, CardInc2, CardInc3, CardInc4, CardInc5, CardInc6, CardInc7, CardInc8, CardInc9, CardInc10;
     public GameObject CardBonus1, CardBonus2, CardBonus3, CardBonus4, CardBonus5, CardBonus6, CardBonus7, CardBonus8, CardBonus9, CardBonus10;
@@ -32,8 +33,8 @@ public class DrawCards : MonoBehaviour
             CardChallenge1, CardChallenge2, CardChallenge3, CardChallenge4, CardChallenge5, CardChallenge6, CardChallenge7, CardChallenge8
         };
         ShuffleVariables();
-        DataManager.Instance.energyBar = energyBar;
-        DataManager.Instance.cardValuesDictionary = cardValuesDictionary;
+        //DataManager.Instance.energyBar = energyBar;
+        //DataManager.Instance.cardValuesDictionary = cardValuesDictionary;
         //InitializeCardValuesDictionary();
         /*  InitializeCardValuesDictionary();*/
     }
@@ -217,7 +218,7 @@ public class DrawCards : MonoBehaviour
 
     public void OnMouseDown()
     {
-        if (currentIndex >= shuffledCards.Length)
+        if (currentIndex >= 20)
         {
             return;
         }
@@ -267,4 +268,6 @@ public class DrawCards : MonoBehaviour
     {
         // You can add additional logic here if needed
     }
+
+    
 }

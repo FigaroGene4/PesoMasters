@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-[ExecuteInEditMode()]
+
 public class CoinsBar : MonoBehaviour
 {
+    public Text goldText;
+    public TextMeshProUGUI yourScore;
+    public TextMeshProUGUI maxScore;
+    public CoinsBar coinsbar;
     public DrawCards drawCards;
+
     public int maximum;
     public int current;
     public Image mask;
@@ -72,53 +78,153 @@ public class CoinsBar : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        GetCurrentFill();
-    }
+   
 
-    void GetCurrentFill()
-    {
-        float fillAmount = (float)current / (float)maximum;
-        mask.fillAmount = fillAmount;
-    }
 
-    public void getGold()
-    {
-        string nameOfCard = drawCards.currCardName;
 
-        if (cardDictionary.TryGetValue(nameOfCard, out Cards card))
+    //;
+    
+
+    /*  Dictionary<string, Cards> knapsackDictionary = new Dictionary<string, Cards>();
+
+
+
+
+      public void getGold()
+      {
+          string nameOfCard = drawCards.currCardName;
+
+          if (cardDictionary.TryGetValue(nameOfCard, out Cards card))
+          {
+              if (card != null)
+              {
+                  current += card.gold;
+                  Debug.Log("Gold:" + card.gold);
+
+
+                  AddToKnapsackDictionary(nameOfCard, card);
+              }
+              else
+              {
+                  Debug.Log(nameOfCard + " or " + nameOfCard + ".gold is null");
+              }
+          }
+          else
+          {
+              Debug.Log("Card not found: " + nameOfCard);
+          }
+
+          UpdateGoldText();
+      }
+
+
+      public void AddToKnapsackDictionary(string cardName, Cards card)
+      {
+          if (!knapsackDictionary.ContainsKey(cardName))
+          {
+              knapsackDictionary.Add(cardName, card);
+              Debug.Log("Added to knapsackDictionary: " + cardName);
+          }
+      }*/
+
+    
+        // Assuming knapsackDictionary is accessible from this class
+        Dictionary<string, Cards> knapsackDictionary = new Dictionary<string, Cards>();
+
+        // Boolean variable to determine the button choice
+        bool isYesButtonClicked = false;
+
+        public void OnButtonClick()
         {
-            if (card != null)
+            // Set isYesButtonClicked based on your button logic
+            // For example, you might set it to true if the "yes" button is clicked
+            // and false if the "no" button is clicked.
+
+            // Example:
+            // isYesButtonClicked = true; // Set to true if "yes" button is clicked
+
+            // Call getGold based on the button choice
+            if (isYesButtonClicked)
             {
-                current += card.gold;
-                Debug.Log("Gold:" + card.gold);
+                getGold();
+
             }
             else
             {
-                Debug.Log(nameOfCard + " or " + nameOfCard + ".gold is null");
+            
+            string nameOfCard = drawCards.currCardName;
+                if (cardDictionary.TryGetValue(nameOfCard, out Cards card))
+                {
+                    if (card != null)
+                    {
+                        // Only add the card to the knapsackDictionary without other actions
+                        AddToKnapsackDictionary(nameOfCard, card);
+                    }
+                    else
+                    {
+                        Debug.Log(nameOfCard + " or " + nameOfCard + ".gold is null");
+                    }
+                }
+                else
+                {
+                    Debug.Log("Card not found: " + nameOfCard);
+                }
             }
         }
-        else
-        {
-            Debug.Log("Card not found: " + nameOfCard);
-        }
 
-        if (drawCards != null && drawCards.currCardName != null)
+    void GetCurrentFill()
+    {
+        Debug.Log("Current: " + current + ", Maximum: " + maximum);
+        float fillAmount = (float)current / (float)maximum;
+        mask.fillAmount = fillAmount;
+    }
+    public void getGold()
         {
-            Debug.Log("Cur" + drawCards.currCardName);
-        }
-        else
-        {
-            Debug.Log("drawCards or drawCards.currentCard is null");
-        }
+            string nameOfCard = drawCards.currCardName;
+
+            if (cardDictionary.TryGetValue(nameOfCard, out Cards card))
+            {
+                if (card != null)
+                {
+                    current += card.gold;
+                    Debug.Log("Gold:" + card.gold);
+
+                    // Add the card to the knapsackDictionary using the new function
+                    AddToKnapsackDictionary(nameOfCard, card);
+                }
+                else
+                {
+                    Debug.Log(nameOfCard + " or " + nameOfCard + ".gold is null");
+                }
+            }
+            else
+            {
+                Debug.Log("Card not found: " + nameOfCard);
+            }
+
+            UpdateGoldText();
+            yourScore.text = "Your Score: " +current.ToString();
+
     }
 
-    
+    // New function to add a card to the knapsackDictionary
+    public void AddToKnapsackDictionary(string cardName, Cards card)
+        {
+            if (!knapsackDictionary.ContainsKey(cardName))
+            {
+                knapsackDictionary.Add(cardName, card);
+                Debug.Log("Added to knapsackDictionary: " + cardName);
+            }
+        }
+
+      
+
+
+
     public (int, int) KnapSack(int W, Dictionary<string, Cards> items)
     {
         int n = items.Count;
-        
+
         var K = new (int, int)[n + 1, W + 1];
 
         var itemList = items.Values.ToList();
@@ -166,20 +272,138 @@ public class CoinsBar : MonoBehaviour
         }
     }
 
-
     public void GetMax()
     {
-        int W = 38;  // Set the maximum weight
-        var result = KnapSack(W, cardDictionary);  // Call the KnapSack method
+        if (knapsackDictionary.Count > 0)
+        {
+            int W = 20;  // Set the maximum weight
+            var result = KnapSack(W, knapsackDictionary);  // Call the KnapSack method with knapsackDictionary
 
-        // Now result contains the maximum gold and energy
-        Debug.Log("Max gold: " + result.Item1 + ", Max energy: " + result.Item2);
+            // Now result contains the maximum gold and energy
+            Debug.Log("Max gold: " + result.Item1  /*", Max energy: " + result.Item2*/);
+            maxScore.text = "Maximum Score: " +result.Item1.ToString();
+        }
+        else
+        {
+            Debug.Log("Knapsack is empty. Add items before calling GetMax.");
+        }
     }
+
+    
+
 
 
     /*public void getGold()
     {
-        string nameOfDrawnCard = drawCards.currCardName;
+        string nameOfCard = drawCards.currCardName;
+
+        if (cardDictionary.TryGetValue(nameOfCard, out Cards card))
+        {
+            if (card != null)
+            {
+                current += card.gold;
+                Debug.Log("Gold:" + card.gold);
+            }
+            else
+            {
+                Debug.Log(nameOfCard + " or " + nameOfCard + ".gold is null");
+            }
+        }
+        else
+        {
+            Debug.Log("Card not found: " + nameOfCard);
+        }
+
+        if (drawCards != null && drawCards.currCardName != null)
+        {
+            Debug.Log("Cur" + drawCards.currCardName);
+        }
+        else
+        {
+            Debug.Log("drawCards or drawCards.currentCard is null");
+        }
+        UpdateGoldText();
+    }
+*/
+    /*
+        public (int, int) KnapSack(int W, Dictionary<string, Cards> items)
+        {
+            int n = items.Count;
+
+            var K = new (int, int)[n + 1, W + 1];
+
+            var itemList = items.Values.ToList();
+
+            for (int i = 0; i <= n; i++)
+            {
+                for (int w = 0; w <= W; w++)
+                {
+                    if (i == 0 || w == 0)
+                    {
+                        K[i, w] = (0, 0);
+                    }
+                    else if (itemList[i - 1].weight <= w)
+                    {
+                        var prev_val = K[i - 1, w - itemList[i - 1].weight];
+                        var new_val = (itemList[i - 1].gold + prev_val.Item1, itemList[i - 1].energy + prev_val.Item2);
+                        K[i, w] = Max(new_val, K[i - 1, w]);
+                    }
+                    else
+                    {
+                        K[i, w] = K[i - 1, w];
+                    }
+                }
+            }
+
+            var result = K[n, W];
+            Debug.Log("Max gold: " + result.Item1 + ", Max energy: " + result.Item2);  // Add this line to log the max value
+
+            return result;
+        }
+
+        private (int, int) Max((int, int) a, (int, int) b)
+        {
+            if (a.Item1 > b.Item1)
+            {
+                return a;
+            }
+            else if (a.Item1 < b.Item1)
+            {
+                return b;
+            }
+            else
+            {
+                return a.Item2 > b.Item2 ? a : b;
+            }
+        }
+
+
+
+
+        public void GetMax()
+        {
+            int W = 38;  // Set the maximum weight
+            var result = KnapSack(W, cardDictionary);  // Call the KnapSack method
+
+            // Now result contains the maximum gold and energy
+            Debug.Log("Max gold: " + result.Item1 + ", Max energy: " + result.Item2);
+
+
+        }
+    */
+
+
+
+    public void UpdateGoldText()
+    {
+        // Update the UI Text component with the current value of clickCount
+        goldText.text = current.ToString();
+        
+    }
+
+    /*public void getGold()
+    {
+        string nameOfDrawnCard = drawCards.currCardName;    
 
         // Create a list to store the available cards
         List<Cards> availableCards = new List<Cards>(cardDictionary.Values);
@@ -238,5 +462,9 @@ public class CoinsBar : MonoBehaviour
         {
             Debug.Log("Card Name: " + card.name + ", Gold: " + card.gold);
         }
-    }*/
+    }*/public void Update()
+    {
+        Debug.Log("Update method called");
+        GetCurrentFill();
+    }
 }
