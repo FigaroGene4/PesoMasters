@@ -1,13 +1,12 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
-using TMPro.Examples;
 using UnityEngine;
 using UnityEngine.UI;
 
 [ExecuteInEditMode()]
-public class CoinsBar : MonoBehaviour
+public class test : MonoBehaviour
 {
     public Text goldText;
     public TextMeshProUGUI yourScore;
@@ -30,15 +29,15 @@ public class CoinsBar : MonoBehaviour
         InitializeCards();
     }
 
-    /*void LatUpdate()
+    void LateUpdate()
     {
         Debug.Log("Update method called");
         GetCurrentFill();
-    }*/
+    }
 
-    public void GetCurrentFill()
+    void GetCurrentFill()
     {
-        Debug.Log("Coin Fill ");    
+        Debug.Log("Coin Fill ");
         float fillAmount = (float)current / (float)maximum;
         mask.fillAmount = fillAmount;
     }
@@ -118,7 +117,7 @@ public class CoinsBar : MonoBehaviour
         }
     }
 
-    
+
 
     public void getGold()
     {
@@ -225,3 +224,4 @@ public class CoinsBar : MonoBehaviour
 }
 
 
+*/

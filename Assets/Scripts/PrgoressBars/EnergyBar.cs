@@ -9,7 +9,7 @@ public class EnergyBar : MonoBehaviour
     public Text energyText;
     public DrawCards drawCards;
     public int maximum;
-    private int current;
+    public int current;
     public Image mask;
     public Cards CardExp1, CardExp2, CardExp3, CardExp4, CardExp5, CardExp6, CardExp7, CardExp8, CardExp9, CardExp10,
             CardInc1, CardInc2, CardInc3, CardInc4, CardInc5, CardInc6, CardInc7, CardInc8, CardInc9, CardInc10,

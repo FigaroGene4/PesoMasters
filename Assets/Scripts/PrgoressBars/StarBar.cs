@@ -73,6 +73,7 @@ public class StarBar : MonoBehaviour
     void Update()
     {
         GetCurrentFill();
+        Debug.Log("Star Called");
     }
 
     void GetCurrentFill()
@@ -87,7 +88,7 @@ public class StarBar : MonoBehaviour
 
         if (cardDictionary.TryGetValue(nameOfCard, out Cards card))
         {
-            if (card != null && card.energy != null)
+            if (card != null )
             {
                 current += card.star;
                 Debug.Log("Energy:" + card.star);
