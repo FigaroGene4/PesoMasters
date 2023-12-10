@@ -123,37 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &222516540
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 222516541}
-  m_Layer: 5
-  m_Name: EnterAgeText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &222516541
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 222516540}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -665.8557, y: -128.058, z: -3539.232}
-  m_LocalScale: {x: 108, y: 108, z: 108}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 251361479}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &251361475
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,11 +217,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 222516541}
-  - {fileID: 1381563098}
   - {fileID: 378606234}
   - {fileID: 1530448727}
   - {fileID: 863551664}
+  - {fileID: 1381563098}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -23.221, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -291,6 +259,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1001925183}
   - {fileID: 910593699}
   m_Father: {fileID: 251361479}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -806,12 +775,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1001925181}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.009, y: 0.699, z: 0}
-  m_LocalScale: {x: 0.74, y: 0.7749332, z: 0.5868436}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.5, y: 66.4, z: -6912.0005}
+  m_LocalScale: {x: 88.481804, y: 95.31902, z: 45.06959}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 378606234}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1007993239
 GameObject:
@@ -1088,7 +1057,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1345879811}
-  - component: {fileID: 1345879810}
+  - component: {fileID: 1345879812}
   m_Layer: 0
   m_Name: DataEnterAge
   m_TagString: Untagged
@@ -1096,19 +1065,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1345879810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1345879809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 495eb723da29f4a448fb4b1c59cba08b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: {fileID: 0}
 --- !u!4 &1345879811
 Transform:
   m_ObjectHideFlags: 0
@@ -1124,6 +1080,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1345879812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345879809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fadb6a60959a5a641812ebcb704956ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Age: {fileID: 378606235}
 --- !u!1 &1381563095
 GameObject:
   m_ObjectHideFlags: 0
@@ -1355,6 +1324,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1345879812}
+        m_TargetAssemblyTypeName: DataEnterAge, Assembly-CSharp
+        m_MethodName: UserAge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1511646053}
         m_TargetAssemblyTypeName: AgeSceneManager, Assembly-CSharp
         m_MethodName: LoadNextScene
@@ -1507,4 +1488,3 @@ SceneRoots:
   - {fileID: 251361479}
   - {fileID: 1345879811}
   - {fileID: 1511646052}
-  - {fileID: 1001925183}

@@ -8,8 +8,8 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
 
-    public Sound[] musicSounds, sfxSounds;
-    public AudioSource musicSource, sfxSource;
+    public Sound[] musicSounds, sfxSounds, speechSounds;
+    public AudioSource musicSource, sfxSource, speechSource;
 
     private void Awake()
     {
@@ -54,7 +54,25 @@ public class SoundManager : MonoBehaviour
         }
         else
         {
+            // Stop any currently playing sound on the sfxSource
+            sfxSource.Stop();
+
+            // Play the new sound effect
             sfxSource.PlayOneShot(s.clip);
+        }
+    }
+
+    public void PlaySpeech(string name)
+    {
+        Sound s = Array.Find(sfxSounds, x => x.name == name);
+
+        if (s == null)
+        {
+            Debug.Log("Speech not Found");
+        }
+        else
+        {
+            speechSource.PlayOneShot(s.clip);
         }
     }
     public void ToggleMusic() 
@@ -65,6 +83,10 @@ public class SoundManager : MonoBehaviour
     {
         sfxSource.mute = !sfxSource.mute;
     }
+    public void ToggleSpeech()
+    {
+        speechSource.mute = !speechSource.mute;
+    }
     public void MusicVolume(float volume)
     {
         musicSource.volume = volume;
@@ -72,5 +94,9 @@ public class SoundManager : MonoBehaviour
     public void SoundVolume(float volume)
     {
         sfxSource.volume = volume;
+    }
+    public void SpeechVolume(float volume)
+    {
+        speechSource.volume = volume;
     }
 }
