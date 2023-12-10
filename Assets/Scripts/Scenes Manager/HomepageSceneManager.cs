@@ -6,8 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class HomepageSceneManager : MonoBehaviour
 {
-    public void NextScene()
+    public void PlayBtn()
     {
         SceneManager.LoadScene("GameMapLevel1");
+    } 
+    public void HtpBtn()
+    {
+        SceneManager.LoadScene("Tutorial");
     }
 }
