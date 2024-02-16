@@ -8,7 +8,7 @@ public class HomepageSceneManager : MonoBehaviour
 {
     public void PlayBtn()
     {
-        SceneManager.LoadScene("GameMapLevel1");
+        SceneManager.LoadScene("GameMap");
     } 
     public void HtpBtn()
     {

@@ -1,12 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class SettingsController : MonoBehaviour
 {
-    [SerializeField]
     public GameObject BGPanel;
 
     void Start()

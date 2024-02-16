@@ -12,6 +12,6 @@ public class CharacterSceneManager : MonoBehaviour
     }
     public void PreviousScene()
     {
-        SceneManager.LoadScene("EnterName");
+        SceneManager.LoadScene("AgeInput");
     }
 }

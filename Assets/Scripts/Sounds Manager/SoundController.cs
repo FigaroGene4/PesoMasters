@@ -11,26 +11,29 @@ public class SoundController : MonoBehaviour
     {
         SoundManager.Instance.ToggleMusic();
     }
+
     public void ToggleSound()
     {
         SoundManager.Instance.ToggleSound();
     }
+
     public void ToggleSpeech()
     {
         SoundManager.Instance.ToggleSpeech();
     }
-    public void MusicVolume()
-    {
-        SoundManager.Instance.MusicVolume(MusicSlider.value);
-    }
-    public void SoundVolume()
-    {
-        SoundManager.Instance.SoundVolume(SoundSlider.value);
-    }
-    public void SpeechVolume()
-    {
-        SoundManager.Instance.SpeechVolume(SpeechSlider.value);
-    }
-    
 
+    public void AdjustMusicVolume()
+    {
+        SoundManager.Instance.SetMusicVolume(MusicSlider.value);
+    }
+
+    public void AdjustSoundVolume()
+    {
+        SoundManager.Instance.SetSFXVolume(SoundSlider.value);
+    }
+
+    public void AdjustSpeechVolume()
+    {
+        SoundManager.Instance.SetSpeechVolume(SpeechSlider.value);
+    }
 }

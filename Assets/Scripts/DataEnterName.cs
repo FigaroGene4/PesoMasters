@@ -23,6 +23,6 @@ public class DataEnterName : MonoBehaviour
         User newUser = new User(Name.text);
         string json = JsonUtility.ToJson(newUser);
 
-        dbReference.Child("users").Child(userID).SetRawJsonValueAsync(json);
+        dbReference.Child("UserName").Child(userID).SetRawJsonValueAsync(json);
     }
 }

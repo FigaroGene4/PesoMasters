@@ -1,20 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SwitchCharacter : MonoBehaviour
 {
+    public Image characterImage;
+
     private void Start()
     {
-        // Retrieve the selected sprite from CharacterSelectionManager
-        Sprite selectedSprite = CharacterSelectManager.instance.GetSelectedSprite();
+        Debug.Log("SwitchCharacter Start method called.");
+        UpdateCharacterImage();
+    }
 
-        if (selectedSprite != null)
+    public void UpdateCharacterImage()
+    {
+        Debug.Log("SwitchCharacter UpdateCharacterImage method called.");
+
+        // Get the selected image from CharacterSelectManager
+        Image selectedImage = CharacterSelectManager.instance.GetSelectedImage();
+
+        // If no image is selected, log a warning
+        if (selectedImage == null)
         {
-            // Switch to the selected sprite
-            Image image = GetComponent<Image>();
-            image.sprite = selectedSprite;
+            Debug.LogWarning("No selected image found.");
+            return; // Exit the method early if no image is found
         }
+
+        // Set the sprite of the characterImage to the sprite of the selectedImage
+        characterImage.sprite = selectedImage.sprite;
     }
 }

@@ -22,7 +22,6 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
- 
     }
 
     private void Start()
@@ -36,7 +35,7 @@ public class SoundManager : MonoBehaviour
 
         if (s == null)
         {
-            Debug.Log("Sound not Found");
+            Debug.Log("Music not found");
         }
         else
         {
@@ -44,59 +43,63 @@ public class SoundManager : MonoBehaviour
             musicSource.Play();
         }
     }
+
     public void PlaySFX(string name)
     {
         Sound s = Array.Find(sfxSounds, x => x.name == name);
 
         if (s == null)
         {
-            Debug.Log("Sound not Found");
+            Debug.Log("SFX not found");
         }
         else
         {
-            // Stop any currently playing sound on the sfxSource
             sfxSource.Stop();
-
-            // Play the new sound effect
             sfxSource.PlayOneShot(s.clip);
         }
     }
 
     public void PlaySpeech(string name)
     {
-        Sound s = Array.Find(sfxSounds, x => x.name == name);
+        Sound s = Array.Find(speechSounds, x => x.name == name);
 
         if (s == null)
         {
-            Debug.Log("Speech not Found");
+            Debug.Log("Speech not found");
         }
         else
         {
             speechSource.PlayOneShot(s.clip);
         }
     }
-    public void ToggleMusic() 
-    {  
-        musicSource.mute = !musicSource.mute;   
+
+    public void ToggleMusic()
+    {
+        musicSource.mute = !musicSource.mute;
     }
+
     public void ToggleSound()
     {
         sfxSource.mute = !sfxSource.mute;
     }
+
     public void ToggleSpeech()
     {
         speechSource.mute = !speechSource.mute;
     }
-    public void MusicVolume(float volume)
+
+    public void SetMusicVolume(float volume)
     {
-        musicSource.volume = volume;
+        musicSource.volume = 0.25f;
     }
-    public void SoundVolume(float volume)
+
+    public void SetSFXVolume(float volume)
     {
-        sfxSource.volume = volume;
+        sfxSource.volume = 0.25f;
     }
-    public void SpeechVolume(float volume)
+
+    public void SetSpeechVolume(float volume)
     {
-        speechSource.volume = volume;
+        speechSource.volume = 0.50f;
     }
 }

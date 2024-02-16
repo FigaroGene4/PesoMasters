@@ -5,50 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class Level1StageSceneManager : MonoBehaviour
 {
-    public string MainMenu;
-    public string GameMapLevel1;
-    public string GamesceneLvl1;
-
-    void OnMouseDown()
+    public void BackBtn()
     {
-        HandleClick();
+        SceneManager.LoadScene("GameMapLevel1");
     }
-
-    void HandleClick()
+    public void Lvl1Stage1()
     {
-        // Implement different logic based on the GameObject's name or tag
-        string Buttons = gameObject.name;
-        switch (Buttons)
-        {
-            case "backbtn":
-                // Code for handling click on the first collider (load previous scene)
-                LoadPreviousScene();
-                break;
-
-            case "SeesawStage1":
-                // Code for handling click on the second collider (load next scene)
-                LoadNextScene();
-                break;
-
-            case "homebtn":
-                // Code for handling click on the third collider (go to another scene)
-                GoToAnotherScene();
-                break;
-        }
+        SceneManager.LoadScene("GamesceneLvl1");
     }
-
-    void LoadPreviousScene()
+    /*
+    public void Lvl1Stage2()
     {
-        SceneManager.LoadScene(GameMapLevel1);
+        SceneManager.LoadScene("GameMapLevel1");
     }
-
-    void LoadNextScene()
+    public void Lvl1Stage3()
     {
-        SceneManager.LoadScene(GamesceneLvl1);
+        SceneManager.LoadScene("GameMapLevel1");
     }
-
-    void GoToAnotherScene()
-    {
-        SceneManager.LoadScene(MainMenu);
-    }
+    */
+    
 }

@@ -1,14 +1,20 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SelectSprite : MonoBehaviour
 {
-    private void OnMouseDown()
+    public void OnClick()
     {
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
+        Image imageToShow = GetComponent<Image>();
+        if (imageToShow != null)
         {
-            CharacterSelectManager.instance.SetSelectedSprite(spriteRenderer.sprite);
-            Debug.Log("Sprite Selected");
+            Debug.Log("Image selected: " + imageToShow.name);
+            CharacterSelectManager.instance.SetSelectedImage(imageToShow);
+            Debug.Log("Call Character select manager");
+        }
+        else
+        {
+            Debug.LogWarning("No image found on button.");
         }
     }
 
