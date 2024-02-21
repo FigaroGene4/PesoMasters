@@ -2,10 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
+using Image = UnityEngine.UI.Image;
 
 [ExecuteInEditMode()]
 public class StarBar : MonoBehaviour
 {
+    [SerializeField]
+    GameObject GameOverPanel;
+
     public DrawCards drawCards;
     public int maximum;
     public int current;
@@ -21,6 +26,7 @@ public class StarBar : MonoBehaviour
     void Start()
     {
         InitializeCards();
+        GameOverPanel.SetActive(false);
     }
 
     void InitializeCards()
@@ -73,7 +79,7 @@ public class StarBar : MonoBehaviour
     void Update()
     {
         GetCurrentFill();
-        Debug.Log("Star Called");
+        CheckGoalReached();
     }
 
     void GetCurrentFill()
@@ -82,6 +88,18 @@ public class StarBar : MonoBehaviour
         mask.fillAmount = fillAmount;
     }
 
+    void CheckGoalReached()
+    {
+        if (current >= maximum)
+        {
+            EndGame();
+        }
+    }
+
+    void EndGame()
+    {
+        GameOverPanel.SetActive(true); 
+    }
     public void getStar()
     {
         string nameOfCard = drawCards.currCardName;
@@ -112,5 +130,4 @@ public class StarBar : MonoBehaviour
             Debug.Log("drawCards or drawCards.currentCard is null");
         }
     }
-
 }

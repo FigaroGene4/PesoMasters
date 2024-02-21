@@ -6,6 +6,9 @@ using UnityEngine.UI;
 [ExecuteInEditMode()]
 public class EnergyBar : MonoBehaviour
 {
+    [SerializeField]
+    GameObject GameOverPanel;
+
     public Text energyText;
     public DrawCards drawCards;
     public int maximum;
@@ -22,9 +25,9 @@ public class EnergyBar : MonoBehaviour
     void Start()
     {
         InitializeCards();
+        GameOverPanel.SetActive(false);
     }
-
-   
+       
     void InitializeCards()
     {
         // Initialize the dictionary with your Cards instances
@@ -76,13 +79,24 @@ public class EnergyBar : MonoBehaviour
     {
         GetCurrentFill();
         UpdateEnergyText();
-
+        CheckGameOver();
     }
 
     void GetCurrentFill()
     {
         float fillAmount = (float)current / (float)maximum;
         mask.fillAmount = fillAmount;
+    }
+    void CheckGameOver()
+    {
+        if (current <= 0)
+        {
+            EndGame();
+        }
+    }
+    void EndGame()
+    {
+        GameOverPanel.SetActive(true);
     }
 
     public void getEnergy()

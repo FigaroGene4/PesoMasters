@@ -11,17 +11,11 @@ public class PauseMenu : MonoBehaviour
   
     void Start()
     {
-        //if (PausePanel != null)
-        //{
-            PausePanel.SetActive(false);
-      //  }
+        PausePanel.SetActive(false);
     }
 
-   
-
     public void Pause()
-    {
-        
+    {        
         if (PausePanel != null)
         {
             PausePanel.SetActive(true);

@@ -9,6 +9,9 @@ using UnityEngine.UI;
 [ExecuteInEditMode()]
 public class CoinsBar : MonoBehaviour
 {
+    [SerializeField]
+    GameObject GameOverPanel;
+
     public Text goldText;
     public TextMeshProUGUI yourScore;
     public TextMeshProUGUI maxScore;
@@ -28,8 +31,14 @@ public class CoinsBar : MonoBehaviour
     void Start()
     {
         InitializeCards();
+        GameOverPanel.SetActive(false);
     }
-
+    private void Update()
+    {
+        GetCurrentFill();
+        CheckGameOver();
+        CheckGoalReached();
+    }
     /*void LatUpdate()
     {
         Debug.Log("Update method called");
@@ -41,6 +50,24 @@ public class CoinsBar : MonoBehaviour
         Debug.Log("Coin Fill ");    
         float fillAmount = (float)current / (float)maximum;
         mask.fillAmount = fillAmount;
+    }
+    void CheckGameOver()
+    {
+        if (current <= 0)
+        {
+            EndGame();
+        }
+    }
+    void CheckGoalReached()
+    {
+        if (current >= maximum)
+        {
+            EndGame();
+        }
+    }
+    void EndGame()
+    {
+        GameOverPanel.SetActive(true);
     }
     void InitializeCards()
     {
@@ -117,9 +144,6 @@ public class CoinsBar : MonoBehaviour
             }
         }
     }
-
-    
-
     public void getGold()
     {
         string nameOfCard = drawCards.currCardName;
@@ -143,7 +167,7 @@ public class CoinsBar : MonoBehaviour
         }
 
         UpdateGoldText();
-        yourScore.text = "Your Score: " + current.ToString();
+        yourScore.text = "Total Coins Earned: " + current.ToString();
     }
 
     public void AddToKnapsackDictionary(string cardName, Cards card)
