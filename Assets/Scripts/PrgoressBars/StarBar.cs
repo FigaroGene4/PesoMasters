@@ -10,6 +10,7 @@ public class StarBar : MonoBehaviour
 {
     [SerializeField]
     GameObject GameOverPanel;
+    public CoinsBar coinsBar;
 
     public DrawCards drawCards;
     public int maximum;
@@ -27,6 +28,7 @@ public class StarBar : MonoBehaviour
     {
         InitializeCards();
         GameOverPanel.SetActive(false);
+
     }
 
     void InitializeCards()
@@ -90,7 +92,7 @@ public class StarBar : MonoBehaviour
 
     void CheckGoalReached()
     {
-        if (current >= maximum)
+        if (coinsBar != null && coinsBar.current >= coinsBar.maximum && current >= maximum)
         {
             EndGame();
         }
@@ -98,7 +100,7 @@ public class StarBar : MonoBehaviour
 
     void EndGame()
     {
-        GameOverPanel.SetActive(true); 
+        GameOverPanel.SetActive(true);
     }
     public void getStar()
     {

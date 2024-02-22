@@ -29,5 +29,10 @@ public class GameMapSceneManager : MonoBehaviour
     {
         SceneManager.LoadScene("GameMapLevel5");
     }
+    public static void ResetProgress()
+    {
+        PlayerPrefs.DeleteAll(); // This will delete all stored player preferences
+        Debug.Log("Player progress has been reset.");
+    }
 
 }

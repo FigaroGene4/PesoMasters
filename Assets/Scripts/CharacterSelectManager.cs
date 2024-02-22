@@ -1,11 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CharacterSelectManager : MonoBehaviour
 {
     public static CharacterSelectManager instance;
 
-    public  Image selectedImage;
+    private Sprite selectedSprite;
 
     private void Awake()
     {
@@ -20,21 +21,20 @@ public class CharacterSelectManager : MonoBehaviour
         }
     }
 
-    public void SetSelectedImage(Image image)
+    public void SetSelectedSprite(Sprite sprite)
     {
-        selectedImage = image;
-        if (selectedImage != null)
-        {
-            Debug.Log("Selected image set: " + selectedImage.name);
-        }
-        else
-        {
-            Debug.LogWarning("Attempting to set a null image.");
-        }
+        selectedSprite = sprite;
+        Debug.Log("Selected");
     }
-
-    public Image GetSelectedImage()
+    public Sprite GetSelectedSprite()
     {
-        return selectedImage;
+        return selectedSprite;
+    }
+    private void OnMouseDown()
+    {
+        CharacterSelectManager.instance.SetSelectedSprite(selectedSprite);
+
+        // Optionally, load a specific scene after setting the sprite
+        // CharacterSelectionManager.instance.LoadScene("YourSceneName");
     }
 }

@@ -12,6 +12,7 @@ public class CoinsBar : MonoBehaviour
     [SerializeField]
     GameObject GameOverPanel;
 
+    public StarBar starBar;
     public Text goldText;
     public TextMeshProUGUI yourScore;
     public TextMeshProUGUI maxScore;
@@ -37,7 +38,7 @@ public class CoinsBar : MonoBehaviour
     {
         GetCurrentFill();
         CheckGameOver();
-        CheckGoalReached();
+       CheckGoalReached();
     }
     /*void LatUpdate()
     {
@@ -53,7 +54,13 @@ public class CoinsBar : MonoBehaviour
     }
     void CheckGameOver()
     {
+        /*
         if (current <= 0)
+        {
+            EndGame();
+        }
+        */
+        if (starBar != null && starBar.current >= starBar.maximum && current >= maximum)
         {
             EndGame();
         }
