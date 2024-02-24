@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
     public GameObject loginUI;
     public GameObject registerUI;
     public GameObject EmailVerification;
-   // public Text emailverificationText;
+    // public Text emailverificationText;
 
 
     private void Awake()

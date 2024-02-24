@@ -739,7 +739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameOverPanel: {fileID: 1645919384}
-  starBar: {fileID: 0}
+  starBar: {fileID: 1575833193}
   goldText: {fileID: 657073384}
   yourScore: {fileID: 1245210864}
   maxScore: {fileID: 1286118098}
@@ -2876,7 +2876,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "- Earn at  least 1 star \n- Save 25 coins"
+  m_text: "- Earn at  least 1 star \n- Save 20 coins"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -3951,7 +3951,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1645919385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4211,12 +4211,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameOverPanel: {fileID: 1645919384}
-  starBar: {fileID: 0}
-  goldText: {fileID: 0}
-  yourScore: {fileID: 0}
-  maxScore: {fileID: 0}
+  starBar: {fileID: 1575833193}
+  goldText: {fileID: 657073384}
+  yourScore: {fileID: 8796720557215188372}
+  maxScore: {fileID: 8796720557215188371}
   drawCards: {fileID: 776742333}
-  countCards: {fileID: 0}
+  countCards: {fileID: 776742337}
   maximum: 20
   current: 5
   mask: {fileID: 770556044}
@@ -4644,6 +4644,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2088206126}
         m_TargetAssemblyTypeName: L1S1GameSceneManager, Assembly-CSharp
         m_MethodName: NextBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2088206126}
+        m_TargetAssemblyTypeName: L1S1GameSceneManager, Assembly-CSharp
+        m_MethodName: EndLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5872,6 +5884,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89ac1b988ddaa5245a930a63def16a5c, type: 3}
+--- !u!114 &8796720557215188371 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4733222544923048563, guid: 89ac1b988ddaa5245a930a63def16a5c, type: 3}
+  m_PrefabInstance: {fileID: 8796720557215188370}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8796720557215188372 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7131559677837174514, guid: 89ac1b988ddaa5245a930a63def16a5c, type: 3}
+  m_PrefabInstance: {fileID: 8796720557215188370}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -454,7 +454,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55b359c3c136b72439442c66f3979884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterImage: {fileID: 269804733}
 --- !u!114 &269804733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1168,7 +1167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 568902873}
-  remainingTime: 5
+  remainingTime: 300
   GameOverPanel: {fileID: 1645919384}
 --- !u!114 &568902873
 MonoBehaviour:
@@ -2277,7 +2276,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 580de3556807e3941a856a099ad4edb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedImage: {fileID: 269804733}
 --- !u!4 &939383762
 Transform:
   m_ObjectHideFlags: 0
@@ -4850,6 +4848,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2088206126}
         m_TargetAssemblyTypeName: L1S1GameSceneManager, Assembly-CSharp
         m_MethodName: NextBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2088206126}
+        m_TargetAssemblyTypeName: L1S1GameSceneManager, Assembly-CSharp
+        m_MethodName: EndLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
