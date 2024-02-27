@@ -5,50 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class Level4StageSceneManager : MonoBehaviour
 {
-    public string MainMenu;
-    public string GameMapLevel4;
-  //  public string GamesceneLvl4;
-
-    void OnMouseDown()
+    public void BackBtn()
     {
-        HandleClick();
+        SceneManager.LoadScene("GameMapLevel4");
     }
-
-    void HandleClick()
+    /*
+    public void Lvl4Stage1()
     {
-        // Implement different logic based on the GameObject's name or tag
-        string Buttons = gameObject.name;
-        switch (Buttons)
-        {
-            case "backbtn":
-                // Code for handling click on the first collider (load previous scene)
-                LoadPreviousScene();
-                break;
-
-           /// case "SandCastleToolsLocked":
-                // Code for handling click on the second collider (load next scene)
-              ///  LoadNextScene();
-                ///break;
-
-            case "homebtn":
-                // Code for handling click on the third collider (go to another scene)
-                GoToAnotherScene();
-                break;
-        }
+        SceneManager.LoadScene("GamesceneLvl3");
     }
-
-    void LoadPreviousScene()
+    public void Lvl4Stage2()
     {
-        SceneManager.LoadScene(GameMapLevel4);
+        SceneManager.LoadScene("GamesceneLvl3");
     }
-
-  ///  void LoadNextScene()
-    ///{
-      ///  SceneManager.LoadScene(GamesceneLvl4);
-    ///}
-
-    void GoToAnotherScene()
+    public void Lvl4Stage3()
     {
-        SceneManager.LoadScene(MainMenu);
+        SceneManager.LoadScene("GamesceneLvl3");
     }
+    */
 }
