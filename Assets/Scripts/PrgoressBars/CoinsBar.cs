@@ -48,7 +48,7 @@ public class CoinsBar : MonoBehaviour
 
     public void GetCurrentFill()
     {
-        Debug.Log("Coin Fill ");    
+        //Debug.Log("Coin Fill ");    
         float fillAmount = (float)current / (float)maximum;
         mask.fillAmount = fillAmount;
     }

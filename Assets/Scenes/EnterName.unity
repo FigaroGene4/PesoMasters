@@ -2102,11 +2102,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 999327986}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2392c0e8174211742b3316eed8a5f5d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 93d2e4bfdad277a408ee0f7fb255e54b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  authManager: {fileID: 93191026}
-  isLoggedIn: 1
 --- !u!4 &999327988
 Transform:
   m_ObjectHideFlags: 0
@@ -2492,6 +2490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 495eb723da29f4a448fb4b1c59cba08b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dependencyStatus: 0
   Name: {fileID: 378606235}
 --- !u!4 &1345879811
 Transform:
@@ -3465,7 +3464,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1345879810}
         m_TargetAssemblyTypeName: DataEnterName, Assembly-CSharp
-        m_MethodName: CreateUser
+        m_MethodName: EnterName
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
