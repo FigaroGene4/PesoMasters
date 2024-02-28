@@ -9,18 +9,7 @@ public class L1S1GameSceneManager : MonoBehaviour
     {
         SceneManager.LoadScene("Level1StagesMap");
     }
-    public void EndLevel()
-    {
-        int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
-
-        int unlockedLevel = PlayerPrefs.GetInt("Unlocked Level", 1);
-        if (currentLevelIndex >= unlockedLevel)
-        {
-            PlayerPrefs.SetInt("ReachedIndex", currentLevelIndex + 1);
-            PlayerPrefs.SetInt("Unlocked Level", unlockedLevel + 1);
-            PlayerPrefs.Save();
-        }
-    }
+ 
     public void ResetProgress()
     {
         // Reset the reached index to 1 (assuming the first level has index 0)

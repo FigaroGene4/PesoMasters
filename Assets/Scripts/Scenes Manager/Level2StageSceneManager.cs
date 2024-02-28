@@ -9,18 +9,19 @@ public class Level2StageSceneManager : MonoBehaviour
     {
         SceneManager.LoadScene("GameMapLevel2");
     }
-    /*
+    
     public void Lvl2Stage1()
     {
-        SceneManager.LoadScene("GamesceneLvl2");
+        SceneManager.LoadScene("GamesceneLvl2Stage1");
     }
+    /*
     public void Lvl2Stage2()
     {
-        SceneManager.LoadScene("GameMapLevel1");
+        SceneManager.LoadScene("GamesceneLvl2Stage1");
     }
     public void Lvl2Stage3()
     {
-        SceneManager.LoadScene("GameMapLevel1");
+        SceneManager.LoadScene("GamesceneLvl2Stage1");
     }
     */
 

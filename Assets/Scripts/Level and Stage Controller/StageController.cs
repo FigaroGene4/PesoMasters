@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Level1StageController : MonoBehaviour
+public class StageController : MonoBehaviour
 {
     public Button[] stages;
     private void Awake()

@@ -3,14 +3,14 @@ using UnityEngine.UI;
 
 public class LevelController : MonoBehaviour
 {
-    public Button[] stages;
+    public Button[] level;
     private void Awake()
     {
         int unlockedLevel = PlayerPrefs.GetInt("Unlocked Level", 1);
 
-        for (int i = 0; i < stages.Length; i++)
+        for (int i = 0; i < level.Length; i++)
         {
-            stages[i].interactable = (i + 1) <= unlockedLevel;
+            level[i].interactable = (i + 1) <= unlockedLevel;
         }
     }
 }
