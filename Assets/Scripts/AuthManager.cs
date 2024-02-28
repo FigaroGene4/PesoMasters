@@ -49,7 +49,7 @@ public class AuthManager : MonoBehaviour
             {
                 InitializeFirebase();
                 SetAuthEmulatorEnvironmentVariable();
-                
+
             }
             else
             {
@@ -64,7 +64,7 @@ public class AuthManager : MonoBehaviour
 
     public void getDataRealtime()
     {
-        
+
     }
 
 
@@ -73,7 +73,10 @@ public class AuthManager : MonoBehaviour
         Debug.Log("Setting up Firebase Auth");
         auth = FirebaseAuth.DefaultInstance;
         
+
     }
+
+    
 
     private void SetAuthEmulatorEnvironmentVariable()
     {
@@ -97,7 +100,8 @@ public class AuthManager : MonoBehaviour
     }
     public void GuestButton()
     {
-        SceneManager.LoadScene(sceneToLoad);
+
+        StartCoroutine(GuestLogin());
     }
 
     public void DoneButton()
@@ -142,9 +146,9 @@ public class AuthManager : MonoBehaviour
                                 Debug.Log("Name: " + namewew);
                                 Debug.Log("Age: " + ages);
 
-                                if(namewew != "" && ages != "0" )
+                                if (namewew != "" && ages != "0")
                                 {
-                                    
+
                                     Debug.Log(User.UserId);
                                     confirmLoginText.text = "Logged In";
                                     SceneManager.LoadScene("MainMenu");
@@ -159,12 +163,12 @@ public class AuthManager : MonoBehaviour
                                     SceneManager.LoadScene(sceneToLoad);
                                 }
 
-                                    
 
-                                 
-                                
+
+
+
                             }
-                           
+
                             else
                             {
                                 Debug.LogError("Snapshot does not exist or does not have the required fields");
@@ -182,6 +186,32 @@ public class AuthManager : MonoBehaviour
                 Debug.LogError("User or UserId is null");
             }
         }
+    }
+
+    private IEnumerator GuestLogin()
+    {
+        Task<AuthResult> loginTask = auth.SignInAnonymouslyAsync();
+        yield return new WaitUntil(() => loginTask.IsCompleted);
+
+        if (loginTask.Exception != null)
+        {
+            Debug.LogError("SignInAnonymouslyAsync encountered an error: " + loginTask.Exception);
+        }
+        else
+        {
+            FirebaseUser User = loginTask.Result.User;
+            Debug.LogFormat("Guest user signed in successfully: {0} ({1})", User.DisplayName, User.UserId);
+
+            DatabaseReference reference = FirebaseDatabase.DefaultInstance.GetReference("users");
+
+            reference.Child(User.UserId).Child("name").SetValueAsync("");
+            reference.Child(User.UserId).Child("age").SetValueAsync(0);
+            SceneManager.LoadScene(sceneToLoad);
+
+        }
+
+
+        
     }
 
 
@@ -302,12 +332,12 @@ public class AuthManager : MonoBehaviour
                     else
 
                     {
-                        
+
                         DatabaseReference reference = FirebaseDatabase.DefaultInstance.GetReference("users");
                         reference.Child(User.UserId).Child("emailAddress").SetValueAsync(_email);
                         reference.Child(User.UserId).Child("name").SetValueAsync("");
                         reference.Child(User.UserId).Child("age").SetValueAsync(0);
-                       
+
 
                         if (User.IsEmailVerified)
                         {

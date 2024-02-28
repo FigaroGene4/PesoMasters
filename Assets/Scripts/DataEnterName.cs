@@ -22,15 +22,16 @@ public class DataEnterName : MonoBehaviour
     public FirebaseUser User;
 
     public TMP_InputField Name;
+    public TMP_Text warningPrompt;
   
 
-    private DatabaseReference dbReference;
-   
+    private DatabaseReference dbeference;
+
     void Start()
     {
         DatabaseReference reference = FirebaseDatabase.DefaultInstance.RootReference;
 
-     
+
         // Initialize Firebase
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
         {
@@ -64,22 +65,81 @@ public class DataEnterName : MonoBehaviour
 #endif
     }
 
+
     public void EnterName()
     {
-        User = auth.CurrentUser;
-        Debug.Log("yserd" + User.UserId);
-        string userName = Name.text;
-        Debug.Log(userName);
+        Debug.Log("Name:" + Name.text);
 
-       
-        DatabaseReference reference = FirebaseDatabase.DefaultInstance.RootReference;
+        if (string.IsNullOrEmpty(Name.text))
+        {
+            Debug.Log("Name field is empty. Please enter a name.");
+            warningPrompt.text = "Name field is empty. Please enter a name."; // Set the warning message
+            return;
+        }
+
+        if (System.Text.RegularExpressions.Regex.IsMatch(Name.text, @"\d"))
+        {
+            Debug.Log("Name field contains a number. Please enter a valid name.");
+            warningPrompt.text = "Name field contains a number. Please enter a valid name."; // Set the warning message
+            return;
+        }
+
+        if (!System.Text.RegularExpressions.Regex.IsMatch(Name.text, @"^[a-zA-Z]+$"))
+        {
+            Debug.Log("Name field contains invalid characters. Please enter a valid name.");
+            warningPrompt.text = "Name field contains invalid characters. Please enter a valid name."; // Set the warning message
+            return;
+        }
+
+      
+
+        else
+        {
+            User = auth.CurrentUser;
+            Debug.Log("yserd:" + User.UserId);
+            string userName = Name.text;
+            Debug.Log(userName);
 
 
-        // Data to update
-        Dictionary<string, object> dataToUpdate = new Dictionary<string, object>();
-        dataToUpdate["name"] = userName;
+            DatabaseReference reference = FirebaseDatabase.DefaultInstance.RootReference;
 
-        // Update data in Firebase
-        reference.Child("users").Child(User.UserId).UpdateChildrenAsync(dataToUpdate);
+            // Check if user exists in the database
+            reference.Child("users").Child(User.UserId).GetValueAsync().ContinueWith(task => {
+                if (task.IsFaulted)
+                {
+                    // Handle the error...
+                }
+                else if (task.IsCompleted)
+                {
+                    DataSnapshot snapshot = task.Result;
+                    if (!snapshot.Exists)
+                    {
+                        // User does not exist, create a new user
+                        DatabaseReference reference = FirebaseDatabase.DefaultInstance.GetReference("users");
+                        
+                        reference.Child(User.UserId).Child("name").SetValueAsync("");
+                        reference.Child(User.UserId).Child("age").SetValueAsync(0);
+                    }
+                    else
+                    {
+                        // User exists, update the user's name
+                        Dictionary<string, object> dataToUpdate = new Dictionary<string, object>();
+                        dataToUpdate["name"] = userName;
+
+                        // Update data in Firebase
+                        reference.Child("users").Child(User.UserId).UpdateChildrenAsync(dataToUpdate);
+                    }
+                }
+            });
+
+
+            SceneManager.LoadScene("AgeInput");
+        }
+      
+
+
+
     }
+
+
 }

@@ -39,8 +39,8 @@ public class DataEnterAge : MonoBehaviour
                 Debug.LogError($"Failed to initialize Firebase with {dependencyStatus}");
             }
         });
-        userAge = SystemInfo.deviceUniqueIdentifier;
-        dbReference = FirebaseDatabase.DefaultInstance.RootReference;
+        //userAge = SystemInfo.deviceUniqueIdentifier;
+        //dbReference = FirebaseDatabase.DefaultInstance.RootReference;
 
         ageSlider.onValueChanged.AddListener(delegate { UpdateAge(); });
 
