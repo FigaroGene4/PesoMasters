@@ -11,6 +11,7 @@ public class CoinsBar : MonoBehaviour
 {
     [SerializeField]
     GameObject GameOverPanel;
+    GameObject StageClearPanel;
 
     public StarBar starBar;
     public Text goldText;
@@ -54,27 +55,28 @@ public class CoinsBar : MonoBehaviour
     }
     void CheckGameOver()
     {
-        /*
         if (current <= 0)
         {
-            EndGame();
-        }
-        */
-        if (starBar != null && starBar.current >= starBar.maximum && current >= maximum)
-        {
-            EndGame();
+              GameOverPanel.SetActive(true);
         }
     }
     void CheckGoalReached()
     {
-        if (current >= maximum)
+        if (starBar != null && starBar.current >= starBar.maximum && current >= maximum )
         {
-            EndGame();
+            GameComplete();
+        }
+        else
+        {
+            if (GameOverPanel != null)
+            {
+                GameOverPanel.SetActive(true);
+            }
         }
     }
-    void EndGame()
+    void GameComplete()
     {
-        GameOverPanel.SetActive(true);
+        StageClearPanel.SetActive(true);
     }
     void InitializeCards()
     {
