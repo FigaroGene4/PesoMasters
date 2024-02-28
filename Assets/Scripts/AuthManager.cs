@@ -5,7 +5,10 @@ using Firebase.Auth;
 using TMPro;
 using System.Threading.Tasks;
 using UnityEngine.SceneManagement;
+
 using System;
+using Firebase.Database;
+using Firebase.Extensions;
 
 public class AuthManager : MonoBehaviour
 {
@@ -31,9 +34,14 @@ public class AuthManager : MonoBehaviour
     public TMP_Text warningRegisterText;
 
     public string sceneToLoad = "EnterName";
+    string namewew;
+    string age;
+
 
     void Start()
     {
+        getDataRealtime();
+
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
         {
             dependencyStatus = task.Result;
@@ -41,18 +49,30 @@ public class AuthManager : MonoBehaviour
             {
                 InitializeFirebase();
                 SetAuthEmulatorEnvironmentVariable();
+                
             }
             else
             {
                 Debug.LogError("Could not resolve all Firebase dependencies: " + dependencyStatus);
             }
         });
+
+
+
+
     }
+
+    public void getDataRealtime()
+    {
+        
+    }
+
 
     private void InitializeFirebase()
     {
         Debug.Log("Setting up Firebase Auth");
         auth = FirebaseAuth.DefaultInstance;
+        
     }
 
     private void SetAuthEmulatorEnvironmentVariable()
@@ -98,21 +118,153 @@ public class AuthManager : MonoBehaviour
         {
             User = loginTask.Result.User;
 
-            if (User.IsEmailVerified)
+            if (User != null && User.UserId != null)
             {
-                SceneManager.LoadScene(sceneToLoad);
-                PlayerPrefs.SetString("userEmail", _email);
-                Debug.LogFormat("User signed in successfully: {0} ({1})", User.DisplayName, User.Email);
-                warningLoginText.text = "";
-                confirmLoginText.text = "Logged In";
-            }
+                if (User.IsEmailVerified)
+                {
+                    DatabaseReference reference = FirebaseDatabase.DefaultInstance.RootReference;
+                    reference.Child("users").Child(User.UserId).GetValueAsync().ContinueWithOnMainThread(task => {
+                        if (task.IsFaulted)
+                        {
+                            // Handle the error...
+                            Debug.LogError(task.Exception);
+                        }
+                        else if (task.IsCompleted)
+                        {
+                            DataSnapshot snapshot = task.Result;
 
+                            // Check if the snapshot exists and has the required fields
+                            if (snapshot.HasChild("name") && snapshot.HasChild("age"))
+                            {
+                                string namewew = snapshot.Child("name").Value.ToString();
+                                string ages = snapshot.Child("age").Value.ToString();
+
+                                Debug.Log("Name: " + namewew);
+                                Debug.Log("Age: " + ages);
+
+                                if(namewew != "" && ages != "0" )
+                                {
+                                    
+                                    Debug.Log(User.UserId);
+                                    confirmLoginText.text = "Logged In";
+                                    SceneManager.LoadScene("MainMenu");
+                                    PlayerPrefs.SetString("userEmail", _email);
+                                    Debug.LogFormat("User signed in successfully: {0} ({1})", User.DisplayName, User.Email);
+                                    warningLoginText.text = "";
+                                }
+
+                                else
+                                {
+                                    Debug.Log(User.UserId);
+                                    SceneManager.LoadScene(sceneToLoad);
+                                }
+
+                                    
+
+                                 
+                                
+                            }
+                           
+                            else
+                            {
+                                Debug.LogError("Snapshot does not exist or does not have the required fields");
+                            }
+                        }
+                    });
+                }
+                else
+                {
+                    SendEmailForVerification();
+                }
+            }
             else
             {
-                SendEmailForVerification();
+                Debug.LogError("User or UserId is null");
             }
         }
     }
+
+
+    /*  private IEnumerator Login(string _email, string _password)
+      {
+          Task<AuthResult> loginTask = auth.SignInWithEmailAndPasswordAsync(_email, _password);
+          yield return new WaitUntil(() => loginTask.IsCompleted);
+
+
+          if (loginTask.Exception != null)
+          {
+              HandleAuthError(loginTask.Exception);
+          }
+          else
+          {
+              User = loginTask.Result.User;
+
+              DatabaseReference reference = FirebaseDatabase.DefaultInstance.RootReference;
+
+              if (User != null && User.UserId != null)
+              {
+                  reference.Child("users").Child(User.UserId).GetValueAsync().ContinueWith(task => {
+                      if (task.IsFaulted)
+                      {
+                          // Handle the error...
+                          Debug.LogError(task.Exception);
+                      }
+                      else if (task.IsCompleted)
+                      {
+                          DataSnapshot snapshot = task.Result;
+
+                          // Check if the snapshot exists and has the required fields
+                          if (snapshot.Exists && snapshot.HasChild("name") && snapshot.HasChild("age"))
+                          {
+                              string namewew = snapshot.Child("name").Value.ToString();
+                              string ages = snapshot.Child("age").Value.ToString();
+
+                              // Now you can use the name and age
+                              Debug.Log("Name: " + namewew);
+                              Debug.Log("Age: " + ages);
+
+                              if (User.IsEmailVerified)
+                              {
+                                  SceneManager.LoadScene("MainMenu");
+                                  PlayerPrefs.SetString("userEmail", _email);
+                                  Debug.Log("Name: " + namewew);
+                                  Debug.LogFormat("User signed in successfully: {0} ({1})", User.DisplayName, User.Email);
+                                  warningLoginText.text = "";
+                                  confirmLoginText.text = "Logged In";
+                              }
+
+                              else if (User.IsEmailVerified && namewew == "")
+                              {
+                                  SceneManager.LoadScene(sceneToLoad);
+                                  Debug.Log("name" + namewew);
+                                  PlayerPrefs.SetString("userEmail", _email);
+                                  Debug.LogFormat("User signed in successfully: {0} ({1})", User.DisplayName, User.Email);
+                                  warningLoginText.text = "";
+                                  confirmLoginText.text = "Logged In";
+                              }
+
+                              else
+                              {
+                                  SendEmailForVerification();
+                              }
+                          }
+                          else
+                          {
+                              Debug.LogError("Snapshot does not exist or does not have the required fields");
+                          }
+                      }
+                  });
+              }
+              else
+              {
+                  Debug.LogError("User or UserId is null");
+              }
+
+
+
+          }
+      }*/
+
 
     private IEnumerator Register(string _email, string _password, string _age)
     {
@@ -139,7 +291,7 @@ public class AuthManager : MonoBehaviour
 
                 if (User != null)
                 {
-                    UserProfile profile = new UserProfile { DisplayName = _age };
+                    UserProfile profile = new UserProfile { DisplayName = _email };
                     Task profileTask = User.UpdateUserProfileAsync(profile);
                     yield return new WaitUntil(() => profileTask.IsCompleted);
 
@@ -148,7 +300,15 @@ public class AuthManager : MonoBehaviour
                         HandleAuthError(profileTask.Exception);
                     }
                     else
+
                     {
+                        
+                        DatabaseReference reference = FirebaseDatabase.DefaultInstance.GetReference("users");
+                        reference.Child(User.UserId).Child("emailAddress").SetValueAsync(_email);
+                        reference.Child(User.UserId).Child("name").SetValueAsync("");
+                        reference.Child(User.UserId).Child("age").SetValueAsync(0);
+                       
+
                         if (User.IsEmailVerified)
                         {
                             //UIManager.instance.LoginScreen();
@@ -170,7 +330,9 @@ public class AuthManager : MonoBehaviour
         FirebaseException firebaseEx = exception.GetBaseException() as FirebaseException;
         AuthError errorCode = (AuthError)firebaseEx.ErrorCode;
 
-        string message = "Authentication Failed!";
+        //string message = "Authentication Failed!";
+        // Binago ko kasi di naman alam ng ordinary users yung authentication kaya ayorn
+        string message = "Incorrect email or password";
         switch (errorCode)
         {
             case AuthError.MissingEmail:
