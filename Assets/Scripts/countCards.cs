@@ -30,7 +30,7 @@ public class countCards : MonoBehaviour
             noButton.gameObject.SetActive(true);
         }
     }
-    public  void OnMouseDown()
+    public void OnMouseDown()
     {
         
         clickCount = Mathf.Max(0, clickCount - 1);
@@ -41,7 +41,7 @@ public class countCards : MonoBehaviour
         // Update the text with the new value
         UpdateText();
 
-        if (clickCountz < 0)
+        if (clickCountz <= 0)
         {
             // Display "Game Over" message in the Unity debug log
             Debug.Log("Game Over");

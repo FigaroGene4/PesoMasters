@@ -122,7 +122,7 @@ public class StarBar : MonoBehaviour
             if (card != null )
             {
                 current += card.star;
-                Debug.Log("Energy:" + card.star);
+                Debug.Log("Star:" + card.star);
             }
             else
             {

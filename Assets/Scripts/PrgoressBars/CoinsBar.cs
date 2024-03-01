@@ -42,7 +42,7 @@ public class CoinsBar : MonoBehaviour
     {
         GetCurrentFill();
         CheckGameOver();
-       CheckGoalReached();
+        CheckGoalReached();
     }
     /*void LatUpdate()
     {
@@ -60,7 +60,7 @@ public class CoinsBar : MonoBehaviour
     {
         if (current <= 0)
         {
-              GameOverPanel.SetActive(true);
+            GameOverPanel.SetActive(true);
         }
     }
     void CheckGoalReached()
@@ -80,7 +80,7 @@ public class CoinsBar : MonoBehaviour
     void GameComplete()
     {
         gameController.GameCompleted();
-        StageClearPanel.SetActive(true);        
+        StageClearPanel.SetActive(true);
     }
     void InitializeCards()
     {
@@ -262,5 +262,3 @@ public class CoinsBar : MonoBehaviour
         goldText.text = current.ToString();
     }
 }
-
-
