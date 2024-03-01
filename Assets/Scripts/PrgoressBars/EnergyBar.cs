@@ -6,11 +6,10 @@ using UnityEngine.UI;
 [ExecuteInEditMode()]
 public class EnergyBar : MonoBehaviour
 {
-    [SerializeField]
-    GameObject GameOverPanel;
+    [SerializeField] GameObject GameOverPanel;
+    public DrawCards drawCards;
 
     public Text energyText;
-    public DrawCards drawCards;
     public int maximum;
     public int current;
     public Image mask;
@@ -91,12 +90,11 @@ public class EnergyBar : MonoBehaviour
     {
         if (current <= 0)
         {
-            EndGame();
+            if (GameOverPanel != null)
+            {
+                GameOverPanel.SetActive(true);
+            }
         }
-    }
-    void EndGame()
-    {
-        GameOverPanel.SetActive(true);
     }
 
     public void getEnergy()

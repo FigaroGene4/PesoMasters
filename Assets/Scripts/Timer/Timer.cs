@@ -8,6 +8,7 @@ public class Timer : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] float remainingTime;
     [SerializeField] GameObject GameOverPanel;
+    [SerializeField] GameObject StageClearPanel;
 
     private float startTime;
     private bool isTimerRunning;
@@ -15,6 +16,7 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         GameOverPanel.SetActive(false);
+        StageClearPanel.SetActive(false);
         isTimerRunning = false;
     }
     public void StartTimer()

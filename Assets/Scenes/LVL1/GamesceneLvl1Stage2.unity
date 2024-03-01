@@ -123,6 +123,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &6975175
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6975177}
+  - component: {fileID: 6975176}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &6975176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6975175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6de015c6c64b92478ea5a611e26fc0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalStages: 3
+--- !u!4 &6975177
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6975175}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.22437902, y: 0.56318015, z: 6.63754}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &16263115
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,13 +873,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 079ceead7314ceb45ab70cb5054ebea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameOverPanel: {fileID: 0}
+  GameOverPanel: {fileID: 166146673}
+  StageClearPanel: {fileID: 1419168096}
   starBar: {fileID: 1575833193}
-  goldText: {fileID: 657073384}
-  yourScore: {fileID: 0}
-  maxScore: {fileID: 0}
+  EnergyBar: {fileID: 1884553817}
   drawCards: {fileID: 776742333}
   countCards: {fileID: 776742337}
+  gameController: {fileID: 6975176}
+  goldText: {fileID: 657073384}
+  GOyourScore: {fileID: 1428786949}
+  GOmaxScore: {fileID: 1208189617}
+  SGyourScore: {fileID: 1629188992}
+  SGmaxScore: {fileID: 911051672}
   maximum: 22
   current: 5
   mask: {fileID: 770556044}
@@ -1744,7 +1794,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "- Earn at  least 1 star \n- Save 20 coins"
+  m_text: '- Earn 2 stars
+
+    - Save 22 coins'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
@@ -2342,10 +2394,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee19d6d52a46a4e4e8109ecf5f55cbcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameOverPanel: {fileID: 0}
   yesButton: {fileID: 984081054}
   noButton: {fileID: 1671759877}
   CardsLeft: {fileID: 1436494468}
+  clickCount: 20
   coinbar: {fileID: 428631415}
 --- !u!1 &807561703
 GameObject:
@@ -2509,7 +2561,7 @@ GameObject:
   - component: {fileID: 911051673}
   - component: {fileID: 911051672}
   m_Layer: 5
-  m_Name: MaxScore
+  m_Name: SGMaxScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3042,10 +3094,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee19d6d52a46a4e4e8109ecf5f55cbcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameOverPanel: {fileID: 0}
   yesButton: {fileID: 984081054}
   noButton: {fileID: 1671759877}
   CardsLeft: {fileID: 1436494468}
+  clickCount: 20
   coinbar: {fileID: 428631415}
 --- !u!1 &1000696585
 GameObject:
@@ -3714,7 +3766,7 @@ GameObject:
   - component: {fileID: 1208189618}
   - component: {fileID: 1208189617}
   m_Layer: 5
-  m_Name: MaxScore
+  m_Name: GOMaxScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4073,7 +4125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe8aba1b838ab346ab986157c75af34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectivesPanel: {fileID: 807561703}
+  ObjectivesPanel: {fileID: 1872805465}
 --- !u!224 &1346791794
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4282,7 +4334,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1414095116
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4384,7 +4436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1419168097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4627,7 +4679,7 @@ GameObject:
   - component: {fileID: 1428786950}
   - component: {fileID: 1428786949}
   m_Layer: 5
-  m_Name: YourScore
+  m_Name: GOYourScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5264,7 +5316,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "- Earn at  least 1 star \n- Save 20 coins"
+  m_text: '- Earn 2 stars
+
+    - Save 22 coins'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
@@ -5430,7 +5484,6 @@ GameObject:
   - component: {fileID: 1575833195}
   - component: {fileID: 1575833194}
   - component: {fileID: 1575833193}
-  - component: {fileID: 1575833196}
   m_Layer: 5
   m_Name: StarPgFill
   m_TagString: Untagged
@@ -5469,8 +5522,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1b762461011164d9fc904b3c3c1327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameOverPanel: {fileID: 0}
-  coinsBar: {fileID: 0}
+  GameOverPanel: {fileID: 166146673}
+  StageClearPanel: {fileID: 1419168096}
+  coinsBar: {fileID: 428631415}
+  countCards: {fileID: 776742337}
+  EnergyBar: {fileID: 1884553817}
+  gameController: {fileID: 6975176}
   drawCards: {fileID: 776742333}
   maximum: 2
   current: 0
@@ -5551,20 +5608,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1575833191}
   m_CullTransparentMesh: 1
---- !u!114 &1575833196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1575833191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81717bc5ac2740a4f8fdc219526b8fb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  first: {fileID: 1587239438}
-  glow: {fileID: 21300000, guid: bd22f642e6faae3419e3a3f751069e5c, type: 3}
 --- !u!1 &1587239435
 GameObject:
   m_ObjectHideFlags: 0
@@ -5652,7 +5695,7 @@ GameObject:
   - component: {fileID: 1629188993}
   - component: {fileID: 1629188992}
   m_Layer: 5
-  m_Name: YourScore
+  m_Name: SGYourScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6018,13 +6061,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 079ceead7314ceb45ab70cb5054ebea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameOverPanel: {fileID: 0}
+  GameOverPanel: {fileID: 166146673}
+  StageClearPanel: {fileID: 1419168096}
   starBar: {fileID: 1575833193}
-  goldText: {fileID: 0}
-  yourScore: {fileID: 0}
-  maxScore: {fileID: 0}
+  EnergyBar: {fileID: 1884553817}
   drawCards: {fileID: 776742333}
-  countCards: {fileID: 0}
+  countCards: {fileID: 776742337}
+  gameController: {fileID: 6975176}
+  goldText: {fileID: 657073384}
+  GOyourScore: {fileID: 1428786949}
+  GOmaxScore: {fileID: 1208189617}
+  SGyourScore: {fileID: 1629188992}
+  SGmaxScore: {fileID: 911051672}
   maximum: 22
   current: 5
   mask: {fileID: 770556044}
@@ -6217,7 +6265,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "- Earn at  least 1 star \n- Save 20 coins"
+  m_text: '- Earn 2 stars
+
+    - Save 22 coins'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
@@ -6618,7 +6668,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1872805466
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7552,7 +7602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2106290028
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7822,3 +7872,4 @@ SceneRoots:
   - {fileID: 2088559043}
   - {fileID: 1709874947}
   - {fileID: 2088206127}
+  - {fileID: 6975177}

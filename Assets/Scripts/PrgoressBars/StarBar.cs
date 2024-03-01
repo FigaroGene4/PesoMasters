@@ -8,10 +8,12 @@ using Image = UnityEngine.UI.Image;
 [ExecuteInEditMode()]
 public class StarBar : MonoBehaviour
 {
-    [SerializeField]
-    GameObject GameOverPanel;
-    GameObject StageClearPanel;
+    [SerializeField] GameObject GameOverPanel;
+    [SerializeField] GameObject StageClearPanel;
     public CoinsBar coinsBar;
+    public countCards countCards;
+    public EnergyBar EnergyBar;
+    public GameController gameController;
 
     public DrawCards drawCards;
     public int maximum;
@@ -93,11 +95,12 @@ public class StarBar : MonoBehaviour
 
     void CheckGoalReached()
     {
-        if (coinsBar != null && coinsBar.current >= coinsBar.maximum && current >= maximum)
+        if (coinsBar != null && coinsBar.current >= coinsBar.maximum && current >= maximum && countCards.clickCount >= 0)
         {
+            //check if coin bar current is equal to max, and star bar is equal to max and click count is <= to 0
             GameComplete();
         }
-        else
+        else if (coinsBar.current <= 0 || current < 0 || countCards.clickCount <= 0 || EnergyBar.current <= 0)
         {
             if (GameOverPanel != null)
             {
@@ -107,6 +110,7 @@ public class StarBar : MonoBehaviour
     }
     void GameComplete()
     {
+        gameController.GameCompleted();
         StageClearPanel.SetActive(true);
     }
     public void getStar()

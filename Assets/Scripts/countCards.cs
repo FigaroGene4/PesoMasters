@@ -4,10 +4,10 @@ using UnityEngine.UI;
 public class countCards : MonoBehaviour
 
 {
-    public GameObject GameOverPanel;
+    //public GameObject GameOverPanel, StageClearPanel;
     public Button yesButton, noButton;
     public Text CardsLeft; // Reference to your UI Text element
-    private int clickCount = 20; // Start with 40 clicks test
+    public int clickCount = 20; // Start with 40 clicks test
     int clickCountz = 20;
     public CoinsBar coinbar;
 
@@ -22,7 +22,7 @@ public class countCards : MonoBehaviour
 
         }
 
-        if (clickCount < 20)
+        else if (clickCount < 20)
         {
             UpdateText();
 
@@ -30,8 +30,6 @@ public class countCards : MonoBehaviour
             noButton.gameObject.SetActive(true);
         }
     }
-
-    
     public  void OnMouseDown()
     {
         
@@ -50,30 +48,23 @@ public class countCards : MonoBehaviour
 
             coinbar.GetMax();
             yesButton.interactable = false;
-            noButton.interactable = false;
-            GameOverPanel.SetActive(true);            
+            noButton.interactable = false;        
             SoundManager.Instance.musicSource.Stop();
             SoundManager.Instance.PlaySFX("Win");
         }
                 
         else
         {
-
             yesButton.gameObject.SetActive(true);
             noButton.gameObject.SetActive(true);
         }
     
     }
     
-
     private void UpdateText()
     {
         // Update the UI Text component with the current value of clickCount
         CardsLeft.text = clickCount.ToString();
         Debug.Log("Click" + clickCount);
-    }
-
-
-
-    
+    }    
 }

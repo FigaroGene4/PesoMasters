@@ -4,7 +4,6 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public class DrawCards : MonoBehaviour
 {
-    
     public EnergyBar energyBar;
     //public CoinsBar coinsBar;
     public GameObject CardExp1, CardExp2, CardExp3, CardExp4, CardExp5, CardExp6, CardExp7, CardExp8, CardExp9, CardExp10;
@@ -21,9 +20,7 @@ public class DrawCards : MonoBehaviour
     public Dictionary<GameObject, CardValues> cardValuesDictionary = new Dictionary<GameObject, CardValues>();
 
     void Start()
-    {
-       
-        
+    {   
         currentIndex = 0;
         // Initialize the shuffled cards array and shuffle it initially
         shuffledCards = new GameObject[] { 
@@ -262,12 +259,5 @@ public class DrawCards : MonoBehaviour
             spriteRenderer.sortingOrder = sortingOrder;
             sortingOrder++;
         }
-    }
-    // Update is called once per frame
-    public void Update()
-    {
-        // You can add additional logic here if needed
-    }
-
-    
+    }    
 }

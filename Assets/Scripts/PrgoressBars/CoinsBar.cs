@@ -9,16 +9,19 @@ using UnityEngine.UI;
 [ExecuteInEditMode()]
 public class CoinsBar : MonoBehaviour
 {
-    [SerializeField]
-    GameObject GameOverPanel;
-    GameObject StageClearPanel;
-
+    [SerializeField] GameObject GameOverPanel;
+    [SerializeField] GameObject StageClearPanel;
     public StarBar starBar;
-    public Text goldText;
-    public TextMeshProUGUI yourScore;
-    public TextMeshProUGUI maxScore;
+    public EnergyBar EnergyBar;
     public DrawCards drawCards;
     public countCards countCards;
+    public GameController gameController;
+
+    public Text goldText;
+    public TextMeshProUGUI GOyourScore; //Game Over Panel
+    public TextMeshProUGUI GOmaxScore; //Game Over Panel
+    public TextMeshProUGUI SGyourScore; //Stage Clear Panel
+    public TextMeshProUGUI SGmaxScore; //Stage Clear Panel
 
     public int maximum;
     public int current;
@@ -62,11 +65,11 @@ public class CoinsBar : MonoBehaviour
     }
     void CheckGoalReached()
     {
-        if (starBar != null && starBar.current >= starBar.maximum && current >= maximum )
+        if (starBar != null && starBar.current >= starBar.maximum && current >= maximum && countCards.clickCount >= 0)
         {
             GameComplete();
         }
-        else
+        else if (starBar.current < 0 || current <= 0 || countCards.clickCount <= 0 || EnergyBar.current <= 0)
         {
             if (GameOverPanel != null)
             {
@@ -76,7 +79,8 @@ public class CoinsBar : MonoBehaviour
     }
     void GameComplete()
     {
-        StageClearPanel.SetActive(true);
+        gameController.GameCompleted();
+        StageClearPanel.SetActive(true);        
     }
     void InitializeCards()
     {
@@ -176,7 +180,8 @@ public class CoinsBar : MonoBehaviour
         }
 
         UpdateGoldText();
-        yourScore.text = "Total Coins Earned: " + current.ToString();
+        GOyourScore.text = current.ToString(); //GameOver
+        SGyourScore.text = current.ToString(); //StageClear
     }
 
     public void AddToKnapsackDictionary(string cardName, Cards card)
@@ -243,7 +248,8 @@ public class CoinsBar : MonoBehaviour
             int W = 20;
             var result = KnapSack(W, knapsackDictionary);
             Debug.Log("Max gold: " + result.Item1);
-            maxScore.text = "Maximum Score: " + result.Item1.ToString();
+            GOmaxScore.text = "Maximum Score: " + result.Item1.ToString();
+            SGmaxScore.text = "Maximum Score: " + result.Item1.ToString();
         }
         else
         {
