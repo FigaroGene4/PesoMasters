@@ -79,7 +79,7 @@ public class CoinsBar : MonoBehaviour
     }
     void GameComplete()
     {
-        gameController.GameCompleted();
+        gameController.UnlockNewLevel();
         StageClearPanel.SetActive(true);
     }
     void InitializeCards()

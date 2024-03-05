@@ -1,20 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public int totalStages = 3; // Total number of stages in your game
-
-    // Function to be called when the game is completed
-    public void GameCompleted()
+   public void UnlockNewLevel()
     {
-        int currentUnlockedStage = PlayerPrefs.GetInt("UnlockedStage", 1);
-
-        // Increment the unlocked stage if it's not the last stage
-        if (currentUnlockedStage < totalStages)
+        if (SceneManager.GetActiveScene().buildIndex >= PlayerPrefs.GetInt("ReachedIndex"))
         {
-            PlayerPrefs.SetInt("UnlockedStage", currentUnlockedStage + 1);
-            PlayerPrefs.Save(); // Save the changes to PlayerPrefs
+            PlayerPrefs.SetInt("ReachedIndex", SceneManager.GetActiveScene().buildIndex + 1);
+            PlayerPrefs.SetInt("UnlockedLevel", PlayerPrefs.GetInt("UnlockedLevel", 1) +1);
+            PlayerPrefs.Save();
         }
     }
+
 }
