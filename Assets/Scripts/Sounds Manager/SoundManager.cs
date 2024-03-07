@@ -8,8 +8,10 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
 
-    public Sound[] musicSounds, sfxSounds, speechSounds;
-    public AudioSource musicSource, sfxSource, speechSource;
+    public Sound[] musicSounds, sfxSounds;
+    public AudioSource musicSource, sfxSource;
+
+    private float defaultVolume = 0.25f;
 
     private void Awake()
     {
@@ -27,6 +29,8 @@ public class SoundManager : MonoBehaviour
     private void Start()
     {
         PlayMusic("Theme");
+        SetMusicVolume(defaultVolume);
+        SetSFXVolume(defaultVolume);
     }
 
     public void PlayMusic(string name)
@@ -59,20 +63,6 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlaySpeech(string name)
-    {
-        Sound s = Array.Find(speechSounds, x => x.name == name);
-
-        if (s == null)
-        {
-            Debug.Log("Speech not found");
-        }
-        else
-        {
-            speechSource.PlayOneShot(s.clip);
-        }
-    }
-
     public void ToggleMusic()
     {
         musicSource.mute = !musicSource.mute;
@@ -83,23 +73,13 @@ public class SoundManager : MonoBehaviour
         sfxSource.mute = !sfxSource.mute;
     }
 
-    public void ToggleSpeech()
-    {
-        speechSource.mute = !speechSource.mute;
-    }
-
     public void SetMusicVolume(float volume)
     {
-        musicSource.volume = 0.25f;
+        musicSource.volume = volume;
     }
 
     public void SetSFXVolume(float volume)
     {
-        sfxSource.volume = 0.25f;
-    }
-
-    public void SetSpeechVolume(float volume)
-    {
-        speechSource.volume = 0.50f;
+        sfxSource.volume = volume;
     }
 }

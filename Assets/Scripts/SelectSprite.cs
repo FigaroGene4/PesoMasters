@@ -15,21 +15,26 @@ public class SelectSprite : MonoBehaviour
 
     private void OnMouseDown()
     {
-        // Change sprite to new sprite if it's assigned
-        if (newSprite != null)
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
         {
-            spriteRenderer.sprite = newSprite;
-            Debug.Log("New sprite is assigned!");
-        }
-        else
-        {
-            Debug.LogError("New sprite is not assigned!");
-        }
+            CharacterSelectManager.instance.SetSelectedSprite(spriteRenderer.sprite);
+            Debug.Log("Sprite Selected");
 
-        // Invoke a method to revert sprite back to original after a delay
-        Invoke("RevertToOriginalSprite", 0.5f);
+            if (newSprite != null)
+            {
+                spriteRenderer.sprite = newSprite;
+                Debug.Log("New sprite is assigned!");
+            }
+            else
+            {
+                Debug.LogError("New sprite is not assigned!");
+            }
+            // Invoke a method to revert sprite back to original after a delay
+          Invoke("RevertToOriginalSprite", 0.5f);
+
+        }
     }
-
     private void RevertToOriginalSprite()
     {
         // Change sprite back to original sprite
