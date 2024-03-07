@@ -15,6 +15,10 @@ public class StarBar : MonoBehaviour
     public EnergyBar EnergyBar;
     public GameController gameController;
 
+    public Image[] stars;
+    public Sprite yellowStarSprite;
+    public Sprite grayStarSprite;
+
     public DrawCards drawCards;
     public int maximum;
     public int current;
@@ -91,6 +95,24 @@ public class StarBar : MonoBehaviour
     {
         float fillAmount = (float)current / (float)maximum;
         mask.fillAmount = fillAmount;
+
+        // Calculate the number of stars to display based on the current value
+        int filledStars = Mathf.FloorToInt(fillAmount * stars.Length);
+
+        // Change sprite of stars based on current value
+        for (int i = 0; i < stars.Length; i++)
+        {
+            if (i < filledStars)
+            {
+                // Set yellow colored star sprite
+                stars[i].sprite = yellowStarSprite;
+            }
+            else
+            {
+                // Set gray colored star sprite
+                stars[i].sprite = grayStarSprite;
+            }
+        }
     }
 
     void CheckGoalReached()

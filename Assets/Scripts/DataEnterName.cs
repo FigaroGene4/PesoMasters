@@ -77,69 +77,53 @@ public class DataEnterName : MonoBehaviour
             return;
         }
 
-        if (System.Text.RegularExpressions.Regex.IsMatch(Name.text, @"\d"))
-        {
-            Debug.Log("Name field contains a number. Please enter a valid name.");
-            warningPrompt.text = "Name field contains a number. Please enter a valid name."; // Set the warning message
-            return;
-        }
-
+        // Removed the regular expression check for alphabetic characters
+        /*
         if (!System.Text.RegularExpressions.Regex.IsMatch(Name.text, @"^[a-zA-Z]+$"))
         {
             Debug.Log("Name field contains invalid characters. Please enter a valid name.");
             warningPrompt.text = "Name field contains invalid characters. Please enter a valid name."; // Set the warning message
             return;
         }
+        */
 
-      
+        User = auth.CurrentUser;
+        Debug.Log("yserd:" + User.UserId);
+        string userName = Name.text;
+        Debug.Log(userName);
 
-        else
-        {
-            User = auth.CurrentUser;
-            Debug.Log("yserd:" + User.UserId);
-            string userName = Name.text;
-            Debug.Log(userName);
+        DatabaseReference reference = FirebaseDatabase.DefaultInstance.RootReference;
 
-
-            DatabaseReference reference = FirebaseDatabase.DefaultInstance.RootReference;
-
-            // Check if user exists in the database
-            reference.Child("users").Child(User.UserId).GetValueAsync().ContinueWith(task => {
-                if (task.IsFaulted)
+        // Check if user exists in the database
+        reference.Child("users").Child(User.UserId).GetValueAsync().ContinueWith(task => {
+            if (task.IsFaulted)
+            {
+                // Handle the error...
+            }
+            else if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+                if (!snapshot.Exists)
                 {
-                    // Handle the error...
+                    // User does not exist, create a new user
+                    DatabaseReference reference = FirebaseDatabase.DefaultInstance.GetReference("users");
+
+                    reference.Child(User.UserId).Child("name").SetValueAsync("");
+                    reference.Child(User.UserId).Child("age").SetValueAsync(0);
                 }
-                else if (task.IsCompleted)
+                else
                 {
-                    DataSnapshot snapshot = task.Result;
-                    if (!snapshot.Exists)
-                    {
-                        // User does not exist, create a new user
-                        DatabaseReference reference = FirebaseDatabase.DefaultInstance.GetReference("users");
-                        
-                        reference.Child(User.UserId).Child("name").SetValueAsync("");
-                        reference.Child(User.UserId).Child("age").SetValueAsync(0);
-                    }
-                    else
-                    {
-                        // User exists, update the user's name
-                        Dictionary<string, object> dataToUpdate = new Dictionary<string, object>();
-                        dataToUpdate["name"] = userName;
+                    // User exists, update the user's name
+                    Dictionary<string, object> dataToUpdate = new Dictionary<string, object>();
+                    dataToUpdate["name"] = userName;
 
-                        // Update data in Firebase
-                        reference.Child("users").Child(User.UserId).UpdateChildrenAsync(dataToUpdate);
-                    }
+                    // Update data in Firebase
+                    reference.Child("users").Child(User.UserId).UpdateChildrenAsync(dataToUpdate);
                 }
-            });
+            }
+        });
 
-
-            SceneManager.LoadScene("AgeInput");
-        }
-      
-
-
-
+        SceneManager.LoadScene("AgeInput");
     }
-
 
 }
