@@ -5,15 +5,20 @@ using UnityEngine.UIElements;
 
 public class ObjectivesController : MonoBehaviour
 {
-    [SerializeField]
-    GameObject ObjectivesPanel;
+    [SerializeField] GameObject StartObjectivesPanel;
+    [SerializeField] GameObject InGameObjectivesPanel;
 
     void Start()
     {
-        ObjectivesPanel.SetActive(true);
+        StartObjectivesPanel.SetActive(true);
+        InGameObjectivesPanel.SetActive(false);
     }
-    public void ClosePanel()
+    public void CloseStartObjectives()
     {
-        ObjectivesPanel.SetActive(false);
+        StartObjectivesPanel.SetActive(false);
+    }
+    public void CloseInGameObjectives()
+    {
+        InGameObjectivesPanel.SetActive(false);
     }
 }
