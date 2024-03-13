@@ -22,6 +22,7 @@ public class CoinsBar : MonoBehaviour
     public TextMeshProUGUI GOmaxScore; //Game Over Panel
     public TextMeshProUGUI SGyourScore; //Stage Clear Panel
     public TextMeshProUGUI SGmaxScore; //Stage Clear Panel
+    public TextMeshProUGUI TotalCoins; //Stage Clear Panel
 
     public int maximum;
     public int current;
@@ -182,6 +183,7 @@ public class CoinsBar : MonoBehaviour
         UpdateGoldText();
         GOyourScore.text = current.ToString(); //GameOver
         SGyourScore.text = current.ToString(); //StageClear
+        TotalCoins.text = current.ToString(); //StoreCoins
     }
 
     public void AddToKnapsackDictionary(string cardName, Cards card)
