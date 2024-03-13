@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -18,6 +19,7 @@ public class StarBar : MonoBehaviour
     public Image[] stars;
     public Sprite yellowStarSprite;
     public Sprite grayStarSprite;
+    public TextMeshProUGUI TotalStar; //Store Total Current Star
 
     public DrawCards drawCards;
     public int maximum;
@@ -113,6 +115,7 @@ public class StarBar : MonoBehaviour
                 stars[i].sprite = grayStarSprite;
             }
         }
+        TotalStar.text = current.ToString();
     }
 
     void CheckGoalReached()
