@@ -14,7 +14,23 @@ public class LevelController : MonoBehaviour
 
         for (int i = 0; i < levels.Length; i++)
         {
-            levels[i].interactable = (i + 1) < unlockedLevel || (i + 1) == unlockedLevel && unlockedStage > 0;
+            // Determine if the current level button should be interactable
+            if (i + 1 < unlockedLevel)
+            {
+                levels[i].interactable = true; // Unlock previous levels
+            }
+            else if (i + 1 == unlockedLevel)
+            {
+                // Unlock stages of the current level based on completed stages
+                levels[i].interactable = i + 1 <= unlockedStage; // Level is interactable if its stage is completed
+            }
+            else
+            {
+                // Lock future levels
+                levels[i].interactable = false;
+            }
         }
     }
+
+
 }
