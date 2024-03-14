@@ -226,7 +226,12 @@ public class DrawCards : MonoBehaviour
             Destroy(currentCard);
         }
 
-        Vector3 cardPosition = new Vector3(0, 0, currentIndex * cardOffset);
+        if (currentIndex == 20)
+        {
+            
+        }
+
+        Vector3 cardPosition = new Vector3(0, -1, currentIndex * cardOffset);
         currentCard = Instantiate(shuffledCards[currentIndex], cardPosition, Quaternion.identity);
         currCardName = shuffledCards[currentIndex].name;
        /* Debug.Log("Card instantiated: " + shuffledCards[currentIndex].name);

@@ -90,7 +90,7 @@ public class StarBar : MonoBehaviour
     void Update()
     {
         GetCurrentFill();
-        CheckGoalReached();
+   /*     CheckGoalReached();*/
     }
 
     void GetCurrentFill()
@@ -118,7 +118,7 @@ public class StarBar : MonoBehaviour
         TotalStar.text = current.ToString();
     }
 
-    void CheckGoalReached()
+   /* void CheckGoalReached()
     {
         if (coinsBar != null && coinsBar.current >= coinsBar.maximum && current >= maximum && countCards.clickCount >= 0)
         {
@@ -132,7 +132,7 @@ public class StarBar : MonoBehaviour
                 GameOverPanel.SetActive(true);
             }
         }
-    }
+    }*/
     void GameComplete()
     {
         gameController.UnlockNewLevel();

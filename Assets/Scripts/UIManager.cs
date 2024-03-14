@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+/*using UnityEditor.VersionControl;*/
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +13,9 @@ public class UIManager : MonoBehaviour
     public GameObject loginUI;
     public GameObject registerUI;
     public GameObject EmailVerification;
-    // public Text emailverificationText;
+    public Text emailverificationText;
+    public TMP_Text warningLoginText;
+
 
 
     private void Awake()
@@ -45,10 +49,12 @@ public class UIManager : MonoBehaviour
         if (isEmailSent)
         {
             Debug.Log($"Verification email has been sent to email {emailID}");
+            warningLoginText.text = ($"Verification email has been sent to email {emailID}");
         }
         else
         {
             Debug.Log($"Couldn't send email {errorMessage}");
+            warningLoginText.text = ($"Couldn't send email {errorMessage}");
         }
     }
 

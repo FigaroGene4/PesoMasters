@@ -386,6 +386,9 @@ public class AuthManager : MonoBehaviour
             case AuthError.UserNotFound:
                 message = "Account does not exist";
                 break;
+            case AuthError.UnverifiedEmail:
+                message = "Please verify your email first";
+                break;
                 // Add more cases as needed
         }
 

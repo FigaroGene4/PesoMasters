@@ -43,7 +43,7 @@ public class CoinsBar : MonoBehaviour
     {
         GetCurrentFill();
         CheckGameOver();
-        CheckGoalReached();
+        
     }
     /*void LatUpdate()
     {
@@ -59,26 +59,53 @@ public class CoinsBar : MonoBehaviour
     }
     void CheckGameOver()
     {
-        if (current <= 0)
+        if (current <= 0 || EnergyBar.current <= 0)
         {
             GameOverPanel.SetActive(true);
+            
         }
     }
-    void CheckGoalReached()
+    public void CheckGoalReached()
     {
-        if (starBar != null && starBar.current >= starBar.maximum && current >= maximum && countCards.clickCount >= 0)
+        if (starBar.current >= 1 && current >= 60 && countCards.clickCount <= 0)
         {
+            Debug.Log("COINSBARGOAL");
             GameComplete();
         }
-        else if (starBar.current < 0 || current <= 0 || countCards.clickCount <= 0 || EnergyBar.current <= 0)
+
+        else if (starBar.current <= 1 && current <60 && countCards.clickCount <= 0)
         {
-            if (GameOverPanel != null)
-            {
-                GameOverPanel.SetActive(true);
-            }
+            Debug.Log("COINSBARGOAL");
+            GameOverPanel.SetActive(true);
         }
+
+        else if (starBar.current <= 1 || current < 60 && countCards.clickCount <= 0)
+        {
+            Debug.Log("COINSBARGOAL");
+            GameOverPanel.SetActive(true);
+        }
+
+
+        /* if (countCards.clickCount <= 0) {
+             if (starBar.current < 0 || current <= 0 || EnergyBar.current <= 0) 
+
+             if (countCards.clickCount <= 0)
+             {
+                 Debug.Log("COINSBARGOALOVER");
+                 GameOverPanel.SetActive(true);
+                 if (GameOverPanel != null)
+                 {
+                     Debug.Log("COINSBARGOALOVER");
+                     GameOverPanel.SetActive(true);
+                 }
+
+             }
+
+
+         }*/
+
     }
-    void GameComplete()
+    public void GameComplete()
     {
         gameController.UnlockNewLevel();
         StageClearPanel.SetActive(true);
@@ -101,7 +128,7 @@ public class CoinsBar : MonoBehaviour
             {"Income", CardInc1},
             {"Income (2)", CardInc2},
             {"Income (3)", CardInc3},
-            {"IncomE (4)", CardInc4},
+            {"Income (4)", CardInc4},
             {"Income (5)", CardInc5},
             {"Income (6)", CardInc6},
             {"Income (7)", CardInc7},
