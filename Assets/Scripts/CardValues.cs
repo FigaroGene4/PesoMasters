@@ -8,6 +8,7 @@ public class CardValues : MonoBehaviour
     public int coinsChange;
     public int energyChange;
     internal int goldChange;
+    public string challengePrompt;
 
     // Start is called before the first frame update
     void Start()

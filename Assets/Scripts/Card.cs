@@ -10,6 +10,7 @@ public class Cards : ScriptableObject
     public int gold;
     public int star;
     public int weight = 1;
+    public string prompt;
 }
 
 /*public class CardHolder : MonoBehaviour
