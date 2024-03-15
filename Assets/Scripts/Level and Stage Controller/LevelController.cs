@@ -4,8 +4,8 @@ using UnityEngine.UI;
 public class LevelController : MonoBehaviour
 {
     public Button[] levels;
-    private int unlockedLevel;
-    private int unlockedStage;
+    public int unlockedLevel;
+    public int unlockedStage;
 
     private void Awake()
     {
@@ -31,6 +31,4 @@ public class LevelController : MonoBehaviour
             }
         }
     }
-
-
 }

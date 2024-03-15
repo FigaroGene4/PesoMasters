@@ -14,7 +14,6 @@ public class StarBar : MonoBehaviour
     public CoinsBar coinsBar;
     public countCards countCards;
     public EnergyBar EnergyBar;
-    public GameController gameController;
 
     public Image[] stars;
     public Sprite yellowStarSprite;
@@ -135,7 +134,6 @@ public class StarBar : MonoBehaviour
     }*/
     void GameComplete()
     {
-        gameController.UnlockNewLevel();
         StageClearPanel.SetActive(true);
     }
     public void getStar()

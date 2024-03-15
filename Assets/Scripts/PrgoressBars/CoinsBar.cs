@@ -69,7 +69,9 @@ public class CoinsBar : MonoBehaviour
     {
         if (starBar.current >= 1 && current >= 60 && countCards.clickCount <= 0)
         {
-            Debug.Log("COINSBARGOAL");
+            gameController.UnlockNextStage();
+            Debug.Log("Unlock next");
+            //Debug.Log("COINSBARGOAL");
             GameComplete();
         }
 
@@ -107,7 +109,6 @@ public class CoinsBar : MonoBehaviour
     }
     public void GameComplete()
     {
-        gameController.UnlockNewLevel();
         StageClearPanel.SetActive(true);
     }
     void InitializeCards()

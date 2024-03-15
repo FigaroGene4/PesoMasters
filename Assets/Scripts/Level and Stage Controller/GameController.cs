@@ -4,13 +4,27 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-   public void UnlockNewLevel()
+    public LevelController levelController; // Reference to the LevelController script
+
+    public void UnlockNextStage()
     {
-        if (SceneManager.GetActiveScene().buildIndex >= PlayerPrefs.GetInt("ReachedIndex"))
+        if (levelController.unlockedLevel <= levelController.levels.Length && levelController.unlockedStage < 3)
         {
-            PlayerPrefs.SetInt("ReachedIndex", SceneManager.GetActiveScene().buildIndex + 1);
-            PlayerPrefs.SetInt("UnlockedLevel", PlayerPrefs.GetInt("UnlockedLevel", 1) +1);
+            levelController.unlockedStage++;
+            if (levelController.unlockedStage > 3)
+            {
+                levelController.unlockedStage = 1;
+                levelController.unlockedLevel++;
+                Debug.Log("Unlocking next stage...");
+            }
+            PlayerPrefs.SetInt("UnlockedStage", levelController.unlockedStage);
+            PlayerPrefs.SetInt("UnlockedLevel", levelController.unlockedLevel);
             PlayerPrefs.Save();
+            Debug.Log("Unlocking next level...");
+        }
+        else
+        {
+            Debug.Log("All stages are already unlocked or maximum stages reached.");
         }
     }
 

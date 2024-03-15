@@ -3197,6 +3197,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &653313267
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 653313269}
+  - component: {fileID: 653313268}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &653313268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653313267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6de015c6c64b92478ea5a611e26fc0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelController: {fileID: 1321932856}
+--- !u!4 &653313269
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653313267}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.4906117, y: -0.28976074, z: 1072.3151}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &657073382
 GameObject:
   m_ObjectHideFlags: 0
@@ -3369,7 +3414,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "- Earn at  least 1 star \n- Save 20 coins"
+  m_text: "- Earn at  least 1 star \n- Save 60 coins"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
@@ -7667,26 +7712,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1321932855}
-  - component: {fileID: 1321932854}
+  - component: {fileID: 1321932856}
   m_Layer: 0
-  m_Name: GameController
+  m_Name: LevelController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1321932854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321932853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6de015c6c64b92478ea5a611e26fc0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1321932855
 Transform:
   m_ObjectHideFlags: 0
@@ -7702,6 +7735,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1321932856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321932853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2244c9f7f841fa4fa0fef7bef00edd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levels: []
+  unlockedLevel: 0
+  unlockedStage: 0
 --- !u!1 &1346791792
 GameObject:
   m_ObjectHideFlags: 0
@@ -8415,8 +8463,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278254839
-  m_fontColor: {r: 0.96862745, g: 0.9882353, b: 0, a: 1}
+    rgba: 4278255610
+  m_fontColor: {r: 0.9801587, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8433,10 +8481,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48
+  m_fontSize: 55.65
   m_fontSizeBase: 48
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -9488,7 +9536,6 @@ MonoBehaviour:
   coinsBar: {fileID: 428631415}
   countCards: {fileID: 776742337}
   EnergyBar: {fileID: 1884553817}
-  gameController: {fileID: 1321932854}
   stars:
   - {fileID: 1587239438}
   - {fileID: 2144268053}
@@ -13030,11 +13077,15 @@ PrefabInstance:
     - target: {fileID: 910006882944981081, guid: 4726c8b8b3009e84dbb921519e4f4793, type: 3}
       propertyPath: gameController
       value: 
-      objectReference: {fileID: 1321932854}
+      objectReference: {fileID: 653313268}
     - target: {fileID: 910006882944981081, guid: 4726c8b8b3009e84dbb921519e4f4793, type: 3}
       propertyPath: StageClearPanel
       value: 
       objectReference: {fileID: 1419168096}
+    - target: {fileID: 910006882944981081, guid: 4726c8b8b3009e84dbb921519e4f4793, type: 3}
+      propertyPath: levelController
+      value: 
+      objectReference: {fileID: 1321932856}
     - target: {fileID: 2858343835492161940, guid: 4726c8b8b3009e84dbb921519e4f4793, type: 3}
       propertyPath: m_SizeDelta.x
       value: 275.8
@@ -13236,3 +13287,4 @@ SceneRoots:
   - {fileID: 1321932855}
   - {fileID: 1570578630}
   - {fileID: 1851576675}
+  - {fileID: 653313269}
