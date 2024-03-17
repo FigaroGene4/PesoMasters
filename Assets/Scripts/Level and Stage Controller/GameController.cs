@@ -1,31 +1,49 @@
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public LevelController levelController; // Reference to the LevelController script
+    public static GameController Instance;
 
-    public void UnlockNextStage()
+    public LevelController levelController;
+    public StageController stageController;
+
+    private int nextStageToUnlock; // Variable to store the stage number to unlock next
+
+    private void Awake()
     {
-        if (levelController.unlockedLevel <= levelController.levels.Length && levelController.unlockedStage < 3)
+        if (Instance == null)
         {
-            levelController.unlockedStage++;
-            if (levelController.unlockedStage > 3)
-            {
-                levelController.unlockedStage = 1;
-                levelController.unlockedLevel++;
-                Debug.Log("Unlocking next stage...");
-            }
-            PlayerPrefs.SetInt("UnlockedStage", levelController.unlockedStage);
-            PlayerPrefs.SetInt("UnlockedLevel", levelController.unlockedLevel);
-            PlayerPrefs.Save();
-            Debug.Log("Unlocking next level...");
+            Instance = this;
         }
         else
         {
-            Debug.Log("All stages are already unlocked or maximum stages reached.");
+            Destroy(gameObject);
+            return;
         }
+
+        DontDestroyOnLoad(gameObject);
+
+        // Find LevelController and StageController in the scene
+        levelController = FindObjectOfType<LevelController>();
+        stageController = FindObjectOfType<StageController>();
     }
 
+    // Method to unlock a stage
+    public void UnlockStage(int stageNumber)
+    {
+        stageController.UnlockStage(stageNumber);
+        levelController.UpdateLevelsInteractivity(); // Update levels' interactivity
+    }
+
+    // Method to set the next stage to unlock
+    public void SetNextStageToUnlock(int stageNumber)
+    {
+        nextStageToUnlock = stageNumber;
+    }
+
+    // Method to unlock the next stage
+    public void UnlockNextStage()
+    {
+        UnlockStage(nextStageToUnlock);
+    }
 }

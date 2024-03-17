@@ -69,8 +69,6 @@ public class CoinsBar : MonoBehaviour
     {
         if (starBar.current >= 1 && current >= 60 && countCards.clickCount <= 0)
         {
-            gameController.UnlockNextStage();
-            Debug.Log("Unlock next");
             //Debug.Log("COINSBARGOAL");
             GameComplete();
         }
@@ -109,8 +107,17 @@ public class CoinsBar : MonoBehaviour
     }
     public void GameComplete()
     {
-        StageClearPanel.SetActive(true);
+        if (StageClearPanel != null)
+        {
+            StageClearPanel.SetActive(true);
+            GameController.Instance.stageController.AutoUnlockNextStage();
+        }
+        else
+        {
+            Debug.LogError("StageClearPanel is not assigned!");
+        }
     }
+
     void InitializeCards()
     {
         // Initialize the dictionary with your Cards instances
