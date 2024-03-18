@@ -13,8 +13,8 @@ public class UIManager : MonoBehaviour
     public GameObject loginUI;
     public GameObject registerUI;
     public GameObject EmailVerification;
-    public Text emailverificationText;
-    public TMP_Text warningLoginText;
+    public TMP_Text emailverificationText;
+    //public TMP_Text warningLoginText;
 
 
 
@@ -48,13 +48,13 @@ public class UIManager : MonoBehaviour
 
         if (isEmailSent)
         {
-            Debug.Log($"Verification email has been sent to email {emailID}");
-            warningLoginText.text = ($"Verification email has been sent to email {emailID}");
+            Debug.Log($"Verification link has been sent to email {emailID}");
+            emailverificationText.text = ($"Verification link has been sent to email {emailID}");
         }
         else
         {
-            Debug.Log($"Couldn't send email {errorMessage}");
-            warningLoginText.text = ($"Couldn't send email {errorMessage}");
+            Debug.Log($"Couldn't send link to email {errorMessage}");
+            emailverificationText.text = ($"Couldn't send  link to email {errorMessage}");
         }
     }
 
