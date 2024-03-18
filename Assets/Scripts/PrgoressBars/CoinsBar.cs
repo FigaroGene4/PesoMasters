@@ -26,6 +26,13 @@ public class CoinsBar : MonoBehaviour
 
     public int maximum;
     public int current;
+    public int sum;
+    public int userCoins;
+
+
+    public dataUseDB dataUseDB;
+    public dataSaveDB dataSaveDB;
+
     public Image mask;
     public Cards CardExp1, CardExp2, CardExp3, CardExp4, CardExp5, CardExp6, CardExp7, CardExp8, CardExp9, CardExp10,
         CardInc1, CardInc2, CardInc3, CardInc4, CardInc5, CardInc6, CardInc7, CardInc8, CardInc9, CardInc10,
@@ -34,7 +41,12 @@ public class CoinsBar : MonoBehaviour
 
     public Dictionary<string, Cards> cardDictionary;
 
-    void Start()
+
+    Firebase.Auth.FirebaseAuth auth;
+    Firebase.Auth.FirebaseUser User;
+
+
+void Start()
     {
         InitializeCards();
         GameOverPanel.SetActive(false);
@@ -65,12 +77,28 @@ public class CoinsBar : MonoBehaviour
             
         }
     }
+
+    public void SetUserCoins(int coins)
+    {
+        userCoins = coins;
+        // Now you can use 'userCoins' within this class
+
+        
+    }
+
     public void CheckGoalReached()
     {
         if (starBar.current >= 1 && current >= 60 && countCards.clickCount <= 0)
         {
-            Debug.Log("COINSBARGOAL");
+            //Debug.Log("COINSBARGOAL");
             GameComplete();
+          //  dataSaveDB.getCurrentLvlCoin();
+            dataSaveDB.addStar();
+            dataSaveDB.addCoins();
+            dataSaveDB.addStarLvl1Stage1();
+
+
+
         }
 
         else if (starBar.current <= 1 && current <60 && countCards.clickCount <= 0)
@@ -107,9 +135,17 @@ public class CoinsBar : MonoBehaviour
     }
     public void GameComplete()
     {
-        gameController.UnlockNewLevel();
-        StageClearPanel.SetActive(true);
+        if (StageClearPanel != null)
+        {
+            StageClearPanel.SetActive(true);
+            GameController.Instance.stageController.AutoUnlockNextStage();
+        }
+        else
+        {
+            Debug.LogError("StageClearPanel is not assigned!");
+        }
     }
+
     void InitializeCards()
     {
         // Initialize the dictionary with your Cards instances
