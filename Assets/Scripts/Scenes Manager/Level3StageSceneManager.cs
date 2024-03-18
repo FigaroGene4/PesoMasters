@@ -5,7 +5,7 @@ public class Level3StageSceneManager : MonoBehaviour
 {
     public void BackBtn()
     {
-        SceneManager.LoadScene("GameMap");
+        SceneManager.LoadScene("GameMapLevel3");
     }
     /*
     public void Lvl3Stage1()
