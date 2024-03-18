@@ -52,8 +52,6 @@ public class countCards : MonoBehaviour
             noButton.interactable = false;        
             SoundManager.Instance.musicSource.Stop();
             SoundManager.Instance.PlaySFX("Win");
-
-            
         }
                 
         else
