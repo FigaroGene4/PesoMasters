@@ -7,7 +7,7 @@ public class Level5StageSceneManager : MonoBehaviour
 {
     public void BackBtn()
     {
-        SceneManager.LoadScene("GameMap");
+        SceneManager.LoadScene("GameMapLevel5");
     }
     /*
     public void Lvl4Stage1()

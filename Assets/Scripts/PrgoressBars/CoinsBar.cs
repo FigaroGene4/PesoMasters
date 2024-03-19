@@ -69,7 +69,7 @@ public class CoinsBar : MonoBehaviour
     {
         if (starBar.current >= 1 && current >= 60 && countCards.clickCount <= 0)
         {
-            //Debug.Log("COINSBARGOAL");
+            Debug.Log("COINSBARGOAL");
             GameComplete();
         }
 
@@ -107,24 +107,9 @@ public class CoinsBar : MonoBehaviour
     }
     public void GameComplete()
     {
-        if (StageClearPanel != null)
-        {
-            StageClearPanel.SetActive(true);
-            if (gameController != null)
-            {
-                gameController.UnlockNextStage();
-            }
-            else
-            {
-                Debug.LogError("GameController is not assigned!");
-            }
-        }
-        else
-        {
-            Debug.LogError("StageClearPanel is not assigned!");
-        }
+        gameController.UnlockNewLevel();
+        StageClearPanel.SetActive(true);
     }
-
     void InitializeCards()
     {
         // Initialize the dictionary with your Cards instances
