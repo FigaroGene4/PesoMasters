@@ -26,6 +26,7 @@ public class GameController : MonoBehaviour
         // Find LevelController and StageController in the scene
         levelController = FindObjectOfType<LevelController>();
         stageController = FindObjectOfType<StageController>();
+        levelController.Init(this, stageController.stages.Length);
     }
 
     // Method to unlock a stage
@@ -33,6 +34,13 @@ public class GameController : MonoBehaviour
     {
         stageController.UnlockStage(stageNumber);
         levelController.UpdateLevelsInteractivity(); // Update levels' interactivity
+        levelController.CheckUnlockNextLevel(); // Check if all stages are unlocked to unlock the next level
+    }
+
+    // Method to unlock the next stage
+    public void UnlockNextStage()
+    {
+        UnlockStage(nextStageToUnlock);
     }
 
     // Method to set the next stage to unlock
@@ -41,9 +49,9 @@ public class GameController : MonoBehaviour
         nextStageToUnlock = stageNumber;
     }
 
-    // Method to unlock the next stage
-    public void UnlockNextStage()
+    // Method to unlock the next level
+    public void UnlockNextLevel()
     {
-        UnlockStage(nextStageToUnlock);
+        levelController.UnlockNextLevel();
     }
 }

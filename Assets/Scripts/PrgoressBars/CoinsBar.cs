@@ -110,7 +110,14 @@ public class CoinsBar : MonoBehaviour
         if (StageClearPanel != null)
         {
             StageClearPanel.SetActive(true);
-            GameController.Instance.stageController.AutoUnlockNextStage();
+            if (gameController != null)
+            {
+                gameController.UnlockNextStage();
+            }
+            else
+            {
+                Debug.LogError("GameController is not assigned!");
+            }
         }
         else
         {
