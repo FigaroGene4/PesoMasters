@@ -135,7 +135,6 @@ public class StarBar : MonoBehaviour
     }*/
     void GameComplete()
     {
-        gameController.UnlockNewLevel();
         StageClearPanel.SetActive(true);
     }
     public void getStar()

@@ -16,6 +16,7 @@ public class CoinsBar : MonoBehaviour
     public DrawCards drawCards;
     public countCards countCards;
     public GameController gameController;
+    public LevelManager levelManager;
 
     public Text goldText;
     public TextMeshProUGUI GOyourScore; //Game Over Panel
@@ -39,6 +40,19 @@ public class CoinsBar : MonoBehaviour
         InitializeCards();
         GameOverPanel.SetActive(false);
     }
+ /*   void Awake()
+    {
+        if (gameController == null)
+        {
+            Debug.Log("Attempting to find GameController instance...");
+            gameController = GameController.instance;
+        }
+        if (gameController == null)
+        {
+            Debug.LogError("GameController is still not assigned!");
+        }
+    }
+ */
     private void Update()
     {
         GetCurrentFill();
@@ -107,9 +121,31 @@ public class CoinsBar : MonoBehaviour
     }
     public void GameComplete()
     {
-        gameController.UnlockNewLevel();
-        StageClearPanel.SetActive(true);
+        if (gameController == null)
+        {
+            Debug.LogError("GameController is not assigned!");
+            return;
+        }
+
+        if (StageClearPanel != null)
+        {
+            StageClearPanel.SetActive(true);
+            if (gameController != null)
+            {
+                gameController.UnlockNextStage();
+            }
+            else
+            {
+                Debug.LogError("GameController is not assigned!");
+            }
+        }
+
+        else
+        {
+            Debug.LogError("StageClearPanel is not assigned!");
+        }
     }
+
     void InitializeCards()
     {
         // Initialize the dictionary with your Cards instances
