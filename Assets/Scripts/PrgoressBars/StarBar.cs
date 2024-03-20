@@ -12,14 +12,15 @@ public class StarBar : MonoBehaviour
     [SerializeField] GameObject GameOverPanel;
     [SerializeField] GameObject StageClearPanel;
     public CoinsBar coinsBar;
+    public StarsEarnedSC starsEarnedSC;
+    public StarsEarnedGO starsEarnedGO;
     public countCards countCards;
     public EnergyBar EnergyBar;
-
+    public GameController gameController;
     public Image[] stars;
     public Sprite yellowStarSprite;
     public Sprite grayStarSprite;
     public TextMeshProUGUI TotalStar; //Store Total Current Star
-
     public DrawCards drawCards;
     public int maximum;
     public int current;
@@ -132,10 +133,12 @@ public class StarBar : MonoBehaviour
             }
         }
     }*/
+
     void GameComplete()
     {
         StageClearPanel.SetActive(true);
     }
+    
     public void getStar()
     {
         string nameOfCard = drawCards.currCardName;

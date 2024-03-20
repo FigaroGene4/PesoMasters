@@ -4,7 +4,6 @@ using System.Linq;
 using TMPro;
 using TMPro.Examples;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [ExecuteInEditMode()]
@@ -13,9 +12,12 @@ public class CoinsBar : MonoBehaviour
     [SerializeField] GameObject GameOverPanel;
     [SerializeField] GameObject StageClearPanel;
     public StarBar starBar;
+    public StarsEarnedSC starsEarnedSC; 
+    public StarsEarnedGO starsEarnedSGO; 
     public EnergyBar EnergyBar;
     public DrawCards drawCards;
     public countCards countCards;
+    public GameController gameController;
     public LevelManager levelManager;
 
     public Text goldText;
@@ -57,7 +59,7 @@ public class CoinsBar : MonoBehaviour
     {
         GetCurrentFill();
         CheckGameOver();
-        CheckGoalReached();
+        
         
     }
     /*void LatUpdate()
@@ -76,31 +78,33 @@ public class CoinsBar : MonoBehaviour
     {
         if (current <= 0 || EnergyBar.current <= 0)
         {
-            Debug.Log("CheckGameover");
+            starsEarnedSGO.DisplayStarsEarned(starBar.current);
             GameOverPanel.SetActive(true);
+            
         }
     }
     public void CheckGoalReached()
     {
         if (starBar.current >= 1 && current >= 60 && countCards.clickCount <= 0)
         {
-            Debug.Log("COINSBARGOAL");
             GameComplete();
         }
 
-        else if (starBar.current <= 1 && current < 60 && countCards.clickCount <= 0)
+        else if (starBar.current <= 1 && current <60 && countCards.clickCount <= 0)
         {
-            Debug.Log("COINSBARGOAL - else 1");
+            starsEarnedSGO.DisplayStarsEarned(starBar.current);
             GameOverPanel.SetActive(true);
         }
 
-        /*
         else if (starBar.current <= 1 || current < 60 && countCards.clickCount <= 0)
         {
-            Debug.Log("COINSBARGOAL - else 2");
+            starsEarnedSGO.DisplayStarsEarned(starBar.current);
             GameOverPanel.SetActive(true);
+            
         }
-         if (countCards.clickCount <= 0) {
+
+
+        /* if (countCards.clickCount <= 0) {
              if (starBar.current < 0 || current <= 0 || EnergyBar.current <= 0) 
 
              if (countCards.clickCount <= 0)
@@ -114,35 +118,16 @@ public class CoinsBar : MonoBehaviour
                  }
 
              }
+
+
          }*/
 
     }
     public void GameComplete()
     {
+        starsEarnedSC.DisplayStarsEarned(starBar.current);
         StageClearPanel.SetActive(true);
-        LevelManager levelManager = FindObjectOfType<LevelManager>();
-
-        if (levelManager != null)
-        {
-            int currentStageIndex = SceneManager.GetActiveScene().buildIndex % 3; // Assuming each level has 3 stages
-            int stagesPerLevel = 3; // Assuming each level has 3 stages
-
-            // Unlock the next stage
-            levelManager.UnlockNextStage();
-
-            // If the current stage is the last stage of the level
-            if ((currentStageIndex + 1) % stagesPerLevel == 0)
-            {
-                // Unlock the next level
-                levelManager.UnlockNextLevel();
-            }
-        }
-        else
-        {
-            Debug.LogWarning("LevelManager not found in the scene!");
-        }
     }
-
 
     void InitializeCards()
     {
