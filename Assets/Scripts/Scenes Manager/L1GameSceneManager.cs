@@ -11,15 +11,15 @@ public class L1GameSceneManager : MonoBehaviour
     }
     public void NextBtnStage1()
     {
-        SceneManager.LoadScene("GamesceneLvl1Stage2");
+        SceneManager.LoadScene("Level1StagesMap");
     }
     public void NextBtnStage2()
     {
-        SceneManager.LoadScene("GamesceneLvl1Stage3");
+        SceneManager.LoadScene("Level1StagesMap");
     }
     public void NextBtnStage3()
     {
-        SceneManager.LoadScene("GamesceneLvl2Stage1");
+        SceneManager.LoadScene("Level1StagesMap");
     }
     public void RestartBtn()
     {

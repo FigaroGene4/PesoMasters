@@ -15,12 +15,10 @@ public class StarBar : MonoBehaviour
     public countCards countCards;
     public EnergyBar EnergyBar;
     public GameController gameController;
-
     public Image[] stars;
     public Sprite yellowStarSprite;
     public Sprite grayStarSprite;
     public TextMeshProUGUI TotalStar; //Store Total Current Star
-
     public DrawCards drawCards;
     public int maximum;
     public int current;
@@ -133,11 +131,12 @@ public class StarBar : MonoBehaviour
             }
         }
     }*/
+
     void GameComplete()
     {
-        gameController.UnlockNewLevel();
         StageClearPanel.SetActive(true);
     }
+    
     public void getStar()
     {
         string nameOfCard = drawCards.currCardName;

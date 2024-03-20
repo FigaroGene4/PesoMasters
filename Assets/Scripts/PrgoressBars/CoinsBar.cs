@@ -12,10 +12,12 @@ public class CoinsBar : MonoBehaviour
     [SerializeField] GameObject GameOverPanel;
     [SerializeField] GameObject StageClearPanel;
     public StarBar starBar;
+    public StarsEarned starsEarned; // Reference to the StarsEarned script component
     public EnergyBar EnergyBar;
     public DrawCards drawCards;
     public countCards countCards;
     public GameController gameController;
+    public LevelManager levelManager;
 
     public Text goldText;
     public TextMeshProUGUI GOyourScore; //Game Over Panel
@@ -39,6 +41,19 @@ public class CoinsBar : MonoBehaviour
         InitializeCards();
         GameOverPanel.SetActive(false);
     }
+ /*   void Awake()
+    {
+        if (gameController == null)
+        {
+            Debug.Log("Attempting to find GameController instance...");
+            gameController = GameController.instance;
+        }
+        if (gameController == null)
+        {
+            Debug.LogError("GameController is still not assigned!");
+        }
+    }
+ */
     private void Update()
     {
         GetCurrentFill();
@@ -61,6 +76,7 @@ public class CoinsBar : MonoBehaviour
     {
         if (current <= 0 || EnergyBar.current <= 0)
         {
+            starsEarned.DisplayStarsEarned(starBar.current);
             GameOverPanel.SetActive(true);
             
         }
@@ -76,12 +92,14 @@ public class CoinsBar : MonoBehaviour
         else if (starBar.current <= 1 && current <60 && countCards.clickCount <= 0)
         {
             Debug.Log("COINSBARGOAL");
+            starsEarned.DisplayStarsEarned(starBar.current);
             GameOverPanel.SetActive(true);
         }
 
         else if (starBar.current <= 1 || current < 60 && countCards.clickCount <= 0)
         {
             Debug.Log("COINSBARGOAL");
+            starsEarned.DisplayStarsEarned(starBar.current);
             GameOverPanel.SetActive(true);
         }
 
@@ -107,9 +125,12 @@ public class CoinsBar : MonoBehaviour
     }
     public void GameComplete()
     {
-        gameController.UnlockNewLevel();
+        Debug.Log("Game completed!");
+        Debug.Log("Stars earned: " + starBar.current);
+        starsEarned.DisplayStarsEarned(starBar.current);
         StageClearPanel.SetActive(true);
     }
+
     void InitializeCards()
     {
         // Initialize the dictionary with your Cards instances
