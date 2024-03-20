@@ -12,6 +12,7 @@ public class CoinsBar : MonoBehaviour
     [SerializeField] GameObject GameOverPanel;
     [SerializeField] GameObject StageClearPanel;
     public StarBar starBar;
+    public StarsEarned starsEarned; // Reference to the StarsEarned script component
     public EnergyBar EnergyBar;
     public DrawCards drawCards;
     public countCards countCards;
@@ -75,6 +76,7 @@ public class CoinsBar : MonoBehaviour
     {
         if (current <= 0 || EnergyBar.current <= 0)
         {
+            starsEarned.DisplayStarsEarned(starBar.current);
             GameOverPanel.SetActive(true);
             
         }
@@ -90,12 +92,14 @@ public class CoinsBar : MonoBehaviour
         else if (starBar.current <= 1 && current <60 && countCards.clickCount <= 0)
         {
             Debug.Log("COINSBARGOAL");
+            starsEarned.DisplayStarsEarned(starBar.current);
             GameOverPanel.SetActive(true);
         }
 
         else if (starBar.current <= 1 || current < 60 && countCards.clickCount <= 0)
         {
             Debug.Log("COINSBARGOAL");
+            starsEarned.DisplayStarsEarned(starBar.current);
             GameOverPanel.SetActive(true);
         }
 
@@ -121,29 +125,10 @@ public class CoinsBar : MonoBehaviour
     }
     public void GameComplete()
     {
-        if (gameController == null)
-        {
-            Debug.LogError("GameController is not assigned!");
-            return;
-        }
-
-        if (StageClearPanel != null)
-        {
-            StageClearPanel.SetActive(true);
-            if (gameController != null)
-            {
-                gameController.UnlockNextStage();
-            }
-            else
-            {
-                Debug.LogError("GameController is not assigned!");
-            }
-        }
-
-        else
-        {
-            Debug.LogError("StageClearPanel is not assigned!");
-        }
+        Debug.Log("Game completed!");
+        Debug.Log("Stars earned: " + starBar.current);
+        starsEarned.DisplayStarsEarned(starBar.current);
+        StageClearPanel.SetActive(true);
     }
 
     void InitializeCards()
