@@ -6,13 +6,13 @@ using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Image = UnityEngine.UI.Image;
 
-public class StarsEarned : MonoBehaviour
+public class StarsEarnedGO : MonoBehaviour
 {
-
     public Image[] stars;
     public Sprite yellowStarSprite;
     public Sprite grayStarSprite;
     public CoinsBar coinsBar;
+    public StarBar starBar;
 
     public void DisplayStarsEarned(int filledStars)
     {

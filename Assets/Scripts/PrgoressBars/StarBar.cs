@@ -12,6 +12,8 @@ public class StarBar : MonoBehaviour
     [SerializeField] GameObject GameOverPanel;
     [SerializeField] GameObject StageClearPanel;
     public CoinsBar coinsBar;
+    public StarsEarnedSC starsEarnedSC;
+    public StarsEarnedGO starsEarnedGO;
     public countCards countCards;
     public EnergyBar EnergyBar;
     public GameController gameController;

@@ -12,7 +12,8 @@ public class CoinsBar : MonoBehaviour
     [SerializeField] GameObject GameOverPanel;
     [SerializeField] GameObject StageClearPanel;
     public StarBar starBar;
-    public StarsEarned starsEarned; // Reference to the StarsEarned script component
+    public StarsEarnedSC starsEarnedSC; 
+    public StarsEarnedGO starsEarnedSGO; 
     public EnergyBar EnergyBar;
     public DrawCards drawCards;
     public countCards countCards;
@@ -59,6 +60,7 @@ public class CoinsBar : MonoBehaviour
         GetCurrentFill();
         CheckGameOver();
         
+        
     }
     /*void LatUpdate()
     {
@@ -76,7 +78,7 @@ public class CoinsBar : MonoBehaviour
     {
         if (current <= 0 || EnergyBar.current <= 0)
         {
-            starsEarned.DisplayStarsEarned(starBar.current);
+            starsEarnedSGO.DisplayStarsEarned(starBar.current);
             GameOverPanel.SetActive(true);
             
         }
@@ -85,22 +87,20 @@ public class CoinsBar : MonoBehaviour
     {
         if (starBar.current >= 1 && current >= 60 && countCards.clickCount <= 0)
         {
-            Debug.Log("COINSBARGOAL");
             GameComplete();
         }
 
         else if (starBar.current <= 1 && current <60 && countCards.clickCount <= 0)
         {
-            Debug.Log("COINSBARGOAL");
-            starsEarned.DisplayStarsEarned(starBar.current);
+            starsEarnedSGO.DisplayStarsEarned(starBar.current);
             GameOverPanel.SetActive(true);
         }
 
         else if (starBar.current <= 1 || current < 60 && countCards.clickCount <= 0)
         {
-            Debug.Log("COINSBARGOAL");
-            starsEarned.DisplayStarsEarned(starBar.current);
+            starsEarnedSGO.DisplayStarsEarned(starBar.current);
             GameOverPanel.SetActive(true);
+            
         }
 
 
@@ -125,9 +125,7 @@ public class CoinsBar : MonoBehaviour
     }
     public void GameComplete()
     {
-        Debug.Log("Game completed!");
-        Debug.Log("Stars earned: " + starBar.current);
-        starsEarned.DisplayStarsEarned(starBar.current);
+        starsEarnedSC.DisplayStarsEarned(starBar.current);
         StageClearPanel.SetActive(true);
     }
 
