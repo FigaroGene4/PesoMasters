@@ -30,8 +30,6 @@ public class LevelManager : MonoBehaviour
             levelButtons[i].interactable = true;
         }
     }
-
-
     public void UnlockNextStage()
     {
         if (SceneManager.GetActiveScene().buildIndex >= PlayerPrefs.GetInt("ReachedIndex"))

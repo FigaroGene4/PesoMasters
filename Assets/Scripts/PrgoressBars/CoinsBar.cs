@@ -4,6 +4,7 @@ using System.Linq;
 using TMPro;
 using TMPro.Examples;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [ExecuteInEditMode()]
@@ -17,7 +18,6 @@ public class CoinsBar : MonoBehaviour
     public EnergyBar EnergyBar;
     public DrawCards drawCards;
     public countCards countCards;
-    public GameController gameController;
     public LevelManager levelManager;
 
     public Text goldText;
@@ -36,7 +36,6 @@ public class CoinsBar : MonoBehaviour
         CardChallenge1, CardChallenge2, CardChallenge3, CardChallenge4, CardChallenge5, CardChallenge6, CardChallenge7, CardChallenge8;
 
     public Dictionary<string, Cards> cardDictionary;
-
     void Start()
     {
         InitializeCards();
@@ -127,6 +126,27 @@ public class CoinsBar : MonoBehaviour
     {
         starsEarnedSC.DisplayStarsEarned(starBar.current);
         StageClearPanel.SetActive(true);
+        LevelManager levelManager = FindObjectOfType<LevelManager>();
+
+        if (levelManager != null)
+        {
+            int currentStageIndex = SceneManager.GetActiveScene().buildIndex % 3; // Assuming each level has 3 stages
+            int stagesPerLevel = 3; // Assuming each level has 3 stages
+
+            // Unlock the next stage
+            levelManager.UnlockNextStage();
+
+            // If the current stage is the last stage of the level
+            if ((currentStageIndex + 1) % stagesPerLevel == 0)
+            {
+                // Unlock the next level
+                levelManager.UnlockNextLevel();
+            }
+        }
+        else
+        {
+            Debug.LogWarning("LevelManager not found in the scene!");
+        }
     }
 
     void InitializeCards()
