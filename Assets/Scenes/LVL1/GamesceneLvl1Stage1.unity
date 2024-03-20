@@ -1028,7 +1028,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1570578629}
+      - m_Target: {fileID: 532024169}
         m_TargetAssemblyTypeName: StoreController, Assembly-CSharp
         m_MethodName: OnClickExpense
         m_Mode: 1
@@ -1499,7 +1499,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1570578629}
+      - m_Target: {fileID: 532024169}
         m_TargetAssemblyTypeName: StoreController, Assembly-CSharp
         m_MethodName: OnClickEnergy
         m_Mode: 1
@@ -2114,7 +2114,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1570578629}
+      - m_Target: {fileID: 532024169}
         m_TargetAssemblyTypeName: StoreController, Assembly-CSharp
         m_MethodName: OnClickIncome
         m_Mode: 1
@@ -2454,6 +2454,76 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &532024168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 532024170}
+  - component: {fileID: 532024169}
+  m_Layer: 0
+  m_Name: StoreController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &532024169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532024168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63e596e0a2274cf4d9446e71eeed2532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StorePanel: {fileID: 925228114}
+  StorePromptPanel: {fileID: 969386863}
+  coinBar: {fileID: 428631415}
+  starBar: {fileID: 1575833193}
+  energyBar: {fileID: 1884553817}
+  YesBtn: {fileID: 1123997852}
+  NoBtn: {fileID: 544693135}
+  StoreEnergy: {fileID: 279567149}
+  StoreCoins: {fileID: 650137375}
+  StoreInc: {fileID: 448560337}
+  StoreExp: {fileID: 183529099}
+  StoreChallenge: {fileID: 762038642}
+  StoreBonus: {fileID: 2016609954}
+  BonusCard: {fileID: 990001944}
+  ChallengeCard: {fileID: 1074290064}
+  IncomeCard: {fileID: 759705556}
+  ExpenseCard: {fileID: 101129159}
+  InstantEnergy: {fileID: 839466776}
+  InstantCoins: {fileID: 683193025}
+  newStarCurrent: 0
+  newCoinCurrent: 0
+  newCoinCount: 0
+  newEnergyCurrent: 0
+  newEnergyCount: 0
+  GONewScoreCount: 0
+  SGNewScoreCount: 0
+--- !u!4 &532024170
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532024168}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.3395573, y: -0.48500213, z: 109.36842}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &537077464
 GameObject:
   m_ObjectHideFlags: 0
@@ -2687,7 +2757,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1570578629}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StoreController, Assembly-CSharp
         m_MethodName: OnClickNoBtn
         m_Mode: 1
@@ -3183,7 +3253,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1570578629}
+      - m_Target: {fileID: 532024169}
         m_TargetAssemblyTypeName: StoreController, Assembly-CSharp
         m_MethodName: OnClickCoins
         m_Mode: 1
@@ -4433,7 +4503,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1570578629}
+      - m_Target: {fileID: 532024169}
         m_TargetAssemblyTypeName: StoreController, Assembly-CSharp
         m_MethodName: OnClickChallenge
         m_Mode: 1
@@ -6498,7 +6568,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1570578629}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StoreController, Assembly-CSharp
         m_MethodName: OnClickYesBtn
         m_Mode: 1
@@ -7808,52 +7878,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1320036940}
   m_CullTransparentMesh: 1
---- !u!1 &1321932853
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1321932855}
-  - component: {fileID: 1321932854}
-  m_Layer: 0
-  m_Name: GameController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1321932854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321932853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6de015c6c64b92478ea5a611e26fc0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelController: {fileID: 0}
-  stageController: {fileID: 0}
---- !u!4 &1321932855
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321932853}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.22437902, y: 0.56318015, z: 6.63754}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1346791792
 GameObject:
   m_ObjectHideFlags: 0
@@ -9438,76 +9462,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1567350088}
   m_CullTransparentMesh: 1
---- !u!1 &1570578628
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1570578630}
-  - component: {fileID: 1570578629}
-  m_Layer: 0
-  m_Name: StoreController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1570578629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1570578628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63e596e0a2274cf4d9446e71eeed2532, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StorePanel: {fileID: 925228114}
-  StorePromptPanel: {fileID: 969386863}
-  coinBar: {fileID: 428631415}
-  starBar: {fileID: 1575833193}
-  energyBar: {fileID: 1884553817}
-  YesBtn: {fileID: 1123997852}
-  NoBtn: {fileID: 544693135}
-  StoreEnergy: {fileID: 279567149}
-  StoreCoins: {fileID: 650137375}
-  StoreInc: {fileID: 448560337}
-  StoreExp: {fileID: 183529099}
-  StoreChallenge: {fileID: 762038642}
-  StoreBonus: {fileID: 2016609954}
-  BonusCard: {fileID: 990001944}
-  ChallengeCard: {fileID: 1074290064}
-  IncomeCard: {fileID: 759705556}
-  ExpenseCard: {fileID: 101129159}
-  InstantEnergy: {fileID: 839466776}
-  InstantCoins: {fileID: 683193025}
-  newStarCurrent: 0
-  newCoinCurrent: 0
-  newCoinCount: 0
-  newEnergyCurrent: 0
-  newEnergyCount: 0
-  GONewScoreCount: 0
-  SGNewScoreCount: 0
---- !u!4 &1570578630
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1570578628}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7602111, y: 0.09922107, z: 700.2034}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1575075348
 GameObject:
   m_ObjectHideFlags: 0
@@ -9647,7 +9601,6 @@ MonoBehaviour:
   yellowStarSprite: {fileID: 21300000, guid: d61b7598592597543949810126c48e10, type: 3}
   grayStarSprite: {fileID: 21300000, guid: 7021440c80bde03409baf6cafcc0d3dd, type: 3}
   TotalStar: {fileID: 1809419223}
-  StarsEarned: {fileID: 0}
   drawCards: {fileID: 776742333}
   maximum: 3
   current: 0
@@ -9879,6 +9832,54 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1613907249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1613907251}
+  - component: {fileID: 1613907250}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1613907250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613907249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad9b6cf9313d2c44d99c748567144903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelButtons: []
+  stageButtons: []
+  levelsUnlocked: 
+  stagesUnlocked: 
+--- !u!4 &1613907251
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613907249}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.24251263, y: -0.07168254, z: 116.686874}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1629188990
 GameObject:
   m_ObjectHideFlags: 0
@@ -10095,7 +10096,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1570578629}
+      - m_Target: {fileID: 532024169}
         m_TargetAssemblyTypeName: StoreController, Assembly-CSharp
         m_MethodName: CloseBtn
         m_Mode: 1
@@ -12112,7 +12113,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1570578629}
+      - m_Target: {fileID: 532024169}
         m_TargetAssemblyTypeName: StoreController, Assembly-CSharp
         m_MethodName: OnClickBonus
         m_Mode: 1
@@ -12478,7 +12479,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1570578629}
+      - m_Target: {fileID: 532024169}
         m_TargetAssemblyTypeName: StoreController, Assembly-CSharp
         m_MethodName: Store
         m_Mode: 1
@@ -13177,13 +13178,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1629188992}
     - target: {fileID: 910006882944981081, guid: 4726c8b8b3009e84dbb921519e4f4793, type: 3}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 1613907250}
+    - target: {fileID: 910006882944981081, guid: 4726c8b8b3009e84dbb921519e4f4793, type: 3}
       propertyPath: GameOverPanel
       value: 
       objectReference: {fileID: 166146673}
     - target: {fileID: 910006882944981081, guid: 4726c8b8b3009e84dbb921519e4f4793, type: 3}
       propertyPath: gameController
       value: 
-      objectReference: {fileID: 1321932854}
+      objectReference: {fileID: 0}
     - target: {fileID: 910006882944981081, guid: 4726c8b8b3009e84dbb921519e4f4793, type: 3}
       propertyPath: StageClearPanel
       value: 
@@ -13398,6 +13403,6 @@ SceneRoots:
   - {fileID: 2088559043}
   - {fileID: 1709874947}
   - {fileID: 2088206127}
-  - {fileID: 1321932855}
-  - {fileID: 1570578630}
   - {fileID: 1851576675}
+  - {fileID: 1613907251}
+  - {fileID: 532024170}

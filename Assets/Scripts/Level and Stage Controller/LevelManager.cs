@@ -1,57 +1,55 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
     public Button[] levelButtons; // Array of level buttons
     public Button[] stageButtons; // Array of stage buttons
-    private int[] levelsUnlocked; // Array to keep track of unlocked levels
-    private int[] stagesUnlocked; // Array to keep track of unlocked stages
 
-    void Start()
+    private void Awake()
     {
-        levelsUnlocked = new int[levelButtons.Length];
-        stagesUnlocked = new int[stageButtons.Length];
+        int stagesUnlocked = PlayerPrefs.GetInt("UnlockedStage", 1);
+        int levelsUnlocked = PlayerPrefs.GetInt("UnlockedLevel", 1);
 
-        // Initialize level and stage unlocking status
-        for (int i = 0; i < levelButtons.Length; i++)
+        // Disable all stage buttons initially
+        foreach (Button stageButton in stageButtons)
         {
-            levelsUnlocked[i] = PlayerPrefs.GetInt("Level" + (i + 1), 0);
-            UpdateLevelButton(i);
+            stageButton.interactable = false;
         }
 
-        for (int i = 0; i < stageButtons.Length; i++)
+        // Enable stage buttons based on the number of unlocked stages
+        for (int i = 0; i < Mathf.Min(stagesUnlocked, stageButtons.Length); i++)
         {
-            stagesUnlocked[i] = PlayerPrefs.GetInt("Stage" + (i + 1), 0);
-            UpdateStageButton(i);
+            stageButtons[i].interactable = true;
+        }
+
+        // Enable level buttons based on the number of unlocked levels
+        for (int i = 0; i < Mathf.Min(levelsUnlocked, levelButtons.Length); i++)
+        {
+            levelButtons[i].interactable = true;
         }
     }
 
-    // Unlock a level
-    public void UnlockLevel(int levelIndex)
-    {
-        levelsUnlocked[levelIndex] = 1;
-        PlayerPrefs.SetInt("Level" + (levelIndex + 1), 1);
-        UpdateLevelButton(levelIndex);
-    }
 
-    // Unlock a stage
-    public void UnlockStage(int stageIndex)
+    public void UnlockNextStage()
     {
-        stagesUnlocked[stageIndex] = 1;
-        PlayerPrefs.SetInt("Stage" + (stageIndex + 1), 1);
-        UpdateStageButton(stageIndex);
+        if (SceneManager.GetActiveScene().buildIndex >= PlayerPrefs.GetInt("ReachedIndex"))
+        {
+            PlayerPrefs.SetInt("ReachedIndex", SceneManager.GetActiveScene().buildIndex + 1);
+            PlayerPrefs.SetInt("UnlockedStage", PlayerPrefs.GetInt("UnlockedStage", 1) + 1);
+            PlayerPrefs.Save();
+        }
     }
-
-    // Update level button UI based on unlocking status
-    private void UpdateLevelButton(int levelIndex)
+    public void UnlockNextLevel()
     {
-        levelButtons[levelIndex].interactable = levelsUnlocked[levelIndex] == 1;
-    }
+        int currentLevelIndex = SceneManager.GetActiveScene().buildIndex / 3; // Assuming each level has 3 stages
 
-    // Update stage button UI based on unlocking status
-    private void UpdateStageButton(int stageIndex)
-    {
-        stageButtons[stageIndex].interactable = stagesUnlocked[stageIndex] == 1;
+        if (currentLevelIndex >= PlayerPrefs.GetInt("ReachedLevel"))
+        {
+            PlayerPrefs.SetInt("ReachedLevel", currentLevelIndex + 1);
+            PlayerPrefs.SetInt("UnlockedLevel", PlayerPrefs.GetInt("UnlockedLevel", 1) + 1);
+            PlayerPrefs.Save();
+        }
     }
 }
