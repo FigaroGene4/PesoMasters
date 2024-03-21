@@ -24,12 +24,19 @@ public class LevelManager : MonoBehaviour
             stageButtons[i].interactable = true;
         }
 
-        // Enable level buttons based on the number of unlocked levels
+        // Disable all level buttons initially
+        foreach (Button levelButton in levelButtons)
+        {
+            levelButton.interactable = false;
+        }
+
         for (int i = 0; i < Mathf.Min(levelsUnlocked, levelButtons.Length); i++)
         {
             levelButtons[i].interactable = true;
         }
+
     }
+
     public void UnlockNextStage()
     {
         if (SceneManager.GetActiveScene().buildIndex >= PlayerPrefs.GetInt("ReachedIndex"))
@@ -49,5 +56,12 @@ public class LevelManager : MonoBehaviour
             PlayerPrefs.SetInt("UnlockedLevel", PlayerPrefs.GetInt("UnlockedLevel", 1) + 1);
             PlayerPrefs.Save();
         }
+    }
+    public bool AreAllStagesOfCurrentLevelCompleted()
+    {
+        int currentLevelIndex = SceneManager.GetActiveScene().buildIndex / 3; // Assuming each level has 3 stages
+        int stagesCompleted = PlayerPrefs.GetInt("UnlockedStage", 1);
+
+        return stagesCompleted >= (currentLevelIndex + 1) * 3;
     }
 }

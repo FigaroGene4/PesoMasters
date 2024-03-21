@@ -145,13 +145,12 @@ public class CoinsBar : MonoBehaviour
         if (levelManager != null)
         {
             int currentStageIndex = SceneManager.GetActiveScene().buildIndex % 3; // Assuming each level has 3 stages
-            int stagesPerLevel = 3; // Assuming each level has 3 stages
 
             // Unlock the next stage
             levelManager.UnlockNextStage();
 
-            // If the current stage is the last stage of the level
-            if ((currentStageIndex + 1) % stagesPerLevel == 0)
+            // If all stages of the current level are completed
+            if (levelManager.AreAllStagesOfCurrentLevelCompleted())
             {
                 // Unlock the next level
                 levelManager.UnlockNextLevel();
@@ -162,6 +161,7 @@ public class CoinsBar : MonoBehaviour
             Debug.LogWarning("LevelManager not found in the scene!");
         }
     }
+
 
     void InitializeCards()
     {
