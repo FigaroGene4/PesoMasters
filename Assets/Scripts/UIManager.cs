@@ -15,7 +15,8 @@ public class UIManager : MonoBehaviour
     public GameObject EmailVerification;
     public TMP_Text emailverificationText;
     public TMP_Text warningLoginText;
-    
+    public TMP_Text loginWarningText;
+
 
 
 
@@ -33,6 +34,13 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void setText()
+    {
+        warningLoginText.text = "";
+        loginWarningText.text = "";
+        emailverificationText.text = "";
+    }
+
     //Functions to change the login screen UI
     public void LoginScreen() //Back button
     {
@@ -43,6 +51,7 @@ public class UIManager : MonoBehaviour
     {
         loginUI.SetActive(false);
         registerUI.SetActive(true);
+
     }
     public void ShowVerificationResponse(bool isEmailSent, string emailID, string errorMessage)
     {
@@ -52,6 +61,7 @@ public class UIManager : MonoBehaviour
         {
             Debug.Log($"Verification email has been sent to email {emailID}");
             warningLoginText.text = ($"Verification email has been sent to email {emailID}");
+            loginWarningText.text = ($"Verification email has been sent to email {emailID}");
         }
         else
         {

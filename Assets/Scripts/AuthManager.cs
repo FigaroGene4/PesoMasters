@@ -25,6 +25,7 @@ public class AuthManager : MonoBehaviour
     public TMP_Text warningLoginText;
     public TMP_Text confirmLoginText;
 
+
     //Register variables
     [Header("Register")]
     public TMP_InputField ageRegisterField;
@@ -40,7 +41,8 @@ public class AuthManager : MonoBehaviour
 
     void Start()
     {
-        
+        FirebaseAuth.DefaultInstance.SignOut();
+
 
         getDataRealtime();
 
@@ -78,7 +80,19 @@ public class AuthManager : MonoBehaviour
 
     }
 
-    
+    public void ClearMessageText()
+    {
+        if (confirmLoginText != null)
+        {
+            confirmLoginText.text = "";
+        }
+
+        if (warningRegisterText != null)
+        {
+            warningRegisterText.text = "";
+        }
+    }
+
 
     private void SetAuthEmulatorEnvironmentVariable()
     {
@@ -361,7 +375,7 @@ public class AuthManager : MonoBehaviour
             }
         }
     }
-
+    
     private void HandleAuthError(AggregateException exception)
     {
         Debug.LogWarning($"Failed with {exception}");
@@ -384,6 +398,7 @@ public class AuthManager : MonoBehaviour
                 break;
             case AuthError.EmailAlreadyInUse:
                 message = "Email Already In Use";
+                Debug.Log("H");
                 break;
             case AuthError.WrongPassword:
                 message = "Wrong Password";
@@ -397,12 +412,20 @@ public class AuthManager : MonoBehaviour
             case AuthError.UnverifiedEmail:
                 message = "Please verify your email first";
                 break;
+            case AuthError.InvalidCredential:
+                message = "Please enter correct  details";
+                break;
+          
+
+            default:
+                break;
+                
                 // Add more cases as needed
         }
 
-        if (warningLoginText != null)
+        if (confirmLoginText != null)
         {
-            warningLoginText.text = message;
+            confirmLoginText.text = message;
         }
 
         if (warningRegisterText != null)
