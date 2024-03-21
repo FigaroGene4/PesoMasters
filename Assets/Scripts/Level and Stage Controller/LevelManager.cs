@@ -50,13 +50,18 @@ public class LevelManager : MonoBehaviour
     {
         int currentLevelIndex = SceneManager.GetActiveScene().buildIndex / 3; // Assuming each level has 3 stages
 
-        if (currentLevelIndex >= PlayerPrefs.GetInt("ReachedLevel"))
+        // Only unlock the next level if all stages of the current level are completed
+        if (AreAllStagesOfCurrentLevelCompleted())
         {
-            PlayerPrefs.SetInt("ReachedLevel", currentLevelIndex + 1);
-            PlayerPrefs.SetInt("UnlockedLevel", PlayerPrefs.GetInt("UnlockedLevel", 1) + 1);
-            PlayerPrefs.Save();
+            if (currentLevelIndex == PlayerPrefs.GetInt("ReachedLevel"))
+            {
+                PlayerPrefs.SetInt("ReachedLevel", currentLevelIndex + 1);
+                PlayerPrefs.SetInt("UnlockedLevel", PlayerPrefs.GetInt("UnlockedLevel", 1) + 1);
+                PlayerPrefs.Save();
+            }
         }
     }
+
     public bool AreAllStagesOfCurrentLevelCompleted()
     {
         int currentLevelIndex = SceneManager.GetActiveScene().buildIndex / 3; // Assuming each level has 3 stages
