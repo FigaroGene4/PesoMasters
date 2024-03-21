@@ -41,7 +41,7 @@ public class AuthManager : MonoBehaviour
 
     void Start()
     {
-        FirebaseAuth.DefaultInstance.SignOut();
+       
 
 
         getDataRealtime();
@@ -205,7 +205,10 @@ public class AuthManager : MonoBehaviour
     }
 
     private IEnumerator GuestLogin()
+
     {
+
+        FirebaseAuth.DefaultInstance.SignOut();
         Task<AuthResult> loginTask = auth.SignInAnonymouslyAsync();
         yield return new WaitUntil(() => loginTask.IsCompleted);
 
@@ -225,6 +228,18 @@ public class AuthManager : MonoBehaviour
             reference.Child(User.UserId).Child("addStarLvl1Stage1").SetValueAsync(0);
             reference.Child(User.UserId).Child("addStarLvl1Stage2").SetValueAsync(0);
             reference.Child(User.UserId).Child("addStarLvl1Stage3").SetValueAsync(0);
+            reference.Child(User.UserId).Child("addStarLvl2Stage1").SetValueAsync(0);
+            reference.Child(User.UserId).Child("addStarLvl2Stage2").SetValueAsync(0);
+            reference.Child(User.UserId).Child("addStarLvl2Stage3").SetValueAsync(0);
+            reference.Child(User.UserId).Child("addStarLvl3Stage1").SetValueAsync(0);
+            reference.Child(User.UserId).Child("addStarLvl3Stage2").SetValueAsync(0);
+            reference.Child(User.UserId).Child("addStarLvl3Stage3").SetValueAsync(0);
+            reference.Child(User.UserId).Child("addStarLvl4Stage1").SetValueAsync(0);
+            reference.Child(User.UserId).Child("addStarLvl4Stage2").SetValueAsync(0);
+            reference.Child(User.UserId).Child("addStarLvl4Stage3").SetValueAsync(0);
+            reference.Child(User.UserId).Child("addStarLvl5Stage1").SetValueAsync(0);
+            reference.Child(User.UserId).Child("addStarLvl5Stage2").SetValueAsync(0);
+            reference.Child(User.UserId).Child("addStarLvl5Stage3").SetValueAsync(0);
             SceneManager.LoadScene(sceneToLoad);
 
         }
@@ -359,6 +374,18 @@ public class AuthManager : MonoBehaviour
                         reference.Child(User.UserId).Child("addStarLvl1Stage1").SetValueAsync(0);
                         reference.Child(User.UserId).Child("addStarLvl1Stage2").SetValueAsync(0);
                         reference.Child(User.UserId).Child("addStarLvl1Stage3").SetValueAsync(0);
+                        reference.Child(User.UserId).Child("addStarLvl2Stage1").SetValueAsync(0);
+                        reference.Child(User.UserId).Child("addStarLvl2Stage2").SetValueAsync(0);
+                        reference.Child(User.UserId).Child("addStarLvl2Stage3").SetValueAsync(0);
+                        reference.Child(User.UserId).Child("addStarLvl3Stage1").SetValueAsync(0);
+                        reference.Child(User.UserId).Child("addStarLvl3Stage2").SetValueAsync(0);
+                        reference.Child(User.UserId).Child("addStarLvl3Stage3").SetValueAsync(0);
+                        reference.Child(User.UserId).Child("addStarLvl4Stage1").SetValueAsync(0);
+                        reference.Child(User.UserId).Child("addStarLvl4Stage2").SetValueAsync(0);
+                        reference.Child(User.UserId).Child("addStarLvl4Stage3").SetValueAsync(0);
+                        reference.Child(User.UserId).Child("addStarLvl5Stage1").SetValueAsync(0);
+                        reference.Child(User.UserId).Child("addStarLvl5Stage2").SetValueAsync(0);
+                        reference.Child(User.UserId).Child("addStarLvl5Stage3").SetValueAsync(0);
 
 
                         if (User.IsEmailVerified)
