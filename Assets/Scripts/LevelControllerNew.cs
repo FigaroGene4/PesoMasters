@@ -38,8 +38,13 @@ public class LevelControllerNew : MonoBehaviour
                 // Perform actions based on the star value
                 switch (starValue)
                 {
+                    case 1:
+                    case 2:
                     case 3:
-                        
+                    case 4:
+                    case 5:
+                    case 6:
+
                         Debug.Log("Unlocked School Stage");
                         School.interactable = true;
                         break;
