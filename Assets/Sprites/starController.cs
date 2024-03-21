@@ -30,33 +30,24 @@ public class StarControllerMap : MonoBehaviour
     private void Start()
     {
         // Set up Firebase database reference
+
         databaseReference = FirebaseDatabase.DefaultInstance.RootReference;
 
-        // Listen for changes in Firebase value for Stage 1
+        // Listen for changes in Firebase value
         databaseReference.Child("users").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId).Child("addStarLvl1Stage1")
             .ValueChanged += HandleValueChanged;
 
-        // Listen for changes in Firebase value for Stage 2
-        databaseReference.Child("users").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId).Child("addStarLvl1Stage2")
-            .ValueChanged += HandleValueChanged;
-
-        // Listen for changes in Firebase value for Stage 3
-        databaseReference.Child("users").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId).Child("addStarLvl1Stage3")
-            .ValueChanged += HandleValueChanged;
-
         // Fetch initial value from Firebase
-        FetchFirebaseValue("addStarLvl1Stage1");
-        FetchFirebaseValue("addStarLvl1Stage2");
-        FetchFirebaseValue("addStarLvl1Stage3");
+        FetchFirebaseValue();
     }
 
-    private async void FetchFirebaseValue(string stage)
+    private async void FetchFirebaseValue()
     {
         try
         {
             // Fetch value asynchronously
             var dataSnapshot = await databaseReference.Child("users").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId)
-                .Child(stage).GetValueAsync();
+                .Child("addStarLvl1Stage1").GetValueAsync();
 
             // Check if data snapshot has a valid value
             if (dataSnapshot != null && dataSnapshot.Exists)
@@ -64,26 +55,90 @@ public class StarControllerMap : MonoBehaviour
                 int starValue = Convert.ToInt32(dataSnapshot.Value);
 
                 // Perform actions based on the star value
-                switch (stage)
+                switch (starValue)
+
+
                 {
-                    case "addStarLvl1Stage1":
-                        SetStarsActive(starValue, star3, star2, star1, star0);
+
+                    case 0:
+                        // Perform actions when star value is 1
+                        Debug.Log("Star value is 0");
+                        // Add your code here for when star value is 1
+                        star3.SetActive(false);
+                        star2.SetActive(false);
+                        star1.SetActive(false);
+                        star0.SetActive(true);
+
+
                         break;
-                    case "addStarLvl1Stage2":
-                        SetStarsActive(starValue, star3lvl2, star2lvl2, star1lvl2, star0lvl2);
+                    case 1:
+                        // Perform actions when star value is 1
+                        Debug.Log("Star value is 1");
+                        // Add your code here for when star value is 1
+                        star3.SetActive(false);
+                        star2.SetActive(false);
+                        star1.SetActive(true);
+                        star0.SetActive(false);
+
+
                         break;
-                    case "addStarLvl1Stage3":
-                        SetStarsActive(starValue, star3lvl3, star2lvl3, star1lvl3, star0lvl3);
+                    case 2:
+                        // Perform actions when star value is 2
+                        Debug.Log("Star value is 2");
+                        // Add your code here for when star value is 2
+                        star3.SetActive(false);
+                        star2.SetActive(true);
+                        star1.SetActive(false);
+                        star0.SetActive(false);
                         break;
+                    case 3:
+                        // Perform actions when star value is 3
+                        Debug.Log("Star value is 3");
+                        // Add your code here for when star value is 3
+                        star3.SetActive(true);
+                        star2.SetActive(false);
+                        star1.SetActive(false);
+                        star0.SetActive(false);
+                        break;
+                    case 4:
+                        // Perform actions when star value is 3
+                        Debug.Log("Star value is 4");
+                        // Add your code here for when star value is 3
+                        star3.SetActive(true);
+                        star2.SetActive(false);
+                        star1.SetActive(false);
+                        star0.SetActive(false);
+                        break;
+                    case 5:
+                        // Perform actions when star value is 3
+                        Debug.Log("Star value is 5");
+                        // Add your code here for when star value is 3
+                        star3.SetActive(true);
+                        star2.SetActive(false);
+                        star1.SetActive(false);
+                        star0.SetActive(false);
+                        break;
+                    case 6:
+                        // Perform actions when star value is 3
+                        Debug.Log("Star value is 6");
+                        // Add your code here for when star value is 3
+                        star3.SetActive(false);
+                        star2.SetActive(true);
+                        star1.SetActive(false);
+                        star0.SetActive(false);
+                        break;
+
+
                     default:
-                        Debug.LogWarning($"Unknown stage: {stage}");
+                        // Handle other cases if needed
+                        Debug.LogWarning("Unknown star value: " + starValue);
                         break;
                 }
             }
         }
         catch (Exception e)
         {
-            Debug.LogError($"Error fetching Firebase value for {stage}: {e.Message}");
+            Debug.LogError("Error fetching Firebase value: " + e.Message);
         }
     }
 
@@ -95,51 +150,44 @@ public class StarControllerMap : MonoBehaviour
             return;
         }
 
-        string stage = ((DatabaseReference)sender).Key;
+        // Check the value from Firebase
         int starValue = Convert.ToInt32(args.Snapshot.Value);
 
-        Debug.Log($"Star value is {starValue} for {stage}");
-
-        // Additional logic can be added here if necessary
-    }
-
-    private void SetStarsActive(int starValue, GameObject star3, GameObject star2, GameObject star1, GameObject star0)
-    {
+        // Perform actions based on the star value
         switch (starValue)
         {
-            case 0:
-                star3.SetActive(false);
-                star2.SetActive(false);
-                star1.SetActive(false);
-                star0.SetActive(true);
-                break;
             case 1:
-                star3.SetActive(false);
-                star2.SetActive(false);
-                star1.SetActive(true);
-                star0.SetActive(false);
+                // Perform actions when star value is 1
+                Debug.Log("Star value is 1");
+                // Add your code here for when star value is 1
                 break;
             case 2:
-                star3.SetActive(false);
-                star2.SetActive(true);
-                star1.SetActive(false);
-                star0.SetActive(false);
+                // Perform actions when star value is 2
+                Debug.Log("Star value is 2");
+                // Add your code here for when star value is 2
                 break;
             case 3:
-                star3.SetActive(true);
-                star2.SetActive(false);
-                star1.SetActive(false);
-                star0.SetActive(false);
+                // Perform actions when star value is 3
+                Debug.Log("Star value is 3");
+                // Add your code here for when star value is 3
                 break;
             case 4:
+                // Perform actions when star value is 3
+                Debug.Log("Star value is 4");
+                // Add your code here for when star value is 3
+                break;
             case 5:
+                // Perform actions when star value is 3
+                Debug.Log("Star value is 5");
+                // Add your code here for when star value is 3
+                break;
             case 6:
-                star3.SetActive(true);
-                star2.SetActive(false);
-                star1.SetActive(false);
-                star0.SetActive(false);
+                // Perform actions when star value is 3
+                Debug.Log("Star value is 6");
+                // Add your code here for when star value is 3
                 break;
             default:
+                // Handle other cases if needed
                 Debug.LogWarning("Unknown star value: " + starValue);
                 break;
         }

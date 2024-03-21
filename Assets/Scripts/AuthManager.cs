@@ -40,7 +40,7 @@ public class AuthManager : MonoBehaviour
 
     void Start()
     {
-        FirebaseAuth.DefaultInstance.SignOut();
+        
 
         getDataRealtime();
 
