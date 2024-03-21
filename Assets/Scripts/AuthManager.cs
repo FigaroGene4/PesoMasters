@@ -40,6 +40,8 @@ public class AuthManager : MonoBehaviour
 
     void Start()
     {
+        FirebaseAuth.DefaultInstance.SignOut();
+
         getDataRealtime();
 
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
@@ -206,6 +208,9 @@ public class AuthManager : MonoBehaviour
 
             reference.Child(User.UserId).Child("name").SetValueAsync("");
             reference.Child(User.UserId).Child("age").SetValueAsync(0);
+            reference.Child(User.UserId).Child("addStarLvl1Stage1").SetValueAsync(0);
+            reference.Child(User.UserId).Child("addStarLvl1Stage2").SetValueAsync(0);
+            reference.Child(User.UserId).Child("addStarLvl1Stage3").SetValueAsync(0);
             SceneManager.LoadScene(sceneToLoad);
 
         }
@@ -337,6 +342,9 @@ public class AuthManager : MonoBehaviour
                         reference.Child(User.UserId).Child("emailAddress").SetValueAsync(_email);
                         reference.Child(User.UserId).Child("name").SetValueAsync("");
                         reference.Child(User.UserId).Child("age").SetValueAsync(0);
+                        reference.Child(User.UserId).Child("addStarLvl1Stage1").SetValueAsync(0);
+                        reference.Child(User.UserId).Child("addStarLvl1Stage2").SetValueAsync(0);
+                        reference.Child(User.UserId).Child("addStarLvl1Stage3").SetValueAsync(0);
 
 
                         if (User.IsEmailVerified)

@@ -36,6 +36,16 @@ public class CoinsBar : MonoBehaviour
         CardChallenge1, CardChallenge2, CardChallenge3, CardChallenge4, CardChallenge5, CardChallenge6, CardChallenge7, CardChallenge8;
 
     public Dictionary<string, Cards> cardDictionary;
+
+    public int sum;
+    public int userCoins;
+
+
+    public dataUseDB dataUseDB;
+    public dataSaveDB dataSaveDB;
+
+    Firebase.Auth.FirebaseAuth auth;
+    Firebase.Auth.FirebaseUser User;
     void Start()
     {
         InitializeCards();
@@ -87,6 +97,10 @@ public class CoinsBar : MonoBehaviour
         if (starBar.current >= 1 && current >= 60 && countCards.clickCount <= 0)
         {
             GameComplete();
+            dataSaveDB.addStar();
+            dataSaveDB.addCoins();
+            dataSaveDB.addStarLvl1Stage1();
+
         }
 
         else if (starBar.current <= 1 && current <60 && countCards.clickCount <= 0)

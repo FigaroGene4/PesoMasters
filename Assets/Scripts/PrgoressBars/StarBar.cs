@@ -16,7 +16,7 @@ public class StarBar : MonoBehaviour
     public StarsEarnedGO starsEarnedGO;
     public countCards countCards;
     public EnergyBar EnergyBar;
-    public GameController gameController;
+   // public GameController gameController;
     public Image[] stars;
     public Sprite yellowStarSprite;
     public Sprite grayStarSprite;
