@@ -263,7 +263,7 @@ public class StarControllerMap : MonoBehaviour
         {
             // Fetch value asynchronously
             var dataSnapshot = await databaseReference3.Child("users").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId)
-                .Child("addStarLvl1Stage2").GetValueAsync();
+                .Child("addStarLvl1Stage3").GetValueAsync();
 
             // Check if data snapshot has a valid value
             if (dataSnapshot != null && dataSnapshot.Exists)

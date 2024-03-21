@@ -155,7 +155,7 @@ public class dataSaveDB : MonoBehaviour
             // Check if user is authenticated
             if (user != null)
             {
-                DatabaseReference userRef = FirebaseDatabase.DefaultInstance.GetReference("users").Child(user.UserId).Child("addStarLvl1Stage1");
+                DatabaseReference userRef = FirebaseDatabase.DefaultInstance.GetReference("users").Child(user.UserId).Child(coinsBar.dbNameStar);
 
                 // Retrieve current stars from the database
                 userRef.GetValueAsync().ContinueWith(task =>

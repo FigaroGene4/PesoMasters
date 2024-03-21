@@ -39,31 +39,59 @@ public class CoinsBar : MonoBehaviour
 
     public int sum;
     public int userCoins;
-
+    public int neededCoin;
+    public int neededStar;
 
     public dataUseDB dataUseDB;
     public dataSaveDB dataSaveDB;
+    public string dbNameCoins;
+    public string dbNameStar;
 
     Firebase.Auth.FirebaseAuth auth;
     Firebase.Auth.FirebaseUser User;
+
     void Start()
     {
         InitializeCards();
         GameOverPanel.SetActive(false);
-    }
- /*   void Awake()
-    {
-        if (gameController == null)
+
+        string currentSceneName = SceneManager.GetActiveScene().name;
+
+        switch (currentSceneName)
         {
-            Debug.Log("Attempting to find GameController instance...");
-            gameController = GameController.instance;
-        }
-        if (gameController == null)
-        {
-            Debug.LogError("GameController is still not assigned!");
+            case "GamesceneLvl1Stage1":
+               
+                Debug.Log("Executing code for Scene1");
+
+                neededCoin = 60;
+                neededStar = 1;
+                dbNameStar = "addStarLvl1Stage1";
+
+
+
+                break;
+            case "GamesceneLvl1Stage2":
+
+                neededCoin = 70;
+                neededStar = 2;
+                dbNameStar = "addStarLvl1Stage2";
+                Debug.Log("Executing code for Scene2");
+                break;
+            case "GamesceneLvl1Stage3":
+              
+                Debug.Log("Executing code for Scene3");
+                neededCoin = 80;
+                neededStar =3;
+                dbNameStar = "addStarLvl1Stage3";
+                break;
+
+               
+            default:
+      
+                Debug.Log("No code execution for this scene");
+                break;
         }
     }
- */
     private void Update()
     {
         GetCurrentFill();
@@ -71,15 +99,10 @@ public class CoinsBar : MonoBehaviour
         
         
     }
-    /*void LatUpdate()
-    {
-        Debug.Log("Update method called");
-        GetCurrentFill();
-    }*/
 
     public void GetCurrentFill()
     {
-        //Debug.Log("Coin Fill ");    
+          
         float fillAmount = (float)current / (float)maximum;
         mask.fillAmount = fillAmount;
     }
@@ -94,7 +117,7 @@ public class CoinsBar : MonoBehaviour
     }
     public void CheckGoalReached()
     {
-        if (starBar.current >= 1 && current >= 60 && countCards.clickCount <= 0)
+        if (starBar.current >= 1 && current >= neededCoin && countCards.clickCount <= 0)
         {
             GameComplete();
             dataSaveDB.addStar();
@@ -103,37 +126,18 @@ public class CoinsBar : MonoBehaviour
 
         }
 
-        else if (starBar.current <= 1 && current <60 && countCards.clickCount <= 0)
+        else if (starBar.current <= 1 && current < neededCoin && countCards.clickCount <= 0)
         {
             starsEarnedSGO.DisplayStarsEarned(starBar.current);
             GameOverPanel.SetActive(true);
         }
 
-        else if (starBar.current <= 1 || current < 60 && countCards.clickCount <= 0)
+        else if (starBar.current <= 1 || current < neededCoin && countCards.clickCount <= 0)
         {
             starsEarnedSGO.DisplayStarsEarned(starBar.current);
             GameOverPanel.SetActive(true);
             
         }
-
-
-        /* if (countCards.clickCount <= 0) {
-             if (starBar.current < 0 || current <= 0 || EnergyBar.current <= 0) 
-
-             if (countCards.clickCount <= 0)
-             {
-                 Debug.Log("COINSBARGOALOVER");
-                 GameOverPanel.SetActive(true);
-                 if (GameOverPanel != null)
-                 {
-                     Debug.Log("COINSBARGOALOVER");
-                     GameOverPanel.SetActive(true);
-                 }
-
-             }
-
-
-         }*/
 
     }
     public void GameComplete()
