@@ -10,12 +10,9 @@ public class dataUseDB : MonoBehaviour
 {
     // Start is called before the first frame update
 
-
     public TextMeshProUGUI textCoins;
     public TextMeshProUGUI textStar;
     public dataSaveDB dataSaveDB;
-
-
 
     public void Start()
     {
@@ -59,9 +56,6 @@ public class dataUseDB : MonoBehaviour
 
     }
 
-
-
-
     public async Task<int> getUserStar()
     {
         int userStar = 0;
@@ -94,4 +88,38 @@ public class dataUseDB : MonoBehaviour
 
 
     }
+    public async Task RetrieveUserData()
+    {
+        int coins = await getUserCoins();
+        int stars = await getUserStar();
+
+        // Update UI with retrieved data
+        UpdateUI(coins, stars);
+    }
+
+    void UpdateUI(int coins, int stars)
+    {
+        textCoins.SetText(coins.ToString());
+        textStar.SetText(stars.ToString());
+    }
+    public async Task UpdateUserCoinsAndStars(int newCoins, int newStars)
+    {
+        try
+        {
+            Firebase.Auth.FirebaseAuth auth;
+            Firebase.Auth.FirebaseUser User;
+
+            auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
+            User = auth.CurrentUser;
+
+            Firebase.Database.DatabaseReference dbReference = Firebase.Database.FirebaseDatabase.DefaultInstance.RootReference;
+            await dbReference.Child("users").Child(User.UserId).Child("coins").SetValueAsync(newCoins);
+            await dbReference.Child("users").Child(User.UserId).Child("star").SetValueAsync(newStars);
+        }
+        catch (Exception e)
+        {
+            Debug.Log("An error occurred: " + e.Message);
+        }
+    }
+
 }

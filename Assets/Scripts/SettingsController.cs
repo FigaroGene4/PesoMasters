@@ -20,10 +20,12 @@ public class SettingsController : MonoBehaviour
             Debug.Log("Settings Pressed - After Time.timeScale = 0f");
         }
     }
-    public void SaveProgress()
+    public static void ResetProgress()
     {
-        // Implement your save progress logic here
+        PlayerPrefs.DeleteAll(); // This will delete all stored player preferences
+        Debug.Log("Player progress has been reset.");
     }
+
 
     public void QuitGame()
     {
