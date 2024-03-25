@@ -5,7 +5,7 @@ using System;
 using System.Threading.Tasks;
 using Firebase.Auth;
 
-public class StarControllerMap : MonoBehaviour
+public class StarControllerLvl2 : MonoBehaviour
 {
     public GameObject star3;
     public GameObject star2;
@@ -39,21 +39,21 @@ public class StarControllerMap : MonoBehaviour
         databaseReference2 = FirebaseDatabase.DefaultInstance.RootReference;
         databaseReference3 = FirebaseDatabase.DefaultInstance.RootReference;
 
-        
+
 
 
 
         // Listen for changes in Firebase value
-        databaseReference.Child("users").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId).Child("addStarLvl1Stage1")
+        databaseReference.Child("users").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId).Child("addStarLvl2Stage1")
             .ValueChanged += HandleValueChanged1;
-        databaseReference2.Child("users").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId).Child("addStarLvl1Stage2")
+        databaseReference2.Child("users").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId).Child("addStarLvl2Stage2")
            .ValueChanged += HandleValueChanged2;
-        databaseReference3.Child("users").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId).Child("addStarLvl1Stage3")
+        databaseReference3.Child("users").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId).Child("addStarLvl2Stage3")
          .ValueChanged += HandleValueChanged3;
 
 
-   
- 
+
+
 
 
         // Fetch initial value from Firebase
@@ -69,7 +69,7 @@ public class StarControllerMap : MonoBehaviour
         {
             // Fetch value asynchronously
             var dataSnapshot = await databaseReference.Child("users").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId)
-                .Child("addStarLvl1Stage1").GetValueAsync();
+                .Child("addStarLvl2Stage1").GetValueAsync();
 
             // Check if data snapshot has a valid value
             if (dataSnapshot != null && dataSnapshot.Exists)
@@ -171,7 +171,7 @@ public class StarControllerMap : MonoBehaviour
         {
             // Fetch value asynchronously
             var dataSnapshot = await databaseReference2.Child("users").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId)
-                .Child("addStarLvl1Stage2").GetValueAsync();
+                .Child("addStarLvl2Stage2").GetValueAsync();
 
             // Check if data snapshot has a valid value
             if (dataSnapshot != null && dataSnapshot.Exists)
@@ -271,7 +271,7 @@ public class StarControllerMap : MonoBehaviour
         {
             // Fetch value asynchronously
             var dataSnapshot = await databaseReference3.Child("users").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId)
-                .Child("addStarLvl1Stage3").GetValueAsync();
+                .Child("addStarLvl2Stage3").GetValueAsync();
 
             // Check if data snapshot has a valid value
             if (dataSnapshot != null && dataSnapshot.Exists)
@@ -303,7 +303,7 @@ public class StarControllerMap : MonoBehaviour
                         star2lvl3.SetActive(false);
                         star1lvl3.SetActive(true);
                         star0lvl3.SetActive(false);
-                        
+
                         break;
                     case 2:
                         // Perform actions when star value is 2

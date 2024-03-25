@@ -1086,63 +1086,6 @@ Transform:
   - {fileID: 743361940}
   m_Father: {fileID: 1904788678}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &247830841
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 247830843}
-  - component: {fileID: 247830842}
-  m_Layer: 0
-  m_Name: StarController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &247830842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 247830841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa7e3baa277d5f040920d589268b80da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  star3: {fileID: 674960496}
-  star2: {fileID: 118522815}
-  star1: {fileID: 1820540531}
-  star0: {fileID: 1917021694}
-  star3lvl2: {fileID: 743361939}
-  star2lvl2: {fileID: 951248606}
-  star1lvl2: {fileID: 1394019835}
-  star0lvl2: {fileID: 1468981112}
-  star3lvl3: {fileID: 1223060409}
-  star2lvl3: {fileID: 1381553666}
-  star1lvl3: {fileID: 513714705}
-  star0lvl3: {fileID: 1468981112}
-  firebaseReference: 
---- !u!4 &247830843
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 247830841}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &294543997
 GameObject:
   m_ObjectHideFlags: 0
@@ -2546,6 +2489,53 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &874859362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 874859364}
+  - component: {fileID: 874859363}
+  m_Layer: 0
+  m_Name: StageControllerLvl2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &874859363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874859362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10b4adf8e307099408c0d2089ecca731, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Lvl2Stage2: {fileID: 1791137573}
+  Lvl2Stage3: {fileID: 1209527286}
+  firebaseReference: 
+--- !u!4 &874859364
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874859362}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.2738485, y: 0.6268019, z: 9.019456}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &886307848
 GameObject:
   m_ObjectHideFlags: 0
@@ -3000,53 +2990,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1087549867
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1087549869}
-  - component: {fileID: 1087549868}
-  m_Layer: 0
-  m_Name: StageControllerNew
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1087549868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1087549867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b520f57deed80d4e93b804c529ca595, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Lvl1Stage2: {fileID: 1791137573}
-  Lvl1Stage3: {fileID: 1209527286}
-  firebaseReference: 
---- !u!4 &1087549869
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1087549867}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2738485, y: 0.6268019, z: 9.019456}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1088639718
 GameObject:
   m_ObjectHideFlags: 0
@@ -3256,7 +3199,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1209527287}
   m_OnClick:
     m_PersistentCalls:
@@ -4378,7 +4321,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1791137574}
   m_OnClick:
     m_PersistentCalls:
@@ -4954,6 +4897,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1917459936}
   m_CullTransparentMesh: 1
+--- !u!1 &1944794269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1944794271}
+  - component: {fileID: 1944794270}
+  m_Layer: 0
+  m_Name: StarControllerLvl2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1944794270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944794269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c83bc60c0efe44543b8f74c102583d8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  star3: {fileID: 674960496}
+  star2: {fileID: 118522815}
+  star1: {fileID: 1820540531}
+  star0: {fileID: 96895616}
+  star3lvl2: {fileID: 743361939}
+  star2lvl2: {fileID: 951248606}
+  star1lvl2: {fileID: 1394019835}
+  star0lvl2: {fileID: 1917021694}
+  star3lvl3: {fileID: 1223060409}
+  star2lvl3: {fileID: 1381553666}
+  star1lvl3: {fileID: 513714705}
+  star0lvl3: {fileID: 1468981112}
+  firebaseReference: 
+--- !u!4 &1944794271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944794269}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.2738485, y: 0.6268019, z: 9.019456}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1947705809
 GameObject:
   m_ObjectHideFlags: 0
@@ -5726,5 +5726,5 @@ SceneRoots:
   - {fileID: 510364305}
   - {fileID: 213352928}
   - {fileID: 526578476}
-  - {fileID: 247830843}
-  - {fileID: 1087549869}
+  - {fileID: 1944794271}
+  - {fileID: 874859364}

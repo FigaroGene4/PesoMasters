@@ -81,11 +81,33 @@ public class CoinsBar : MonoBehaviour
               
                 Debug.Log("Executing code for Scene3");
                 neededCoin = 80;
-                neededStar =3;
+                neededStar = 3;
                 dbNameStar = "addStarLvl1Stage3";
                 break;
 
-               
+            case "GamesceneLvl2Stage1":
+
+                Debug.Log("Executing code for Scene3");
+                neededCoin = 65;
+                neededStar = 1;
+                dbNameStar = "addStarLvl2Stage1";
+                break;
+            case "GamesceneLvl2Stage2":
+
+                Debug.Log("Executing code for Scene3");
+                neededCoin = 75;
+                neededStar = 2;
+                dbNameStar = "addStarLvl2Stage2";
+                break;
+            case "GamesceneLvl2Stage3":
+
+                Debug.Log("Executing code for Scene3");
+                neededCoin = 85;
+                neededStar = 3;
+                dbNameStar = "addStarLvl2Stage3";
+                break;
+
+
             default:
       
                 Debug.Log("No code execution for this scene");
@@ -117,7 +139,7 @@ public class CoinsBar : MonoBehaviour
     }
     public void CheckGoalReached()
     {
-        if (starBar.current >= 1 && current >= neededCoin && countCards.clickCount <= 0)
+        if (starBar.current >= neededStar && current >= neededCoin && countCards.clickCount <= 0)
         {
             GameComplete();
             dataSaveDB.addStar();
@@ -126,13 +148,13 @@ public class CoinsBar : MonoBehaviour
 
         }
 
-        else if (starBar.current <= 1 && current < neededCoin && countCards.clickCount <= 0)
+        else if (starBar.current <= neededStar && current < neededCoin && countCards.clickCount <= 0)
         {
             starsEarnedSGO.DisplayStarsEarned(starBar.current);
             GameOverPanel.SetActive(true);
         }
 
-        else if (starBar.current <= 1 || current < neededCoin && countCards.clickCount <= 0)
+        else if (starBar.current <= neededStar || current < neededCoin && countCards.clickCount <= 0)
         {
             starsEarnedSGO.DisplayStarsEarned(starBar.current);
             GameOverPanel.SetActive(true);

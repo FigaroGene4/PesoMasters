@@ -160,8 +160,8 @@ public class StoreController : MonoBehaviour
                 coinBar.current = newCoinCurrent;
 
                 //update text ui
-                starBar.TotalStar.text = newStarCurrent.ToString();
-                coinBar.TotalCoins.text = newCoinCurrent.ToString();
+/*                starBar.TotalStar.text = newStarCurrent.ToString();
+*/                coinBar.TotalCoins.text = newCoinCurrent.ToString();
                 coinBar.goldText.text = newCoinCount.ToString();
                 coinBar.GOyourScore.text = GONewScoreCount.ToString(); //GameOver
                 coinBar.SGyourScore.text = SGNewScoreCount.ToString(); //StageClear

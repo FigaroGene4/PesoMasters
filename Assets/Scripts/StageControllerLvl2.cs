@@ -6,33 +6,26 @@ using System.Threading.Tasks;
 using Firebase.Auth;
 using UnityEngine.UI;
 
-public class LevelControllerNew : MonoBehaviour
+public class StageControllerLvl2 : MonoBehaviour
 {
-    public Button School;
+    public Button Lvl2Stage2;
+    public Button Lvl2Stage3;
     public string firebaseReference;
-    private DatabaseReference databaseReference;
-
-    public Button Level3;
-    public string firebaseReference2;
+    private DatabaseReference databaseReference1;
     private DatabaseReference databaseReference2;
-
 
     private void Start()
     {
-    //SCHOOL UNLOCK
-        databaseReference = FirebaseDatabase.DefaultInstance.RootReference;
-        databaseReference.Child("users").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId).Child("addStarLvl1Stage3")
-            .ValueChanged += HandleValueChanged1;
-        FetchFirebaseValueLvl1();
 
-        //Level3 Unlock
-
+        databaseReference1 = FirebaseDatabase.DefaultInstance.RootReference;
         databaseReference2 = FirebaseDatabase.DefaultInstance.RootReference;
-        databaseReference2.Child("users").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId).Child("addStarLvl2Stage3")
-            .ValueChanged += HandleValueChanged2;
+
+        databaseReference1.Child("users").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId).Child("addStarLvlStage1")
+            .ValueChanged += HandleValueChanged1;
+        databaseReference2.Child("users").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId).Child("addStarLvl1Stage2")
+           .ValueChanged += HandleValueChanged2;
+        FetchFirebaseValueLvl1();
         FetchFirebaseValueLvl2();
-
-
     }
 
     private async void FetchFirebaseValueLvl1()
@@ -40,8 +33,8 @@ public class LevelControllerNew : MonoBehaviour
         try
         {
             // Fetch value asynchronously
-            var dataSnapshot = await databaseReference.Child("users").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId)
-                .Child("addStarLvl1Stage3").GetValueAsync();
+            var dataSnapshot = await databaseReference1.Child("users").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId)
+                .Child("addStarLvl2Stage1").GetValueAsync();
 
             // Check if data snapshot has a valid value
             if (dataSnapshot != null && dataSnapshot.Exists)
@@ -58,14 +51,11 @@ public class LevelControllerNew : MonoBehaviour
                     case 5:
                     case 6:
 
+
                         Debug.Log("Unlocked School Stage");
-                        School.interactable = true;
+                        Lvl2Stage2.interactable = true;
                         break;
-                        
-                    default:
-                        // Handle other cases if needed
-                        Debug.LogWarning("Unknown star value");
-                        break;
+
                 }
             }
         }
@@ -76,7 +66,6 @@ public class LevelControllerNew : MonoBehaviour
     }
 
 
-    
     private void HandleValueChanged1(object sender, ValueChangedEventArgs args)
     {
         if (args.DatabaseError != null)
@@ -92,11 +81,13 @@ public class LevelControllerNew : MonoBehaviour
         switch (starValue)
         {
             case 1:
-                // Perform actions when star value is 1
-                Debug.Log("Star value is 1");
-                // Add your code here for when star value is 1
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+                Debug.Log("Lvl2Stage2.interactable = true;");
                 break;
-        
             default:
                 // Handle other cases if needed
                 Debug.LogWarning("Unknown star value: " + starValue);
@@ -104,16 +95,13 @@ public class LevelControllerNew : MonoBehaviour
         }
     }
 
-    //UNlock level3
-
-
-     private async void FetchFirebaseValueLvl2()
+    private async void FetchFirebaseValueLvl2()
     {
         try
         {
             // Fetch value asynchronously
-            var dataSnapshot = await databaseReference.Child("users").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId)
-                .Child("addStarLvl2Stage3").GetValueAsync();
+            var dataSnapshot = await databaseReference2.Child("users").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId)
+                .Child("addStarLvl2Stage2").GetValueAsync();
 
             // Check if data snapshot has a valid value
             if (dataSnapshot != null && dataSnapshot.Exists)
@@ -130,10 +118,10 @@ public class LevelControllerNew : MonoBehaviour
                     case 5:
                     case 6:
 
-                        Debug.Log("Unlocked School Stage");
-                        Level3.interactable = true;
+                        Debug.Log("Unlocked Lvl1Stage3");
+                        Lvl2Stage3.interactable = true;
                         break;
-                        
+
                     default:
                         // Handle other cases if needed
                         Debug.LogWarning("Unknown star value");
@@ -147,8 +135,6 @@ public class LevelControllerNew : MonoBehaviour
         }
     }
 
-
-    
     private void HandleValueChanged2(object sender, ValueChangedEventArgs args)
     {
         if (args.DatabaseError != null)
@@ -164,11 +150,16 @@ public class LevelControllerNew : MonoBehaviour
         switch (starValue)
         {
             case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
                 // Perform actions when star value is 1
-                Debug.Log("Star value is 1");
+                Debug.Log("Lvl2Stage3.interactable = true;");
                 // Add your code here for when star value is 1
                 break;
-        
+
             default:
                 // Handle other cases if needed
                 Debug.LogWarning("Unknown star value: " + starValue);
@@ -177,5 +168,4 @@ public class LevelControllerNew : MonoBehaviour
     }
 
 
-  
 }
