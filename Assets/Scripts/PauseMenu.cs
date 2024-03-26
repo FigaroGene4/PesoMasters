@@ -6,8 +6,7 @@ using UnityEngine.UIElements;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] 
-    GameObject PausePanel;
+    [SerializeField] GameObject PausePanel;
   
     void Start()
     {
@@ -26,8 +25,6 @@ public class PauseMenu : MonoBehaviour
             Debug.Log("Pause Pressed - After Time.timeScale = 0f");
         }
     }
-
-
 
     public void Resume()
     {

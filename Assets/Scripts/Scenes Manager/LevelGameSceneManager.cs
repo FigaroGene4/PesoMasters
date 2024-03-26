@@ -3,23 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class L1GameSceneManager : MonoBehaviour
+public class LevelGameSceneManager : MonoBehaviour
 {
     public void HomeBtn()
     {
         SceneManager.LoadScene("GameMap");
     }
-    public void NextBtnStage1()
+    public void Lvl1NextStage()
     {
         SceneManager.LoadScene("Level1StagesMap");
-    }
-    public void NextBtnStage2()
+    }public void Lvl2NextStage()
     {
-        SceneManager.LoadScene("Level1StagesMap");
-    }
-    public void NextBtnStage3()
+        SceneManager.LoadScene("Level2StagesMap");
+    }public void Lvl3NextStage()
     {
-        SceneManager.LoadScene("Level1StagesMap");
+        SceneManager.LoadScene("Level3StagesMap");
+    }public void Lvl4NextStage()
+    {
+        SceneManager.LoadScene("Level4StagesMap");
+    }public void Lvl5NextStage()
+    {
+        SceneManager.LoadScene("Level5StagesMap");
     }
     public void RestartBtn()
     {

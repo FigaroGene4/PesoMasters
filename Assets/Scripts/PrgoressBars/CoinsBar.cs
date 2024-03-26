@@ -67,8 +67,6 @@ public class CoinsBar : MonoBehaviour
                 neededStar = 1;
                 dbNameStar = "addStarLvl1Stage1";
 
-
-
                 break;
             case "GamesceneLvl1Stage2":
 
@@ -106,6 +104,13 @@ public class CoinsBar : MonoBehaviour
                 neededStar = 3;
                 dbNameStar = "addStarLvl2Stage3";
                 break;
+            case "GamesceneLvl3Stage1":
+
+                Debug.Log("Executing code for Scene3");
+                neededCoin = 85;
+                neededStar = 3;
+                dbNameStar = "addStarLvl3Stage1";
+                break;
 
 
             default:
@@ -118,8 +123,6 @@ public class CoinsBar : MonoBehaviour
     {
         GetCurrentFill();
         CheckGameOver();
-        
-        
     }
 
     public void GetCurrentFill()
@@ -128,7 +131,7 @@ public class CoinsBar : MonoBehaviour
         float fillAmount = (float)current / (float)maximum;
         mask.fillAmount = fillAmount;
     }
-    void CheckGameOver()
+    public void CheckGameOver()
     {
         if (current <= 0 || EnergyBar.current <= 0)
         {
@@ -370,4 +373,9 @@ public class CoinsBar : MonoBehaviour
     {
         goldText.text = current.ToString();
     }
+    public void ActivateGameOverPanel(bool isActive)
+    {
+        GameOverPanel.SetActive(isActive);
+    }
+
 }

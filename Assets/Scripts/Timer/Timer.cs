@@ -7,16 +7,15 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] float remainingTime;
-    [SerializeField] GameObject GameOverPanel;
-    [SerializeField] GameObject StageClearPanel;
+    public countCards cardCount;
+    public CoinsBar coinBar;
 
-    private float startTime;
-    private bool isTimerRunning;
+    public float startTime;
+    public bool isTimerRunning;
+    public bool isPaused = false;
 
     private void Start()
     {
-        GameOverPanel.SetActive(false);
-        StageClearPanel.SetActive(false);
         isTimerRunning = false;
     }
     public void StartTimer()
@@ -35,20 +34,41 @@ public class Timer : MonoBehaviour
             {
                 remainingTime -= Time.deltaTime;
             }
-            else if (remainingTime < 0)
+            else if (remainingTime <= 0)
             {
                 remainingTime = 0;
                 timerText.color = Color.red;
-                EndGame();
+                StopTimer();
             }
             int minutes = Mathf.FloorToInt(remainingTime / 60);
             int seconds = Mathf.FloorToInt(remainingTime % 60);
             timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-
+            Goal();
         }
     }
-    void EndGame()
+    void Goal()
     {
-        GameOverPanel.SetActive(true);
+        if (coinBar.starBar.current >= coinBar.neededStar && coinBar.current >= coinBar.neededCoin && coinBar.countCards.clickCount <= 0)
+        {
+            StopTimer();
+            coinBar.GameComplete();
+        }
+        else if (coinBar.current <= 0 || coinBar.EnergyBar.current <= 0)
+        {
+            StopTimer();
+            coinBar.CheckGameOver();
+        }
+    }
+    public void PauseTimer()
+    {
+        isPaused = true;
+    }
+    public void ResumeTimer()
+    {
+        isPaused = false;
+    }
+    public void StopTimer()
+    {
+        isTimerRunning = false;
     }
 }
