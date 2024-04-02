@@ -115,13 +115,10 @@ public class StoreMapController : MonoBehaviour
             // Unicorn
             newcoinCount = userCoins - 250;
 
-            //update text ui
-            dataHandler.textCoins.text = newcoinCount.ToString();
-
             // Update the database
-            await dataHandler.UpdateUserCoinsAndStars(newcoinCount, userCoins);
+            await dataHandler.UpdateUserCoinsAndStars(newcoinCount, userStar);
 
-            //close panel
+            // Close panel
             StorePromptPanel.SetActive(false);
         }
         else if (dataHandler != null && Bike.gameObject.activeSelf)
@@ -129,13 +126,10 @@ public class StoreMapController : MonoBehaviour
             // Bike
             newcoinCount = userCoins - 250;
 
-            //update text ui
-            dataHandler.textCoins.text = newcoinCount.ToString();
-            
             // Update the database
-            await dataHandler.UpdateUserCoinsAndStars(newcoinCount, userCoins);
+            await dataHandler.UpdateUserCoinsAndStars(newcoinCount, userStar);
 
-            //close panel
+            // Close panel
             StorePromptPanel.SetActive(false);
         }
         else if (dataHandler != null && Scooter.gameObject.activeSelf)
@@ -143,13 +137,10 @@ public class StoreMapController : MonoBehaviour
             // Scooter
             newcoinCount = userCoins - 150;
 
-            //update text ui
-            dataHandler.textCoins.text = newcoinCount.ToString();
-
             // Update the database
-            await dataHandler.UpdateUserCoinsAndStars(newcoinCount, userCoins);
+            await dataHandler.UpdateUserCoinsAndStars(newcoinCount, userStar);
 
-            //close panel
+            // Close panel
             StorePromptPanel.SetActive(false);
         }
         else if (dataHandler != null && Kite.gameObject.activeSelf)
@@ -157,13 +148,10 @@ public class StoreMapController : MonoBehaviour
             // Kite
             newcoinCount = userCoins - 150;
 
-            //update text ui
-            dataHandler.textCoins.text = newcoinCount.ToString();
-
             // Update the database
-            await dataHandler.UpdateUserCoinsAndStars(newcoinCount, userCoins);
+            await dataHandler.UpdateUserCoinsAndStars(newcoinCount, userStar);
 
-            //close panel
+            // Close panel
             StorePromptPanel.SetActive(false);
         }
         else if (dataHandler != null && Tab.gameObject.activeSelf)
@@ -171,13 +159,10 @@ public class StoreMapController : MonoBehaviour
             // Tab
             newstarCount = userStar - 27;
 
-            //update text ui
-            dataHandler.textStar.text = newstarCount.ToString();
-
             // Update the database
-            await dataHandler.UpdateUserCoinsAndStars(userStar, newstarCount);
+            await dataHandler.UpdateUserCoinsAndStars(userCoins, newstarCount);
 
-            //close panel
+            // Close panel
             StorePromptPanel.SetActive(false);
         }
         else if (dataHandler != null && PS.gameObject.activeSelf)
@@ -185,19 +170,17 @@ public class StoreMapController : MonoBehaviour
             // PS
             newstarCount = userStar - 32;
 
-            //update text ui
-            dataHandler.textStar.text = newstarCount.ToString();
-
             // Update the database
-            await dataHandler.UpdateUserCoinsAndStars(userStar, newstarCount);
+            await dataHandler.UpdateUserCoinsAndStars(userCoins, newstarCount);
 
-            //close panel
+            // Close panel
             StorePromptPanel.SetActive(false);
         }
 
         // Update button interactability
         await UpdateStoreButtonInteractability();
-}
+    }
+
     public void OnClickNoBtn()
     {
         StorePromptPanel.SetActive(false);

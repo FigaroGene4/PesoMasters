@@ -88,20 +88,6 @@ public class dataUseDB : MonoBehaviour
 
 
     }
-    public async Task RetrieveUserData()
-    {
-        int coins = await getUserCoins();
-        int stars = await getUserStar();
-
-        // Update UI with retrieved data
-        UpdateUI(coins, stars);
-    }
-
-    void UpdateUI(int coins, int stars)
-    {
-        textCoins.SetText(coins.ToString());
-        textStar.SetText(stars.ToString());
-    }
     public async Task UpdateUserCoinsAndStars(int newCoins, int newStars)
     {
         try
@@ -121,5 +107,18 @@ public class dataUseDB : MonoBehaviour
             Debug.Log("An error occurred: " + e.Message);
         }
     }
+    public async Task RetrieveUserData()
+    {
+        int coins = await getUserCoins();
+        int stars = await getUserStar();
 
+        // Update UI with retrieved data
+        UpdateUI(coins, stars);
+    }
+
+    void UpdateUI(int coins, int stars)
+    {
+        textCoins.SetText(coins.ToString());
+        textStar.SetText(stars.ToString());
+    }
 }
