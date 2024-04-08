@@ -70,7 +70,7 @@ public class CoinsBar : MonoBehaviour
                 break;
             case "GamesceneLvl1Stage2":
 
-                neededCoin = 70;
+                neededCoin = 65;
                 neededStar = 2;
                 dbNameStar = "addStarLvl1Stage2";
                 Debug.Log("Executing code for Scene2");
