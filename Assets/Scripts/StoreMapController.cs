@@ -15,6 +15,7 @@ public class StoreMapController : MonoBehaviour
     public Image Tab, PS, Unicorn, Kite, Scooter, Bike;
     public int newcoinCount;
     public int newstarCount;
+    public HouseController houseController;
     async void Start()
     {
         await InitializeStoreButtons();
@@ -117,6 +118,9 @@ public class StoreMapController : MonoBehaviour
 
             // Update the database
             await dataHandler.UpdateUserCoinsAndStars(newcoinCount, userStar);
+            
+            // Item will be put in house/collection
+            houseController.SetUnicornBought(true);
 
             // Close panel
             StorePromptPanel.SetActive(false);
@@ -128,6 +132,9 @@ public class StoreMapController : MonoBehaviour
 
             // Update the database
             await dataHandler.UpdateUserCoinsAndStars(newcoinCount, userStar);
+            
+            // Item will be put in house/collection
+            houseController.SetBikeBought(true);
 
             // Close panel
             StorePromptPanel.SetActive(false);
@@ -151,6 +158,9 @@ public class StoreMapController : MonoBehaviour
             // Update the database
             await dataHandler.UpdateUserCoinsAndStars(newcoinCount, userStar);
 
+            // Item will be put in house/collection
+            houseController.SetKiteBought(true);
+
             // Close panel
             StorePromptPanel.SetActive(false);
         }
@@ -161,6 +171,9 @@ public class StoreMapController : MonoBehaviour
 
             // Update the database
             await dataHandler.UpdateUserCoinsAndStars(userCoins, newstarCount);
+
+            // Item will be put in house/collection
+            houseController.SetTabBought(true);
 
             // Close panel
             StorePromptPanel.SetActive(false);
@@ -173,6 +186,9 @@ public class StoreMapController : MonoBehaviour
             // Update the database
             await dataHandler.UpdateUserCoinsAndStars(userCoins, newstarCount);
 
+            // Item will be put in house/collection
+            houseController.SetPSBought(true);
+            
             // Close panel
             StorePromptPanel.SetActive(false);
         }
