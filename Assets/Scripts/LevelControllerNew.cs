@@ -16,6 +16,15 @@ public class LevelControllerNew : MonoBehaviour
     public string firebaseReference2;
     private DatabaseReference databaseReference2;
 
+    public Button Level4;
+    public string firebaseReference4;
+    private DatabaseReference databaseReference4;
+
+
+    public Button Level5;
+    public string firebaseReference5;
+    private DatabaseReference databaseReference5;
+
 
     private void Start()
     {
