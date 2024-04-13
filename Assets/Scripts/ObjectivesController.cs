@@ -7,6 +7,7 @@ public class ObjectivesController : MonoBehaviour
 {
     [SerializeField] GameObject StartObjectivesPanel;
     [SerializeField] GameObject InGameObjectivesPanel;
+    [SerializeField] private GameObject TutorialPanel;
 
     void Start()
     {
@@ -16,6 +17,7 @@ public class ObjectivesController : MonoBehaviour
     public void CloseStartObjectives()
     {
         StartObjectivesPanel.SetActive(false);
+        TutorialPanel.SetActive(true);
     }
     public void CloseInGameObjectives()
     {
