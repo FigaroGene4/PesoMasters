@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SettingsController : MonoBehaviour
 {
@@ -42,5 +43,9 @@ public class SettingsController : MonoBehaviour
         {
             Debug.LogWarning("Panel reference is not set. Make sure to assign the panel GameObject in the inspector.");
         }
+    }
+    public void LogOut()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 }

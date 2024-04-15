@@ -57,9 +57,9 @@ public class SoundManager : MonoBehaviour
             Debug.Log("SFX not found");
         }
         else
-        {
-            sfxSource.Stop();
+        {            
             sfxSource.PlayOneShot(s.clip);
+            sfxSource.Stop();
         }
     }
 

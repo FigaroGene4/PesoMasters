@@ -19,6 +19,7 @@ public class CoinsBar : MonoBehaviour
     public DrawCards drawCards;
     public countCards countCards;
     public LevelManager levelManager;
+    public SoundManager soundManager;
 
     public Text goldText;
     public TextMeshProUGUI GOyourScore; //Game Over Panel
@@ -148,7 +149,6 @@ public class CoinsBar : MonoBehaviour
             dataSaveDB.addStar();
             dataSaveDB.addCoins();
             dataSaveDB.addStarLvl1Stage1();
-
         }
 
         else if (starBar.current <= neededStar && current < neededCoin && countCards.clickCount <= 0)
@@ -169,6 +169,8 @@ public class CoinsBar : MonoBehaviour
     {
         starsEarnedSC.DisplayStarsEarned(starBar.current);
         StageClearPanel.SetActive(true);
+        soundManager.PlaySFX("Win");
+        Debug.Log("SFX");
         LevelManager levelManager = FindObjectOfType<LevelManager>();
 
         if (levelManager != null)
