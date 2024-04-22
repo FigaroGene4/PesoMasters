@@ -1,0 +1,238 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3355552047577527763
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 638362266617418685}
+  - component: {fileID: 5696386319565245170}
+  - component: {fileID: 2215880875512183028}
+  - component: {fileID: 2583629398426450156}
+  m_Layer: 5
+  m_Name: SavingsPgMask
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &638362266617418685
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3355552047577527763}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0002, y: 1.0002, z: 1.0002}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5001472709820083511}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 6.8600082, y: -41.49998}
+  m_SizeDelta: {x: 22.26004, y: 0.000015258789}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &5696386319565245170
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3355552047577527763}
+  m_CullTransparentMesh: 1
+--- !u!114 &2215880875512183028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3355552047577527763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 945c2f4ac3aadbb4c986f1a13500a896, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 0
+  m_FillAmount: 0.4
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2583629398426450156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3355552047577527763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 0
+--- !u!1 &5887345712666981601
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5001472709820083511}
+  - component: {fileID: 5695618174293777329}
+  - component: {fileID: 290121547658835680}
+  - component: {fileID: 3873820667380154821}
+  - component: {fileID: 6031906734152014999}
+  m_Layer: 5
+  m_Name: EnergyPgFill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5001472709820083511
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5887345712666981601}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 638362266617418685}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -8.209991, y: 0}
+  m_SizeDelta: {x: -16.42, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &5695618174293777329
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5887345712666981601}
+  m_CullTransparentMesh: 1
+--- !u!114 &290121547658835680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5887345712666981601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.3915094, b: 0.3915094, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: d87ffacb4e7195242a7ab3667af7ede7, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 0
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3873820667380154821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5887345712666981601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a536f83e07faa6848a78b112357b2c86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameOverPanel: {fileID: 0}
+  drawCards: {fileID: 0}
+  energyText: {fileID: 0}
+  maximum: 25
+  current: 10
+  mask: {fileID: 2215880875512183028}
+  CardExp1: {fileID: 11400000, guid: d1f165c2aadafd748bb79c79cd7acd73, type: 2}
+  CardExp2: {fileID: 11400000, guid: ff7877e90f320804887dd3b669178c80, type: 2}
+  CardExp3: {fileID: 11400000, guid: c0366017614f0c84b88975a366c2cd9a, type: 2}
+  CardExp4: {fileID: 11400000, guid: c90f5086a04812240b3e157199803a02, type: 2}
+  CardExp5: {fileID: 11400000, guid: c88fbdc8c7469334394e773b17174cc8, type: 2}
+  CardExp6: {fileID: 11400000, guid: 00e60a01d472bc84eab8bdd5112029c4, type: 2}
+  CardExp7: {fileID: 11400000, guid: c0367687e6e7c444eae85c014f62d111, type: 2}
+  CardExp8: {fileID: 11400000, guid: 43eef963fb89ba2458f90dcc27b2848c, type: 2}
+  CardExp9: {fileID: 11400000, guid: cd11e7735edf86c458b76dfc7c23f5e3, type: 2}
+  CardExp10: {fileID: 11400000, guid: 09cf6a58a7f8b99428fd7c0fcfebf0ef, type: 2}
+  CardInc1: {fileID: 11400000, guid: fc8fb083329a0744c8d8ad6135bdd7d2, type: 2}
+  CardInc2: {fileID: 11400000, guid: 185671902bddfcc4db6e05ea43092342, type: 2}
+  CardInc3: {fileID: 11400000, guid: a46e05b639a6df94a9a78070210d1071, type: 2}
+  CardInc4: {fileID: 11400000, guid: c25806e232ad4aa468e367e1d1708fcf, type: 2}
+  CardInc5: {fileID: 11400000, guid: c31c7d6d134317449ba04f4e41c71de2, type: 2}
+  CardInc6: {fileID: 11400000, guid: 66acf973b40972842b12bbe458103733, type: 2}
+  CardInc7: {fileID: 11400000, guid: 75d7aed8c9dcedf4ca2ff562840a01d0, type: 2}
+  CardInc8: {fileID: 11400000, guid: 5e7851f71ef15a34d801632f0a7c61e1, type: 2}
+  CardInc9: {fileID: 11400000, guid: 08f231254689e7a42bf22051eee09e22, type: 2}
+  CardInc10: {fileID: 11400000, guid: 960a6501445c0f146b27af650be0a1a0, type: 2}
+  CardBonus1: {fileID: 11400000, guid: 0a728041bb879034a8d3fd3e24f10b7a, type: 2}
+  CardBonus2: {fileID: 11400000, guid: 3b445a9dfc305b64194ecd50bc188899, type: 2}
+  CardBonus3: {fileID: 11400000, guid: 0a6eb46fbaffede4fbf90cd241f5d638, type: 2}
+  CardBonus4: {fileID: 11400000, guid: eec4750a1809ab9429e12ce890742165, type: 2}
+  CardBonus5: {fileID: 11400000, guid: 8754ba2b8ba762b469ff3a9f24678500, type: 2}
+  CardBonus6: {fileID: 11400000, guid: 02c19068ab59f2741a25b05ecee49ec9, type: 2}
+  CardBonus7: {fileID: 11400000, guid: daec34ba8a4831e4c90191339ea156ba, type: 2}
+  CardBonus8: {fileID: 11400000, guid: 7f945a482587a4d489b2514c8e52ffdd, type: 2}
+  CardBonus9: {fileID: 11400000, guid: f58d9cb19f3b3c84182d0f0d9359e2c1, type: 2}
+  CardBonus10: {fileID: 11400000, guid: b3dc49c1e1ab16848bfb5293bb3812bf, type: 2}
+  CardChallenge1: {fileID: 11400000, guid: f4d8768346a81c241882766885cb7d8f, type: 2}
+  CardChallenge2: {fileID: 11400000, guid: f4d8768346a81c241882766885cb7d8f, type: 2}
+  CardChallenge3: {fileID: 11400000, guid: f4d8768346a81c241882766885cb7d8f, type: 2}
+  CardChallenge4: {fileID: 11400000, guid: f4d8768346a81c241882766885cb7d8f, type: 2}
+  CardChallenge5: {fileID: 11400000, guid: f4d8768346a81c241882766885cb7d8f, type: 2}
+  CardChallenge6: {fileID: 11400000, guid: f4d8768346a81c241882766885cb7d8f, type: 2}
+  CardChallenge7: {fileID: 11400000, guid: f4d8768346a81c241882766885cb7d8f, type: 2}
+  CardChallenge8: {fileID: 11400000, guid: f4d8768346a81c241882766885cb7d8f, type: 2}
+--- !u!114 &6031906734152014999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5887345712666981601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 527e96fdf8886c347a513c549f68742e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardExpense1: {fileID: 11400000, guid: d1f165c2aadafd748bb79c79cd7acd73, type: 2}
