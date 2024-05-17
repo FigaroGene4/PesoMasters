@@ -19,6 +19,7 @@ public class DrawCards : MonoBehaviour
     public float cardOffset = 0.1f; // Adjust this value to control the spacing between cards
     public int sortingOrder = 0; // Initial sorting order
     public Dictionary<GameObject, CardValues> cardValuesDictionary = new Dictionary<GameObject, CardValues>();
+    public List<GameObject> drawnCards = new List<GameObject>();
 
     void Start()
     {   
@@ -31,59 +32,7 @@ public class DrawCards : MonoBehaviour
             CardChallenge1, CardChallenge2, CardChallenge3, CardChallenge4, CardChallenge5, CardChallenge6, CardChallenge7, CardChallenge8
         };
         ShuffleVariables();
-        //DataManager.Instance.energyBar = energyBar;
-        //DataManager.Instance.cardValuesDictionary = cardValuesDictionary;
-        //InitializeCardValuesDictionary();
-        /*  InitializeCardValuesDictionary();*/
     }
-
-    /*public void InitializeCardValuesDictionary()
-     {
-         // Set energy and gold values for each card type
-         AddCardValuesToDictionary(CardExp1, 1, -3);
-         AddCardValuesToDictionary(CardExp2, 2, -3);
-         AddCardValuesToDictionary(CardExp3, 2, -3);
-         AddCardValuesToDictionary(CardExp4, 1, -2);
-         AddCardValuesToDictionary(CardExp5, 3, -7);
-         AddCardValuesToDictionary(CardExp6, 1, -2);
-         AddCardValuesToDictionary(CardExp7, 1, -2);
-         AddCardValuesToDictionary(CardExp8, 3, -2);
-         AddCardValuesToDictionary(CardExp9, 2, -2);
-         AddCardValuesToDictionary(CardExp10, 3, -5);
-
-         AddCardValuesToDictionary(CardInc1, 1, 1);
-         AddCardValuesToDictionary(CardInc2, 1, 1);
-         AddCardValuesToDictionary(CardInc3, 1, 1);
-         AddCardValuesToDictionary(CardInc4, 1, 1);
-         AddCardValuesToDictionary(CardInc5, 1, 1);
-         AddCardValuesToDictionary(CardInc6, 1, 1);
-         AddCardValuesToDictionary(CardInc7, 1, 1);
-         AddCardValuesToDictionary(CardInc8, 1, 1);
-         AddCardValuesToDictionary(CardInc9, 1, 1);
-         AddCardValuesToDictionary(CardInc10, 1, 1);
-
-         AddCardValuesToDictionary(CardBonus1, 1, 1);
-         AddCardValuesToDictionary(CardBonus2, 1, 1);
-         AddCardValuesToDictionary(CardBonus3, 1, 1);
-         AddCardValuesToDictionary(CardBonus4, 1, 1);
-         AddCardValuesToDictionary(CardBonus5, 1, 1);
-         AddCardValuesToDictionary(CardBonus6, 1, 1);
-         AddCardValuesToDictionary(CardBonus7, 1, 1);
-         AddCardValuesToDictionary(CardBonus8, 1, 1);
-         AddCardValuesToDictionary(CardBonus9, 1, 1);
-         AddCardValuesToDictionary(CardBonus10, 1, 1);
-
-         AddCardValuesToDictionary(CardChallenge1, 1, 1);
-         AddCardValuesToDictionary(CardChallenge2, 1, 1);
-         AddCardValuesToDictionary(CardChallenge3, 1, 1);
-         AddCardValuesToDictionary(CardChallenge4, 1, 1);
-         AddCardValuesToDictionary(CardChallenge5, 1, 1);
-         AddCardValuesToDictionary(CardChallenge6, 1, 1);
-         AddCardValuesToDictionary(CardChallenge7, 1, 1);
-         AddCardValuesToDictionary(CardChallenge8, 1, 1);
-
-
-     }*/
 
     public GameObject GetCurrentCard()
     {
@@ -147,22 +96,6 @@ public class DrawCards : MonoBehaviour
         // ... Repeat for other card types
     }
 
-    /*public void AddCardValuesToDictionary(GameObject cardType, int energyChange, int goldChange)
-    {
-        CardValues cardValues = cardType.GetComponent<CardValues>();
-        if (cardValues != null)
-        {
-            cardValues.energyChange = energyChange;
-            cardValues.goldChange = goldChange;
-            DataManager.Instance.cardValuesDictionary.Add(cardType, cardValues);
-            Debug.Log("Added values for card: " + cardType.name);
-        }
-        else
-        {
-            Debug.LogError("CardValues component not found on card: " + cardType.name);
-        }
-    }*/
-
     public void AddCardValuesToDictionary(GameObject cardType, int energyChange, int goldChange)
     {
         CardValues cardValues = cardType.GetComponent<CardValues>();
@@ -196,24 +129,6 @@ public class DrawCards : MonoBehaviour
         sortingOrder = 0;
     }
 
-    //LCM-SHUFFLE
-    /* public void ShuffleVariables()
-     {
-         int n = shuffledCards.Length;
-         int lcmCycles = 3; // Adjust this value based on your needs
-
-         for (int i = 0; i < n; i++)
-         {
-             int newIndex = (i * lcmCycles) % n;
-             GameObject temp = shuffledCards[i];
-             shuffledCards[i] = shuffledCards[newIndex];
-             shuffledCards[newIndex] = temp;
-         }
-
-         currentIndex = 0;
-         sortingOrder = 0;
-     }*/
-
     public void OnMouseDown()
     {
         if (currentIndex >= 20)
@@ -226,33 +141,14 @@ public class DrawCards : MonoBehaviour
             Destroy(currentCard);
         }
 
-        if (currentIndex == 20)
-        {
-            
-        }
-
         Vector3 cardPosition = new Vector3(0, -1, currentIndex * cardOffset);
         currentCard = Instantiate(shuffledCards[currentIndex], cardPosition, Quaternion.identity);
         currCardName = shuffledCards[currentIndex].name;
-       /* Debug.Log("Card instantiated: " + shuffledCards[currentIndex].name);
-        Debug.Log("\nCurrent Card:" + currentCard);*/
 
- 
-
-
+        // Save the drawn card
+        drawnCards.Add(currentCard);
 
         SetSortingOrder(currentCard);
-
-      /*  EnergyBar otherClassInstance = FindObjectOfType<EnergyBar>();
-        if (otherClassInstance != null)
-        {
-            otherClassInstance.ReceiveCurrentCardInformation();
-        }
-        else
-        {
-            Debug.LogWarning("EnergyBar not found in the scene");
-        }*/
-
 
         currentIndex++;
     }
