@@ -1810,7 +1810,7 @@ GameObject:
   - component: {fileID: 273944032}
   - component: {fileID: 273944034}
   - component: {fileID: 273944033}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2017,7 +2017,7 @@ GameObject:
   - component: {fileID: 280893528}
   - component: {fileID: 280893530}
   - component: {fileID: 280893529}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: transparent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5585,6 +5585,7 @@ MonoBehaviour:
   currentIndex: 0
   cardOffset: 0.1
   sortingOrder: 0
+  drawnCards: []
 --- !u!114 &776742337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7216,7 +7217,7 @@ GameObject:
   - component: {fileID: 934764341}
   - component: {fileID: 934764340}
   - component: {fileID: 934764339}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: RestartBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7663,6 +7664,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0151368e875e784786330761864febb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardDisplay: {fileID: 0}
+  CardExp1: {fileID: 0}
+  CardExp2: {fileID: 0}
+  CardExp3: {fileID: 0}
+  CardExp4: {fileID: 0}
+  CardExp5: {fileID: 0}
+  CardExp6: {fileID: 0}
+  CardExp7: {fileID: 0}
+  CardExp8: {fileID: 0}
+  CardExp9: {fileID: 0}
+  CardExp10: {fileID: 0}
+  CardInc1: {fileID: 0}
+  CardInc2: {fileID: 0}
+  CardInc3: {fileID: 0}
+  CardInc4: {fileID: 0}
+  CardInc5: {fileID: 0}
+  CardInc6: {fileID: 0}
+  CardInc7: {fileID: 0}
+  CardInc8: {fileID: 0}
+  CardInc9: {fileID: 0}
+  CardInc10: {fileID: 0}
+  CardBonus1: {fileID: 0}
+  CardBonus2: {fileID: 0}
+  CardBonus3: {fileID: 0}
+  CardBonus4: {fileID: 0}
+  CardBonus5: {fileID: 0}
+  CardBonus6: {fileID: 0}
+  CardBonus7: {fileID: 0}
+  CardBonus8: {fileID: 0}
+  CardBonus9: {fileID: 0}
+  CardBonus10: {fileID: 0}
+  CardChallenge1: {fileID: 0}
+  CardChallenge2: {fileID: 0}
+  CardChallenge3: {fileID: 0}
+  CardChallenge4: {fileID: 0}
+  CardChallenge5: {fileID: 0}
+  CardChallenge6: {fileID: 0}
+  CardChallenge7: {fileID: 0}
+  CardChallenge8: {fileID: 0}
+  leftButton: {fileID: 1814909112}
+  rightButton: {fileID: 2030186497}
 --- !u!4 &974870156
 Transform:
   m_ObjectHideFlags: 0
@@ -8910,7 +8952,7 @@ GameObject:
   - component: {fileID: 1161943586}
   - component: {fileID: 1161943585}
   - component: {fileID: 1161943584}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: HomeBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11918,7 +11960,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1552291227}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Buttons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14091,7 +14133,7 @@ GameObject:
   - component: {fileID: 1814909114}
   - component: {fileID: 1814909113}
   - component: {fileID: 1814909112}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: LeftBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14161,9 +14203,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2088206128}
-        m_TargetAssemblyTypeName: LevelGameSceneManager, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 974870155}
+        m_TargetAssemblyTypeName: ReviewPanel, Assembly-CSharp
+        m_MethodName: LeftBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15571,7 +15613,7 @@ GameObject:
   - component: {fileID: 2030186499}
   - component: {fileID: 2030186498}
   - component: {fileID: 2030186497}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: RightBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15641,9 +15683,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2088206128}
-        m_TargetAssemblyTypeName: LevelGameSceneManager, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 974870155}
+        m_TargetAssemblyTypeName: ReviewPanel, Assembly-CSharp
+        m_MethodName: RightBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15906,7 +15948,7 @@ GameObject:
   - component: {fileID: 2053206298}
   - component: {fileID: 2053206297}
   - component: {fileID: 2053206296}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: ReviewPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15973,7 +16015,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 1089727147
+  m_SortingLayerID: 1552997159
   m_SortingOrder: 20
   m_TargetDisplay: 0
 --- !u!224 &2053206299

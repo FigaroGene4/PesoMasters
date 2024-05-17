@@ -12,16 +12,20 @@ public class LevelGameSceneManager : MonoBehaviour
     public void Lvl1NextStage()
     {
         SceneManager.LoadScene("Level1StagesMap");
-    }public void Lvl2NextStage()
+    }
+    public void Lvl2NextStage()
     {
         SceneManager.LoadScene("Level2StagesMap");
-    }public void Lvl3NextStage()
+    }
+    public void Lvl3NextStage()
     {
         SceneManager.LoadScene("Level3StagesMap");
-    }public void Lvl4NextStage()
+    }
+    public void Lvl4NextStage()
     {
         SceneManager.LoadScene("Level4StagesMap");
-    }public void Lvl5NextStage()
+    }
+    public void Lvl5NextStage()
     {
         SceneManager.LoadScene("Level5StagesMap");
     }
