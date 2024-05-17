@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelGameSceneManager : MonoBehaviour
 {
+    public GameObject reviewPanel;
     public void HomeBtn()
     {
         SceneManager.LoadScene("GameMap");
@@ -40,5 +41,13 @@ public class LevelGameSceneManager : MonoBehaviour
 
         // Save changes
         PlayerPrefs.Save();
+    }
+    public void HelpBtn()
+    {
+        // Toggle the active state of the review panel
+        if (reviewPanel != null)
+        {
+            reviewPanel.SetActive(!reviewPanel.activeSelf);
+        }
     }
 }
