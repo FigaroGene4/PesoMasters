@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class DrawCards : MonoBehaviour
 {
@@ -136,10 +139,10 @@ public class DrawCards : MonoBehaviour
             return;
         }
 
-        if (currentCard != null)
-        {
-            Destroy(currentCard);
-        }
+        // if (currentCard != null)
+        // {
+        //     Destroy(currentCard);
+        // }
 
         Vector3 cardPosition = new Vector3(0, -1, currentIndex * cardOffset);
         currentCard = Instantiate(shuffledCards[currentIndex], cardPosition, Quaternion.identity);

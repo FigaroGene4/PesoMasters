@@ -1,42 +1,49 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class DataManager : MonoBehaviour
 {
     public static DataManager Instance;
 
-    // Add any shared data you want to transfer between scripts here
-    public EnergyBar energyBar;
-    public Dictionary<GameObject, CardValues> cardValuesDictionary = new Dictionary<GameObject, CardValues>();
+    public Dictionary<string, CardValues> cardValuesDictionary = new Dictionary<string, CardValues>();
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
+            InitializeCardValues();
         }
         else
         {
             Destroy(gameObject);
         }
-
-        DontDestroyOnLoad(gameObject);
     }
 
-    // AddCardValuesToDictionary method added here
-    public void AddCardValuesToDictionary(GameObject cardType, int energyChange, int goldChange)
+    private void InitializeCardValues()
     {
-        CardValues cardValues = cardType.GetComponent<CardValues>();
-        if (cardValues != null)
+        // Example of adding card values, adjust accordingly
+        AddCardValuesToDictionary("CardExp1", new CardValues { goldChange = 1, energyChange = -3, starChange = 1 });
+        // Add other cards as needed...
+    }
+
+    public void AddCardValuesToDictionary(string cardName, CardValues cardValues)
+    {
+        if (!cardValuesDictionary.ContainsKey(cardName))
         {
-            cardValues.energyChange = energyChange;
-            cardValues.goldChange = goldChange;
-            cardValuesDictionary.Add(cardType, cardValues);
-            Debug.Log(" TEST TEST Added  values for card: " + cardType.name);
+            cardValuesDictionary[cardName] = cardValues;
         }
-        else
+    }
+
+    public CardValues GetCardValuesByName(string cardName)
+    {
+        if (cardValuesDictionary.TryGetValue(cardName, out var cardValues))
         {
-            Debug.LogError("CardValues component not found on card: " + cardType.name);
+            return cardValues;
         }
+        return null;
     }
 }

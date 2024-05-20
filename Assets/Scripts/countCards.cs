@@ -44,9 +44,6 @@ public class countCards : MonoBehaviour
         if (clickCountz <= 0)
         {
             coinbar.CheckGoalReached();
-            // Display "Game Over" message in the Unity debug log
-            Debug.Log("Game Over");
-
             coinbar.GetMax();
             yesButton.interactable = false;
             noButton.interactable = false;        
