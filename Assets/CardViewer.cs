@@ -9,7 +9,7 @@ public class CardViewer : MonoBehaviour
     public Button nextButton;
     public Button previousButton;
 
-    private int currentIndex = 0;
+    private int currentIndex;
 
     void Start()
     {
@@ -35,17 +35,30 @@ public class CardViewer : MonoBehaviour
 
     public void AddCard(string cardName)
     {
-        Sprite cardSprite = Resources.Load<Sprite>($"Sprites/CARD DESIGN (29.7 x 21 cm)/{cardName}");
-        if (cardSprite != null)
+        // Construct the path to the sprite based on the provided card name
+        // Note: the path should be relative to the Resources folder and should not include the file extension
+        string path = $"CARD DESIGN (29.7 x 21 cm)/{cardName}";
+
+        // Attempt to load the sprite from the Resources folder
+        Sprite cardSpriteFolder = Resources.Load<Sprite>(path);
+
+        // Check if the sprite was successfully loaded
+        if (cardSpriteFolder != null)
         {
-            cardSprites.Add(cardSprite);
+            // If the sprite is found, add it to the cardSprites list
+            cardSprites.Add(cardSpriteFolder);
+
+            // Update button interactivity (assumed to be implemented elsewhere in your code)
             UpdateButtonInteractivity();
         }
         else
         {
-            Debug.LogWarning($"Sprite for {cardName} not found.");
+            // If the sprite is not found, log a warning to the console
+            Debug.LogWarning($"Sprite for {cardName} not found at path: {path}");
         }
     }
+
+
 
     void ShowNextCard()
     {
