@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelGameSceneManager : MonoBehaviour
 {
     public GameObject reviewPanel;
     public DrawCards drawCards;
-    public GameObject cardImagePrefab;
+    public CardViewer cardViewer;
 
     public void HomeBtn()
     {
@@ -63,13 +64,18 @@ public class LevelGameSceneManager : MonoBehaviour
                     List<GameObject> drawnCards = drawCards.drawnCards;
                     Debug.Log("Drawn Cards:");
 
-                    // Display the names of drawn cards
+                    // Clear existing cards in the card viewer
+                    cardViewer.ClearCards();
+
+                    // Display the names of drawn cards and load corresponding images
                     foreach (GameObject card in drawnCards)
                     {
                         if (card != null)
                         {
                             string cardName = card.name.Replace("(Clone)", "");
                             Debug.Log(cardName);
+
+                            cardViewer.AddCard(cardName);
                         }
                         else
                         {
@@ -138,10 +144,7 @@ public class LevelGameSceneManager : MonoBehaviour
                         }
                     }
 
-                    // Sort the cards by coin value in descending order
-                    cardDetails.Sort((a, b) => b.coins.CompareTo(a.coins));
-
-                    // Greedy algorithm to select cards
+                    // Greedy algorithm to select cards based on the order of drawing
                     int totalCoins = 15; // Initial coins
                     int totalEnergy = 15; // Initial energy
                     int totalStars = 0;
@@ -154,7 +157,7 @@ public class LevelGameSceneManager : MonoBehaviour
                         if (totalEnergy + card.energy >= 0 && totalCoins + card.coins >= 0 && (totalStars + card.stars >= 1 || card.stars == 0))
                         {
                             totalCoins += card.coins;
-                            totalEnergy += card.energy; 
+                            totalEnergy += card.energy;
                             totalStars += card.stars;
                             selectedCards.Add(card.name);
 
