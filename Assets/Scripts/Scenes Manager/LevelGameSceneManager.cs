@@ -168,13 +168,6 @@ public class LevelGameSceneManager : MonoBehaviour
                         }
                     }
 
-                    // // Display the selected cards
-                    // foreach (var card in selectedCards)
-                    // {
-                    //     Debug.Log(card);
-                    // }
-
-                    // Display total values
                     Debug.Log($"Total Coins: {totalCoins}, Total Energy: {totalEnergy}, Total Stars: {totalStars}");
                 }
                 else
