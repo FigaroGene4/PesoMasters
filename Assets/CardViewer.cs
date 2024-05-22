@@ -8,8 +8,12 @@ public class CardViewer : MonoBehaviour
     public Image cardImage; // Assign the CardImage UI element
     public Button nextButton;
     public Button previousButton;
+    public GameObject choiceCanvas; // Assign the Choice canvas in the Inspector
+    public Image yesImage;
+    public Image noImage;
 
     private int currentIndex;
+    private List<string> suggestedCards = new List<string>();
 
     void Start()
     {
@@ -56,9 +60,9 @@ public class CardViewer : MonoBehaviour
             // If the sprite is not found, log a warning to the console
             Debug.LogWarning($"Sprite for {cardName} not found at path: {path}");
         }
+
+        suggestedCards.Add(cardName);
     }
-
-
 
     void ShowNextCard()
     {
@@ -68,6 +72,7 @@ public class CardViewer : MonoBehaviour
             UpdateCardImage();
         }
         UpdateButtonInteractivity();
+        UpdateChoiceVisibility();
     }
 
     void ShowPreviousCard()
@@ -78,6 +83,7 @@ public class CardViewer : MonoBehaviour
             UpdateCardImage();
         }
         UpdateButtonInteractivity();
+        UpdateChoiceVisibility();
     }
 
     void UpdateCardImage()
@@ -89,5 +95,34 @@ public class CardViewer : MonoBehaviour
     {
         nextButton.interactable = currentIndex < cardSprites.Count - 1;
         previousButton.interactable = currentIndex > 0;
+    }
+
+    void UpdateChoiceVisibility()
+    {
+        if (choiceCanvas != null)
+        {
+            string currentCardName = cardSprites[currentIndex].name.Replace("(Clone)", "").Trim();
+
+            Debug.Log($"Checking visibility for card: {currentCardName}");
+
+            choiceCanvas.SetActive(true); // Ensure the choice canvas is active to show the images
+
+            if (suggestedCards.Contains(currentCardName))
+            {
+                yesImage.gameObject.SetActive(true);
+                noImage.gameObject.SetActive(false);
+                Debug.Log($"Displaying YES image for card: {currentCardName}");
+            }
+            else
+            {
+                yesImage.gameObject.SetActive(false);
+                noImage.gameObject.SetActive(true);
+                Debug.Log($"Displaying NO image for card: {currentCardName}");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Choice canvas reference is null.");
+        }
     }
 }

@@ -73,7 +73,7 @@ public class LevelGameSceneManager : MonoBehaviour
                         if (card != null)
                         {
                             string cardName = card.name.Replace("(Clone)", "");
-                            Debug.Log("test"+cardName);
+                            Debug.Log(cardName);
 
                             cardViewer.AddCard(cardName);
 
