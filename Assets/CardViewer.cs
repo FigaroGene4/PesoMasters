@@ -19,7 +19,9 @@ public class CardViewer : MonoBehaviour
     {
         if (cardSprites.Count > 0)
         {
+            RemoveLastCard();
             UpdateCardImage();
+           
             nextButton.onClick.AddListener(ShowNextCard);
             previousButton.onClick.AddListener(ShowPreviousCard);
             previousButton.interactable = false; // Initially, there's no previous card
@@ -29,6 +31,11 @@ public class CardViewer : MonoBehaviour
             Debug.LogWarning("No card sprites assigned.");
         }
     }
+
+    public void Update()
+    {
+/*        UpdateChoiceVisibility();
+*/    }
 
     public void ClearCards()
     {
@@ -59,6 +66,40 @@ public class CardViewer : MonoBehaviour
         {
             // If the sprite is not found, log a warning to the console
             Debug.LogWarning($"Sprite for {cardName} not found at path: {path}");
+        }
+    }
+
+    public void RemoveLastCard()
+    {
+        if (cardSprites.Count != 20)
+        {
+            // Remove the last card from the list
+            cardSprites.RemoveAt(cardSprites.Count - 1);
+
+            // Adjust the currentIndex if necessary
+            if (currentIndex >= cardSprites.Count)
+            {
+                currentIndex = cardSprites.Count - 1;
+            }
+
+            // Update the UI
+            if (cardSprites.Count != 20)
+            {
+                UpdateCardImage();
+                UpdateChoiceVisibility();
+            }
+            else
+            {
+                // Handle the case when there are no cards left
+                cardImage.sprite = null;
+                choiceCanvas.SetActive(false);
+            }
+
+            UpdateButtonInteractivity();
+        }
+        else
+        {
+            Debug.LogWarning("No card to remove.");
         }
     }
 
@@ -114,13 +155,13 @@ public class CardViewer : MonoBehaviour
             {
                 yesImage.gameObject.SetActive(true);
                 noImage.gameObject.SetActive(false);
-                Debug.Log($"Displaying YES image for card: {currentCardName}");
+               /* Debug.Log($"Displaying YES image for card: {currentCardName}");*/
             }
             else
             {
                 yesImage.gameObject.SetActive(false);
                 noImage.gameObject.SetActive(true);
-                Debug.Log($"Displaying NO image for card: {currentCardName}");
+               /* Debug.Log($"Displaying NO image for card: {currentCardName}");*/
             }
         }
         else

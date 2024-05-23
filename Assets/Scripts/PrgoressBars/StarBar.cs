@@ -148,8 +148,8 @@ public class StarBar : MonoBehaviour
             if (card != null )
             {
                 current += card.star;
-                Debug.Log("Star:" + card.star);
-            }
+/*                Debug.Log("Star:" + card.star);
+*/            }
             else
             {
                 Debug.Log(nameOfCard + " or " + nameOfCard + ".star is null");

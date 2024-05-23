@@ -106,8 +106,8 @@ public class EnergyBar : MonoBehaviour
             if (card != null)
             {
                 current += card.energy;
-                Debug.Log("Energy:" + card.energy);
-            }
+/*                Debug.Log("Energy:" + card.energy);
+*/            }
             else
             {
                 Debug.Log(nameOfCard + " or " + nameOfCard + ".energy is null");

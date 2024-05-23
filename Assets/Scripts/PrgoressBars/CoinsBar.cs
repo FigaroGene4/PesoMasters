@@ -277,8 +277,8 @@ public class CoinsBar : MonoBehaviour
             if (card != null)
             {
                 current += card.gold;
-                Debug.Log("Gold:" + card.gold);
-                AddToKnapsackDictionary(nameOfCard, card);
+/*                Debug.Log("Gold:" + card.gold);
+*/                AddToKnapsackDictionary(nameOfCard, card);
             }
             else
             {
@@ -301,8 +301,8 @@ public class CoinsBar : MonoBehaviour
         if (!knapsackDictionary.ContainsKey(cardName))
         {
             knapsackDictionary.Add(cardName, card);
-            Debug.Log("Added to knapsackDictionary: " + cardName);
-        }
+/*            Debug.Log("Added to knapsackDictionary: " + cardName);
+*/        }
     }
 
     public (int, int) KnapSack(int W, Dictionary<string, Cards> items)

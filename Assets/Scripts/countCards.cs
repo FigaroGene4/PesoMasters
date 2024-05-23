@@ -36,7 +36,7 @@ public class countCards : MonoBehaviour
         clickCount = Mathf.Max(0, clickCount - 1);
 
         clickCountz--;
-        Debug.Log("Click" +clickCount);
+        /*Debug.Log("Click" +clickCount);*/
 
         // Update the text with the new value
         UpdateText();
@@ -63,6 +63,6 @@ public class countCards : MonoBehaviour
     {
         // Update the UI Text component with the current value of clickCount
         CardsLeft.text = clickCount.ToString();
-        Debug.Log("Click" + clickCount);
-    }    
+/*        Debug.Log("Click" + clickCount);
+*/    }    
 }
