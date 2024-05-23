@@ -20,7 +20,7 @@ public class StarBar : MonoBehaviour
     public Image[] stars;
     public Sprite yellowStarSprite;
     public Sprite grayStarSprite;
-    /*public TextMeshProUGUI TotalStar; //Store Total Current Star*/
+    public TextMeshProUGUI TotalStar; //Store Total Current Star STORE INSIDE GAMESCENE
     public DrawCards drawCards;
     public int maximum;
     public int current;
@@ -115,7 +115,7 @@ public class StarBar : MonoBehaviour
                 stars[i].sprite = grayStarSprite;
             }
         }
-        /*TotalStar.text = current.ToString();*/
+        TotalStar.text = current.ToString();
     }
 
    /* void CheckGoalReached()

@@ -26,6 +26,7 @@ public class CoinsBar : MonoBehaviour
     public TextMeshProUGUI SGyourScore; //Stage Clear Panel
     public TextMeshProUGUI SGmaxScore; //Stage Clear Panel
     public TextMeshProUGUI TotalCoins; //Stage Clear Panel
+    public TextMeshProUGUI TotalReward; //Stage Clear Panel Reward
 
     public int maximum;
     public int current;
@@ -78,7 +79,7 @@ public class CoinsBar : MonoBehaviour
             case "GamesceneLvl1Stage3":
               
                 Debug.Log("Executing code for Scene3");
-                neededCoin = 80;
+                neededCoin = 65;
                 neededStar = 3;
                 dbNameStar = "addStarLvl1Stage3";
                 break;
@@ -87,29 +88,45 @@ public class CoinsBar : MonoBehaviour
 
                 Debug.Log("Executing code for Scene3");
                 neededCoin = 65;
-                neededStar = 1;
+                neededStar = 2;
                 dbNameStar = "addStarLvl2Stage1";
                 break;
             case "GamesceneLvl2Stage2":
 
                 Debug.Log("Executing code for Scene3");
-                neededCoin = 75;
+                neededCoin = 70;
                 neededStar = 2;
                 dbNameStar = "addStarLvl2Stage2";
                 break;
             case "GamesceneLvl2Stage3":
 
                 Debug.Log("Executing code for Scene3");
-                neededCoin = 85;
+                neededCoin = 70;
                 neededStar = 3;
                 dbNameStar = "addStarLvl2Stage3";
                 break;
             case "GamesceneLvl3Stage1":
 
                 Debug.Log("Executing code for Scene3");
-                neededCoin = 85;
-                neededStar = 3;
+                neededCoin = 70;
+                neededStar = 2;
                 dbNameStar = "addStarLvl3Stage1";
+                break;
+
+            case "GamesceneLvl3Stage2":
+
+                Debug.Log("Executing code for Scene3");
+                neededCoin = 75;
+                neededStar = 2;
+                dbNameStar = "addStarLvl3Stage2";
+                break;
+
+            case "GamesceneLvl3Stage3":
+
+                Debug.Log("Executing code for Scene3");
+                neededCoin = 75;
+                neededStar = 3;
+                dbNameStar = "addStarLvl3Stage3";
                 break;
 
 
@@ -293,6 +310,7 @@ public class CoinsBar : MonoBehaviour
         UpdateGoldText();
         GOyourScore.text = current.ToString(); //GameOver
         SGyourScore.text = current.ToString(); //StageClear
+        TotalReward.text = current.ToString(); //StageClear Reward
         TotalCoins.text = current.ToString(); //StoreCoins
     }
 

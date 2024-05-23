@@ -4882,6 +4882,7 @@ MonoBehaviour:
   currentIndex: 0
   cardOffset: 0.1
   sortingOrder: 0
+  drawnCards: []
 --- !u!114 &776742337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10244,6 +10245,7 @@ MonoBehaviour:
   - {fileID: 938284743}
   yellowStarSprite: {fileID: 21300000, guid: d61b7598592597543949810126c48e10, type: 3}
   grayStarSprite: {fileID: 21300000, guid: 7021440c80bde03409baf6cafcc0d3dd, type: 3}
+  TotalStar: {fileID: 688629696}
   drawCards: {fileID: 776742333}
   maximum: 3
   current: 0
@@ -13504,6 +13506,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa05309edd247d24c87e0b0713ba39e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reviewPanel: {fileID: 0}
+  drawCards: {fileID: 0}
+  cardViewer: {fileID: 0}
 --- !u!1 &2088559041
 GameObject:
   m_ObjectHideFlags: 0
@@ -13902,6 +13907,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 917147236}
     - target: {fileID: 910006882944981081, guid: 4726c8b8b3009e84dbb921519e4f4793, type: 3}
+      propertyPath: dbNameStar
+      value: addStarLvl3Stage2
+      objectReference: {fileID: 0}
+    - target: {fileID: 910006882944981081, guid: 4726c8b8b3009e84dbb921519e4f4793, type: 3}
+      propertyPath: neededCoin
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 910006882944981081, guid: 4726c8b8b3009e84dbb921519e4f4793, type: 3}
+      propertyPath: neededStar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 910006882944981081, guid: 4726c8b8b3009e84dbb921519e4f4793, type: 3}
       propertyPath: GOyourScore
       value: 
       objectReference: {fileID: 1428786949}
@@ -13909,6 +13926,10 @@ PrefabInstance:
       propertyPath: SGyourScore
       value: 
       objectReference: {fileID: 1629188992}
+    - target: {fileID: 910006882944981081, guid: 4726c8b8b3009e84dbb921519e4f4793, type: 3}
+      propertyPath: TotalReward
+      value: 
+      objectReference: {fileID: 1505951346}
     - target: {fileID: 910006882944981081, guid: 4726c8b8b3009e84dbb921519e4f4793, type: 3}
       propertyPath: starsEarned
       value: 

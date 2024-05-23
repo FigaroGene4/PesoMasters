@@ -4697,7 +4697,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "- Earn at  least 1 star \n- Save 20 coins"
+  m_text: "- Earn at  least 1 star \n- Save 60 Coins"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
@@ -11797,7 +11797,7 @@ GameObject:
   - component: {fileID: 1505951347}
   - component: {fileID: 1505951346}
   m_Layer: 5
-  m_Name: YourScore (1)
+  m_Name: reward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11842,7 +11842,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
@@ -12438,6 +12438,7 @@ MonoBehaviour:
   - {fileID: 938284743}
   yellowStarSprite: {fileID: 21300000, guid: d61b7598592597543949810126c48e10, type: 3}
   grayStarSprite: {fileID: 21300000, guid: 7021440c80bde03409baf6cafcc0d3dd, type: 3}
+  TotalStar: {fileID: 2021094608}
   drawCards: {fileID: 776742333}
   maximum: 3
   current: 0
@@ -17462,6 +17463,10 @@ PrefabInstance:
       propertyPath: SGyourScore
       value: 
       objectReference: {fileID: 1629188992}
+    - target: {fileID: 910006882944981081, guid: 4726c8b8b3009e84dbb921519e4f4793, type: 3}
+      propertyPath: TotalReward
+      value: 
+      objectReference: {fileID: 1505951346}
     - target: {fileID: 910006882944981081, guid: 4726c8b8b3009e84dbb921519e4f4793, type: 3}
       propertyPath: starsEarned
       value: 
