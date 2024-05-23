@@ -6,7 +6,11 @@ using UnityEngine.UI;
 public class LoadingScreen : MonoBehaviour
 {
     public Image LoadingBarFill;
+    public SoundManager soundManager;
 
+    private void Awake() {
+        soundManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<SoundManager>();
+    }
     void Start()
     {
         // Start loading the next scene in the background
@@ -30,7 +34,7 @@ public class LoadingScreen : MonoBehaviour
         LoadingBarFill.fillAmount = 1.0f;
 
         // Play the "Loading" sound effect
-        SoundManager.Instance.PlaySFX("Loading");
+        soundManager.PlaySFX(soundManager.loading);
 
         // Wait for a short delay to let the loading fill be visible to the user
         yield return new WaitForSeconds(0.5f);

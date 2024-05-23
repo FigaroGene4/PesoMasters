@@ -19,6 +19,7 @@ public class CoinsBar : MonoBehaviour
     public DrawCards drawCards;
     public countCards countCards;
     public LevelManager levelManager;
+    public SoundManager soundManager;
 
     public Text goldText;
     public TextMeshProUGUI GOyourScore; //Game Over Panel
@@ -50,6 +51,10 @@ public class CoinsBar : MonoBehaviour
 
     Firebase.Auth.FirebaseAuth auth;
     Firebase.Auth.FirebaseUser User;
+
+    private void Awake() {
+        soundManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<SoundManager>();
+    }
 
     void Start()
     {
@@ -186,6 +191,7 @@ public class CoinsBar : MonoBehaviour
     {
         starsEarnedSC.DisplayStarsEarned(starBar.current);
         StageClearPanel.SetActive(true);
+        soundManager.PlaySFX(soundManager.win);
         LevelManager levelManager = FindObjectOfType<LevelManager>();
 
         if (levelManager != null)

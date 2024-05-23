@@ -1,23 +1,26 @@
-using JetBrains.Annotations;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class SoundManager : MonoBehaviour
 {
-    public static SoundManager Instance;
-
-    public Sound[] musicSounds, sfxSounds;
-    public AudioSource musicSource, sfxSource;
+    public static SoundManager soundManager;
+    [SerializeField] AudioSource musicSource;
+    [SerializeField] AudioSource sfxSource;
+    public AudioClip themeDefault;
+    public AudioClip themeGamePlay;
+    public AudioClip loading;
+    public AudioClip click;
+    public AudioClip win;
+    //public AudioClip gameover;
+     
 
     private float defaultVolume = 0.25f;
 
     private void Awake()
     {
-        if (Instance == null)
+        if (soundManager == null)
         {
-            Instance = this;
+            soundManager = this;
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -28,41 +31,24 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        PlayMusic("Theme");
+        musicSource.clip = themeDefault;
+        musicSource.Play();
         SetMusicVolume(defaultVolume);
         SetSFXVolume(defaultVolume);
     }
 
-    public void PlayMusic(string name)
+    public void PlayMusic(AudioClip clip)
     {
-        Sound s = Array.Find(musicSounds, x => x.name == name);
-
-        if (s == null)
-        {
-            Debug.Log("Music not found");
-        }
-        else
-        {
-            musicSource.clip = s.clip;
-            musicSource.Play();
-        }
+       musicSource.clip = clip;
+       musicSource.Play();
     }
-
-    public void PlaySFX(string name)
+    public void PlaySFX(AudioClip clip)
     {
-        Sound s = Array.Find(sfxSounds, x => x.name == name);
-
-        if (s == null)
-        {
-            Debug.Log("SFX not found");
-        }
-        else
-        {
-            sfxSource.Stop();
-            sfxSource.PlayOneShot(s.clip);
-        }
+       sfxSource.PlayOneShot(clip);
     }
-
+    public void StopMusic() {
+        soundManager.musicSource.Stop();
+    }
     public void ToggleMusic()
     {
         musicSource.mute = !musicSource.mute;

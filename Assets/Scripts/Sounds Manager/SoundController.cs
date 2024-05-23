@@ -17,7 +17,7 @@ public class SoundController : MonoBehaviour
 
     public void ToggleMusic()
     {
-        SoundManager.Instance.ToggleMusic();
+        SoundManager.soundManager.ToggleMusic();
         musicMuted = !musicMuted;
         if (musicMuted)
             MusicSlider.value = 0f; // Set slider value to 0 when music is muted
@@ -25,7 +25,7 @@ public class SoundController : MonoBehaviour
 
     public void ToggleSound()
     {
-        SoundManager.Instance.ToggleSound();
+        SoundManager.soundManager.ToggleSound();
         soundMuted = !soundMuted;
         if (soundMuted)
             SoundSlider.value = 0f; // Set slider value to 0 when sound is muted
@@ -33,11 +33,11 @@ public class SoundController : MonoBehaviour
 
     public void AdjustMusicVolume()
     {
-        SoundManager.Instance.SetMusicVolume(MusicSlider.value);
+        SoundManager.soundManager.SetMusicVolume(MusicSlider.value);
     }
 
     public void AdjustSoundVolume()
     {
-        SoundManager.Instance.SetSFXVolume(SoundSlider.value);
+        SoundManager.soundManager.SetSFXVolume(SoundSlider.value);
     }
 }

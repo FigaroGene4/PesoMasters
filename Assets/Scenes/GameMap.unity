@@ -4779,38 +4779,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 774066522}
-  - component: {fileID: 774066521}
+  - component: {fileID: 774066523}
   m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
+  m_Name: SoundManager
+  m_TagString: Audio
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &774066521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 774066520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07107abe063850d48b53ff608b2ccc25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicSounds:
-  - name: Theme
-    clip: {fileID: 8300000, guid: 3fa114998425cb340a6176514e4d6bed, type: 3}
-  sfxSounds:
-  - name: Select
-    clip: {fileID: 8300000, guid: 885ef59d7ae22c24abd0703c3e81e172, type: 3}
-  - name: Loading
-    clip: {fileID: 8300000, guid: 1fc65e66c41e61040bf3a29116702d4c, type: 3}
-  - name: Select
-    clip: {fileID: 8300000, guid: 1fc65e66c41e61040bf3a29116702d4c, type: 3}
-  musicSource: {fileID: 1531076805}
-  sfxSource: {fileID: 65475030}
 --- !u!4 &774066522
 Transform:
   m_ObjectHideFlags: 0
@@ -4828,6 +4804,25 @@ Transform:
   - {fileID: 65475031}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &774066523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774066520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07107abe063850d48b53ff608b2ccc25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSource: {fileID: 1531076805}
+  sfxSource: {fileID: 65475030}
+  themeDefault: {fileID: 8300000, guid: 3fa114998425cb340a6176514e4d6bed, type: 3}
+  themeGamePlay: {fileID: 8300000, guid: 0ede71d65855fec4788ec395eed8f811, type: 3}
+  loading: {fileID: 8300000, guid: 1fc65e66c41e61040bf3a29116702d4c, type: 3}
+  click: {fileID: 8300000, guid: 885ef59d7ae22c24abd0703c3e81e172, type: 3}
+  win: {fileID: 8300000, guid: 7fea49f91930e0e4aa54a0c668f0ab56, type: 3}
 --- !u!1 &774527938
 GameObject:
   m_ObjectHideFlags: 0
@@ -6758,7 +6753,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 9, y: -11.457}
+  m_AnchoredPosition: {x: 9, y: -11.45697}
   m_SizeDelta: {x: -67.0995, y: -236.5473}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1110880585

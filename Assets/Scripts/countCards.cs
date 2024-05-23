@@ -10,6 +10,11 @@ public class countCards : MonoBehaviour
     public int clickCount = 20; // Start with 40 clicks test
     int clickCountz = 20;
     public CoinsBar coinbar;
+    public SoundManager soundManager;
+
+    private void Awake() {
+        soundManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<SoundManager>();
+    }
 
     private void Start()
     {
@@ -47,8 +52,7 @@ public class countCards : MonoBehaviour
             coinbar.GetMax();
             yesButton.interactable = false;
             noButton.interactable = false;        
-            SoundManager.Instance.musicSource.Stop();
-            SoundManager.Instance.PlaySFX("Win");
+            soundManager.StopMusic();
         }
                 
         else
