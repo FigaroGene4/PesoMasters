@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -83,6 +84,10 @@ public class LevelGameSceneManager : MonoBehaviour
                             Debug.LogWarning("A drawn card is null.");
                         }
                     }
+                    if (drawnCards.Count != 20)
+                    {
+                        drawnCards.RemoveAt(drawnCards.Count - 1);
+                    }
 
                     // List to store card details
                     List<(string name, int coins, int energy, int stars)> cardDetails = new List<(string name, int coins, int energy, int stars)>();
@@ -130,6 +135,7 @@ public class LevelGameSceneManager : MonoBehaviour
                                 case "CHALLENGE-lvl2 (3)": stars = 1; break;
                                 case "CHALLENGE-lvl2 (4)": stars = 1; break;
 
+                                case "Income": coins = 15; energy = -3; break;
                                 case "Income (2)": coins = 10; energy = -3; break;
                                 case "Income (3)": coins = 15; energy = -2; break;
                                 case "Income (4)": coins = 10; energy = -2; break;
@@ -145,6 +151,7 @@ public class LevelGameSceneManager : MonoBehaviour
                         }
                     }
 
+
                     // Greedy algorithm to select cards based on the order of drawing
                     int totalCoins = 15; // Initial coins
                     int totalEnergy = 15; // Initial energy
@@ -153,34 +160,41 @@ public class LevelGameSceneManager : MonoBehaviour
 
                     Debug.Log("Selected Cards for Optimal Result:");
 
-                    foreach (var card in cardDetails)
+                    var sortedCards = cardDetails.OrderByDescending(card => card.coins).ToList();
+
+                    foreach (var card in sortedCards)
                     {
-                        if (totalEnergy + card.energy >= 0 && totalCoins + card.coins >= 0 && (totalStars + card.stars >= 1 || card.stars == 0))
+                        // Check if selecting the card is beneficial and feasible
+                        bool isBeneficial = card.coins > 0 || card.energy > 0 || card.stars > 0;
+                        bool isFeasible = totalEnergy + card.energy > 0 && totalCoins + card.coins > 0;
+
+                        // New condition: accept the card if its coins, energy, or stars don't affect totals when added
+                        bool noChangeCondition = (totalCoins + card.coins == totalCoins) && (totalEnergy + card.energy == totalEnergy) && (totalStars + card.stars == totalStars);
+
+                        // Ensure energy does not drop to zero or below
+                        bool maintainsEnergy = totalEnergy + card.energy > 0;
+
+                        if ((isBeneficial && isFeasible && maintainsEnergy) || noChangeCondition)
                         {
+                            // Update total values
                             totalCoins += card.coins;
                             totalEnergy += card.energy;
                             totalStars += card.stars;
+
+                            // Add card to the list of selected cards
                             selectedCards.Add(card.name);
 
                             // Log the card details
                             Debug.Log($"Suggested Card: {card.name}, Coins: {card.coins}, Energy: {card.energy}, Stars: {card.stars}");
-
-                            if (totalCoins >= 60 && totalStars >= 1)
-                            {
-                                break;
-                            }
                         }
                     }
 
+                    // Log the final results
                     Debug.Log($"Total Coins: {totalCoins}, Total Energy: {totalEnergy}, Total Stars: {totalStars}");
-
-                    // Set the selected cards in the card viewer
                     cardViewer.SetSelectedCards(selectedCards);
+
                 }
-                else
-                {
-                    Debug.LogWarning("DrawCards component reference is null.");
-                }
+
             }
         }
     }
