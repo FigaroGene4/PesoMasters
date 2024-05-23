@@ -173,6 +173,9 @@ public class LevelGameSceneManager : MonoBehaviour
                     }
 
                     Debug.Log($"Total Coins: {totalCoins}, Total Energy: {totalEnergy}, Total Stars: {totalStars}");
+
+                    // Set the selected cards in the card viewer
+                    cardViewer.SetSelectedCards(selectedCards);
                 }
                 else
                 {

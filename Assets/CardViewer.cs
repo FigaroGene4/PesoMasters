@@ -13,7 +13,7 @@ public class CardViewer : MonoBehaviour
     public Image noImage;
 
     private int currentIndex;
-    private List<string> suggestedCards = new List<string>();
+    private List<string> selectedCards = new List<string>();
 
     void Start()
     {
@@ -60,8 +60,11 @@ public class CardViewer : MonoBehaviour
             // If the sprite is not found, log a warning to the console
             Debug.LogWarning($"Sprite for {cardName} not found at path: {path}");
         }
+    }
 
-        suggestedCards.Add(cardName);
+    public void SetSelectedCards(List<string> cards)
+    {
+        selectedCards = cards;
     }
 
     void ShowNextCard()
@@ -105,9 +108,9 @@ public class CardViewer : MonoBehaviour
 
             Debug.Log($"Checking visibility for card: {currentCardName}");
 
-            choiceCanvas.SetActive(true); // Ensure the choice canvas is active to show the images
+            choiceCanvas.SetActive(true);
 
-            if (suggestedCards.Contains(currentCardName))
+            if (selectedCards.Contains(currentCardName))
             {
                 yesImage.gameObject.SetActive(true);
                 noImage.gameObject.SetActive(false);
