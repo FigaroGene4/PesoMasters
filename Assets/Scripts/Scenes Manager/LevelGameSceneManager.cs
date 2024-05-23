@@ -150,7 +150,10 @@ public class LevelGameSceneManager : MonoBehaviour
                             cardDetails.Add((cardName, coins, energy, stars));
                         }
                     }
-
+                    if (drawnCards.Count != 20)
+                    {
+                        drawnCards.RemoveAt(drawnCards.Count - 1);
+                    }
 
                     // Greedy algorithm to select cards based on the order of drawing
                     int totalCoins = 15; // Initial coins
