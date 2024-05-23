@@ -1,190 +1,152 @@
+using System.Collections;
 using UnityEngine;
-using Firebase;
 using Firebase.Database;
-using System;
-using System.Threading.Tasks;
 using Firebase.Auth;
-using UnityEngine.UI;
+using Firebase.Extensions;
+using Firebase;
 
-public class LevelControllerNew : MonoBehaviour
+public class learningObj : MonoBehaviour
 {
-    public Button School;
-    public string firebaseReference;
-    private DatabaseReference databaseReference;
+    DatabaseReference databaseReference;
+    FirebaseAuth auth;
+    FirebaseUser user;
 
-    public Button Level3;
-    public string firebaseReference2;
-    private DatabaseReference databaseReference2;
-
-    public Button Level4;
-    public string firebaseReference4;
-    private DatabaseReference databaseReference4;
-
-
-    public Button Level5;
-    public string firebaseReference5;
-    private DatabaseReference databaseReference5;
-
-
-    private void Start()
+    void Start()
     {
-    //SCHOOL UNLOCK
-        databaseReference = FirebaseDatabase.DefaultInstance.RootReference;
-        databaseReference.Child("users").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId).Child("addStarLvl1Stage3")
-            .ValueChanged += HandleValueChanged1;
-        FetchFirebaseValueLvl1();
-
-        //Level3 Unlock
-
-        databaseReference2 = FirebaseDatabase.DefaultInstance.RootReference;
-        databaseReference2.Child("users").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId).Child("addStarLvl2Stage3")
-            .ValueChanged += HandleValueChanged2;
-        FetchFirebaseValueLvl2();
-
-
+        // Initialize Firebase
+        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task => {
+            FirebaseApp app = FirebaseApp.DefaultInstance;
+            databaseReference = FirebaseDatabase.DefaultInstance.RootReference;
+            auth = FirebaseAuth.DefaultInstance;
+            auth.StateChanged += AuthStateChanged;
+            AuthStateChanged(this, null);
+        });
     }
 
-    private async void FetchFirebaseValueLvl1()
+    void AuthStateChanged(object sender, System.EventArgs eventArgs)
     {
-        try
+        if (auth.CurrentUser != user)
         {
-            // Fetch value asynchronously
-            var dataSnapshot = await databaseReference.Child("users").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId)
-                .Child("addStarLvl1Stage3").GetValueAsync();
-
-            // Check if data snapshot has a valid value
-            if (dataSnapshot != null && dataSnapshot.Exists)
+            bool signedIn = user != auth.CurrentUser && auth.CurrentUser != null;
+            if (!signedIn && user != null)
             {
-                int starValue = Convert.ToInt32(dataSnapshot.Value);
-
-                // Perform actions based on the star value
-                switch (starValue)
-                {
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-
-                        Debug.Log("Unlocked School Stage");
-                        School.interactable = true;
-                        break;
-                        
-                    default:
-                        // Handle other cases if needed
-                        Debug.LogWarning("Unknown star value");
-                        break;
-                }
+                Debug.Log("Signed out " + user.UserId);
+            }
+            user = auth.CurrentUser;
+            if (signedIn)
+            {
+                Debug.Log("Signed in " + user.UserId);
             }
         }
-        catch (Exception e)
+    }
+
+    public void OnMouseDownLearningOb()
+    {
+        if (user != null)
         {
-            Debug.LogError("Error fetching Firebase value: " + e.Message);
+            StartCoroutine(LogEventAndFetchUserData());
+        }
+        else
+        {
+            Debug.LogWarning("User not signed in. Cannot log event.");
         }
     }
 
-
-    
-    private void HandleValueChanged1(object sender, ValueChangedEventArgs args)
+    IEnumerator LogEventAndFetchUserData()
     {
-        if (args.DatabaseError != null)
-        {
-            Debug.LogError(args.DatabaseError.Message);
-            return;
-        }
-
-        // Check the value from Firebase
-        int starValue = Convert.ToInt32(args.Snapshot.Value);
-
-        // Perform actions based on the star value
-        switch (starValue)
-        {
-            case 1:
-                // Perform actions when star value is 1
-                Debug.Log("Star value is 1");
-                // Add your code here for when star value is 1
-                break;
-        
-            default:
-                // Handle other cases if needed
-                Debug.LogWarning("Unknown star value: " + starValue);
-                break;
-        }
+        yield return LogEventToFirebase();
+        FetchUserData();
     }
 
-    //UNlock level3
-
-
-     private async void FetchFirebaseValueLvl2()
+    IEnumerator LogEventToFirebase()
     {
-        try
+        // Check if a user is authenticated
+        if (auth.CurrentUser != null)
         {
-            // Fetch value asynchronously
-            var dataSnapshot = await databaseReference.Child("users").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId)
-                .Child("addStarLvl2Stage3").GetValueAsync();
+            // Get the current user's UID
+            string uid = auth.CurrentUser.UserId;
 
-            // Check if data snapshot has a valid value
-            if (dataSnapshot != null && dataSnapshot.Exists)
+            // Create a new entry with the field "clickedTutorialMap" and value "true"
+            // under the user's UID node
+            var task = databaseReference.Child("users").Child(uid).Child("clickedTutorialMap").SetValueAsync(true);
+
+            // Wait for the task to complete
+            yield return new WaitUntil(() => task.IsCompleted);
+
+            if (task.Exception != null)
             {
-                int starValue = Convert.ToInt32(dataSnapshot.Value);
-
-                // Perform actions based on the star value
-                switch (starValue)
-                {
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-
-                        Debug.Log("Unlocked School Stage");
-                        Level3.interactable = true;
-                        break;
-                        
-                    default:
-                        // Handle other cases if needed
-                        Debug.LogWarning("Unknown star value");
-                        break;
-                }
+                Debug.LogError("Failed to set value: " + task.Exception);
+            }
+            else
+            {
+                Debug.Log("Field 'clickedTutorialMap' created with value 'true' under user UID in Firebase.");
             }
         }
-        catch (Exception e)
+        else
         {
-            Debug.LogError("Error fetching Firebase value: " + e.Message);
+            Debug.LogError("User is not authenticated.");
         }
     }
 
-
-    
-    private void HandleValueChanged2(object sender, ValueChangedEventArgs args)
+    void FetchUserData()
     {
-        if (args.DatabaseError != null)
+        // Check if a user is authenticated
+        if (auth.CurrentUser != null)
         {
-            Debug.LogError(args.DatabaseError.Message);
-            return;
+            // Get the current user's UID
+            string uid = auth.CurrentUser.UserId;
+
+            // Fetch user data from Firebase
+            databaseReference.Child("users").Child(uid).GetValueAsync().ContinueWithOnMainThread(task =>
+            {
+                if (task.IsCompleted)
+                {
+                    DataSnapshot snapshot = task.Result;
+
+                    // Check if the user data contains the clickedTutorialMap field
+                    if (snapshot.HasChild("clickedTutorialMap"))
+                    {
+                        // Get the value of clickedTutorialMap
+                        object clickedTutorialMapValue = snapshot.Child("clickedTutorialMap").Value;
+
+                        // Convert the value to a boolean
+                        bool clickedTutorialMapBool = (bool)clickedTutorialMapValue;
+
+                        // If clickedTutorialMap is true, disable the GameObject
+                        if (clickedTutorialMapBool)
+                        {
+                            DisableLearningObjectives();
+                        }
+                    }
+                    else
+                    {
+                        Debug.LogWarning("User data does not contain clickedTutorialMap field.");
+                    }
+                }
+                else
+                {
+                    Debug.LogError("Failed to fetch user data: " + task.Exception);
+                }
+            });
         }
-
-        // Check the value from Firebase
-        int starValue = Convert.ToInt32(args.Snapshot.Value);
-
-        // Perform actions based on the star value
-        switch (starValue)
+        else
         {
-            case 1:
-                // Perform actions when star value is 1
-                Debug.Log("Star value is 1");
-                // Add your code here for when star value is 1
-                break;
-        
-            default:
-                // Handle other cases if needed
-                Debug.LogWarning("Unknown star value: " + starValue);
-                break;
+            Debug.LogError("User is not authenticated.");
         }
     }
 
-
-  
+    void DisableLearningObjectives()
+    {
+        // Disable the GameObject named "LearningObjectives"
+        GameObject learningObjectives = GameObject.Find("LearningObjectives");
+        if (learningObjectives != null)
+        {
+            learningObjectives.SetActive(false);
+            Debug.Log("LearningObjectives GameObject disabled.");
+        }
+        else
+        {
+            Debug.LogWarning("LearningObjectives GameObject not found.");
+        }
+    }
 }
