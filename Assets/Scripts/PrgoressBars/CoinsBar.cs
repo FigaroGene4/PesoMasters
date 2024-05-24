@@ -13,13 +13,12 @@ public class CoinsBar : MonoBehaviour
     [SerializeField] GameObject GameOverPanel;
     [SerializeField] GameObject StageClearPanel;
     public StarBar starBar;
-    public StarsEarnedSC starsEarnedSC; 
-    public StarsEarnedGO starsEarnedSGO; 
+    public StarsEarnedSC starsEarnedSC;
+    public StarsEarnedGO starsEarnedSGO;
     public EnergyBar EnergyBar;
     public DrawCards drawCards;
     public countCards countCards;
     public LevelManager levelManager;
-    public SoundManager soundManager;
 
     public Text goldText;
     public TextMeshProUGUI GOyourScore; //Game Over Panel
@@ -52,10 +51,6 @@ public class CoinsBar : MonoBehaviour
     Firebase.Auth.FirebaseAuth auth;
     Firebase.Auth.FirebaseUser User;
 
-    private void Awake() {
-        soundManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<SoundManager>();
-    }
-
     void Start()
     {
         InitializeCards();
@@ -66,7 +61,7 @@ public class CoinsBar : MonoBehaviour
         switch (currentSceneName)
         {
             case "GamesceneLvl1Stage1":
-               
+
                 Debug.Log("Executing code for Scene1");
 
                 neededCoin = 60;
@@ -82,7 +77,7 @@ public class CoinsBar : MonoBehaviour
                 Debug.Log("Executing code for Scene2");
                 break;
             case "GamesceneLvl1Stage3":
-              
+
                 Debug.Log("Executing code for Scene3");
                 neededCoin = 65;
                 neededStar = 3;
@@ -136,7 +131,7 @@ public class CoinsBar : MonoBehaviour
 
 
             default:
-      
+
                 Debug.Log("No code execution for this scene");
                 break;
         }
@@ -149,7 +144,7 @@ public class CoinsBar : MonoBehaviour
 
     public void GetCurrentFill()
     {
-          
+
         float fillAmount = (float)current / (float)maximum;
         mask.fillAmount = fillAmount;
     }
@@ -159,7 +154,7 @@ public class CoinsBar : MonoBehaviour
         {
             starsEarnedSGO.DisplayStarsEarned(starBar.current);
             GameOverPanel.SetActive(true);
-            
+
         }
     }
     public void CheckGoalReached()
@@ -183,7 +178,7 @@ public class CoinsBar : MonoBehaviour
         {
             starsEarnedSGO.DisplayStarsEarned(starBar.current);
             GameOverPanel.SetActive(true);
-            
+
         }
 
     }
@@ -191,7 +186,6 @@ public class CoinsBar : MonoBehaviour
     {
         starsEarnedSC.DisplayStarsEarned(starBar.current);
         StageClearPanel.SetActive(true);
-        soundManager.PlaySFX(soundManager.win);
         LevelManager levelManager = FindObjectOfType<LevelManager>();
 
         if (levelManager != null)
