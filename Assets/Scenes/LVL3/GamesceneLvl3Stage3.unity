@@ -4900,6 +4900,7 @@ MonoBehaviour:
   CardsLeft: {fileID: 1436494468}
   clickCount: 20
   coinbar: {fileID: 428631415}
+  soundManager: {fileID: 0}
 --- !u!65 &776742340
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5975,6 +5976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 580de3556807e3941a856a099ad4edb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedSpriteName: 
 --- !u!4 &939383762
 Transform:
   m_ObjectHideFlags: 0
@@ -6425,18 +6427,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-      - m_Target: {fileID: 1709874946}
-        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: PlaySFX
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Select
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 428631415}
         m_TargetAssemblyTypeName: CoinsBar, Assembly-CSharp
         m_MethodName: GetCurrentFill
@@ -6466,6 +6456,7 @@ MonoBehaviour:
   CardsLeft: {fileID: 1436494468}
   clickCount: 20
   coinbar: {fileID: 428631415}
+  soundManager: {fileID: 0}
 --- !u!1 &990001942
 GameObject:
   m_ObjectHideFlags: 0
@@ -11146,16 +11137,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07107abe063850d48b53ff608b2ccc25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSounds:
-  - name: ThemeGameSession
-    clip: {fileID: 8300000, guid: 0ede71d65855fec4788ec395eed8f811, type: 3}
-  sfxSounds:
-  - name: Win
-    clip: {fileID: 8300000, guid: 7fea49f91930e0e4aa54a0c668f0ab56, type: 3}
-  - name: Select
-    clip: {fileID: 8300000, guid: 885ef59d7ae22c24abd0703c3e81e172, type: 3}
   musicSource: {fileID: 1143903754}
   sfxSource: {fileID: 2036016653}
+  themeDefault: {fileID: 0}
+  themeGamePlay: {fileID: 0}
+  loading: {fileID: 0}
+  click: {fileID: 0}
+  win: {fileID: 0}
 --- !u!4 &1709874947
 Transform:
   m_ObjectHideFlags: 0
