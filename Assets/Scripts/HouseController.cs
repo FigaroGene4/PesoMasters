@@ -8,10 +8,11 @@ public class HouseController : MonoBehaviour
 {
     [SerializeField] GameObject HousePanel;
     [SerializeField] GameObject BookPromptPanel;
-
     public Button HouseBook, HouseScooter, HouseBike, HouseUnicorn, HouseKite, HousePS, HouseTab;
     public Image Book, Tab, PS, Unicorn, Kite, Scooter, Bike;
+
     private bool isUnicornBought, isBikeBought, isScooterBought, isKiteBought, isPSBought, isTabBought;
+
     void Start()
     {
         // Ensure that the HousePanel and BookPromptPanel are initially closed
@@ -87,35 +88,71 @@ public class HouseController : MonoBehaviour
     {
         isUnicornBought = value;
         HouseUnicorn.interactable = value;
+
+        // Change the color of the Unicorn image when bought
+        if (value)
+        {
+            Unicorn.color = Color.white; // Change the color to white
+        }
     }
 
     public void SetBikeBought(bool value)
     {
         isBikeBought = value;
         HouseBike.interactable = value;
+
+        // Change the color of the Bike image when bought
+        if (value)
+        {
+            Bike.color = Color.white; // Change the color to white
+        }
     }
 
     public void SetScooterBought(bool value)
     {
         isScooterBought = value;
         HouseScooter.interactable = value;
+
+        // Change the color of the Scooter image when bought
+        if (value)
+        {
+            Scooter.color = Color.white; // Change the color to white
+        }
     }
 
     public void SetKiteBought(bool value)
     {
         isKiteBought = value;
         HouseKite.interactable = value;
+
+        // Change the color of the Kite image when bought
+        if (value)
+        {
+            Kite.color = Color.white; // Change the color to white
+        }
     }
 
     public void SetPSBought(bool value)
     {
         isPSBought = value;
         HousePS.interactable = value;
+
+        // Change the color of the PS image when bought
+        if (value)
+        {
+            PS.color = Color.white; // Change the color to white
+        }
     }
 
     public void SetTabBought(bool value)
     {
         isTabBought = value;
         HouseTab.interactable = value;
+
+        // Change the color of the Tab image when bought
+        if (value)
+        {
+            Tab.color = Color.white; // Change the color to white
+        }
     }
 }
